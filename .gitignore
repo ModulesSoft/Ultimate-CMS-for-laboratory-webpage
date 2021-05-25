@@ -1,0 +1,13 @@
+/vendor
+/node_modules
+/public/storage
+/public/uploads
+/public/images
+/public/.htaccess
+/public/web.config
+/bootstrap/cache
+/storage/backups
+Homestead.yaml
+Homestead.json
+.env
+/.idea
