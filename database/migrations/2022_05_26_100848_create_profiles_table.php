@@ -19,8 +19,8 @@ class CreateProfilesTable extends Migration
             $table->string('image')->nullable();
             $table->text('research_title')->nullable();
             $table->text('research_text')->nullable();
-            $table->integer('lft');
-            $table->integer('rgt');
+            $table->integer('lft')->unsigned()->nullable();
+            $table->integer('rgt')->unsigned()->nullable();
             $table->enum('graduation', ['STUDENT', 'GRADUATED', 'PROFESSOR'])->default('STUDENT')->nullable();
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
             $table->integer('user_id')->unsigned();
