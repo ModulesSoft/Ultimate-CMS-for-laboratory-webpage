@@ -1,12 +1,10 @@
 <?php
 
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
-class CreateArticlesTable extends Migration
+class CreateSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,18 +13,19 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('sections', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id')->unsigned();
-            $table->string('title');
-            $table->string('slug')->default('');
-            $table->text('content');
-            $table->string('image')->nullable();
+            $table->text('title')->nullable();
+            $table->text('content')->nullable();
+            $table->integer('page_id')->unsigned();
+            $table->integer('parent_id')->default(0)->nullable();
+            $table->integer('lft')->unsigned()->nullable();
+            $table->integer('rgt')->unsigned()->nullable();
+            $table->integer('depth')->unsigned()->nullable();
+            $table->string('icon')->nullable();
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
-            $table->date('date');
             $table->boolean('featured')->default(0);
             $table->timestamps();
-            $table->softDeletes();
             // It also has many to many relationship with tags
         });
     }
@@ -38,6 +37,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('articles');
+        Schema::dropIfExists('sections');
     }
 }
