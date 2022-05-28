@@ -19,7 +19,7 @@ class Section extends Model
     protected $fillable =
     [
         'title', 'content', 'page_id', 'parent_id', 'icon',
-        'featured', 'status', 'tag_id'
+        'featured', 'status', 'tags'
     ];
     protected $translatable = ['title', 'content'];
 
@@ -49,6 +49,6 @@ class Section extends Model
     // many to many
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'section_tag');
+        return $this->belongsToMany(Tag::class);
     }
 }

@@ -17,7 +17,10 @@ class Article extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['category_id', 'title', 'slug',  'content', 'image', 'status',  'featured', 'date', 'tag_id'];
+    protected $fillable = [
+        'category_id', 'title', 'slug',  'content',
+        'image', 'status',  'featured', 'date', 'tags'
+    ];
     protected $translatable = ['title', 'content', 'slug'];
     // protected $hidden = [];
     // protected $dates = [];
@@ -36,7 +39,7 @@ class Article extends Model
     // many to many
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'article_tag');
+        return $this->belongsToMany(Tag::class);
     }
 
 

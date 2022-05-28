@@ -16,7 +16,10 @@ class Profile extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
-    protected $fillable = ['name', 'image', 'research_title', 'research_text', 'graduation', 'status', 'user_id', 'supervisor_id', 'tag_id'];
+    protected $fillable = [
+        'name', 'image', 'research_title', 'research_text',
+        'graduation', 'status', 'user_id', 'supervisor_id', 'tags'
+    ];
     protected $translatable = ['name', 'research_title', 'research_text'];
 
     public function user()
@@ -34,6 +37,6 @@ class Profile extends Model
     // many to many
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'profile_tag');
+        return $this->belongsToMany(Tag::class);
     }
 }
