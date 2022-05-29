@@ -75,7 +75,7 @@ class ArticleCrudController extends CrudController
         CRUD::field('title')->type('text');
         CRUD::field('slug')->type('text')->label('Slug (URL)');
         CRUD::field('content')->type('ckeditor');
-        CRUD::field('image')->type('image');
+        CRUD::field('image')->type('image')->crop(true); //->aspect_ratio(1);
         CRUD::field('status')->type('enum');
         CRUD::field('featured')->type('checkbox');
         CRUD::field('date')->type('date');
