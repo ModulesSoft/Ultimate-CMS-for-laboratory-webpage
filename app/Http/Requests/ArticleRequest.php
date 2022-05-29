@@ -32,7 +32,7 @@ class ArticleRequest extends FormRequest
             'date' => 'required|date',
             'status' => 'required',
             'category_id' => 'required',
-            'image' => 'required|image|mimes:jpeg,jpg,png,bmp,gif,svg',
+            'image' => 'string',
             'status' => 'min:2',
             'date' => 'date',
             'featured' => 'boolean'
