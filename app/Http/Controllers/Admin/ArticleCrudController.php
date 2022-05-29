@@ -71,15 +71,15 @@ class ArticleCrudController extends CrudController
     {
         CRUD::setValidation(ArticleRequest::class);
 
-        CRUD::field('category_id');
-        CRUD::field('title');
-        CRUD::field('slug');
-        CRUD::field('content');
-        CRUD::field('image');
-        CRUD::field('status');
-        CRUD::field('featured');
-        CRUD::field('date');
-        CRUD::field('tags');
+        CRUD::field('category_id')->type('select2');
+        CRUD::field('title')->type('text');
+        CRUD::field('slug')->type('text')->label('Slug (URL)');
+        CRUD::field('content')->type('ckeditor');
+        CRUD::field('image')->type('browse');
+        CRUD::field('status')->type('enum');
+        CRUD::field('featured')->type('checkbox');
+        CRUD::field('date')->type('date');
+        CRUD::field('tags')->type('select2_multiple');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
