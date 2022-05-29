@@ -44,16 +44,12 @@ class ArticleCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('category_id');
+        CRUD::column('image')->type('image');
         CRUD::column('title');
-        CRUD::column('slug');
-        CRUD::column('content');
-        CRUD::column('image');
+        CRUD::column('category_id');
         CRUD::column('status');
         CRUD::column('featured');
         CRUD::column('date');
-        CRUD::column('tags');
-
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');

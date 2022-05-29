@@ -85,14 +85,13 @@ class Article extends Model
     }
     public function setImageAttribute($value)
     {
-        dd('sad');
-
         $attribute_name = "image";
         // or use your own disk, defined in config/filesystems.php
         $disk = config('backpack.base.root_disk_name');
         // destination path relative to the disk above
-        $destination_path = "public/uploads/folder_1/folder_2";
-
+        $destination_path = "public/uploads/articles";
+        $thumb150x150_path = "public/uploads/articles/thumb150x150";
+        $thumb300x300_path = "public/uploads/articles/thumb300x300";
         // if the image was erased
         if ($value == null) {
             // delete the image from disk
@@ -106,12 +105,16 @@ class Article extends Model
         if (Str::startsWith($value, 'data:image')) {
             // 0. Make the image
             $image = \Image::make($value)->encode('jpg', 90);
+            $thumb150 = \Image::make($value)->encode('jpg', 90)->resize(150, 150);
+            $thumb300 = \Image::make($value)->encode('jpg', 90)->resize(300, 300);
 
             // 1. Generate a filename.
             $filename = md5($value . time()) . '.jpg';
 
             // 2. Store the image on disk.
             \Storage::disk($disk)->put($destination_path . '/' . $filename, $image->stream());
+            \Storage::disk($disk)->put($thumb150x150_path . '/' . $filename, $thumb150->stream());
+            \Storage::disk($disk)->put($thumb300x300_path . '/' . $filename, $thumb300->stream());
 
             // 3. Delete the previous image, if there was one.
             \Storage::disk($disk)->delete($this->{$attribute_name});
