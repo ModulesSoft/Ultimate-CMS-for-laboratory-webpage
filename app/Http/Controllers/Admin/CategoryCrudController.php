@@ -41,7 +41,6 @@ class CategoryCrudController extends CrudController
     {
         CRUD::column('name');
         CRUD::column('slug');
-        CRUD::column('icon');
         CRUD::column('parent_id');
 
         /**
@@ -63,7 +62,7 @@ class CategoryCrudController extends CrudController
 
         CRUD::field('name');
         CRUD::field('slug');
-        CRUD::field('icon');
+        CRUD::field('icon')->type('icon_picker')->iconset('fontawesome');
         CRUD::field('parent_id');
 
         /**
