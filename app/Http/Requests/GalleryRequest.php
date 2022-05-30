@@ -26,7 +26,9 @@ class GalleryRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title' => 'nullable|min:2|max:255',
+            'image' => 'string',
+            'video' => 'nullable|string'
         ];
     }
 
