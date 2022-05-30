@@ -18,12 +18,9 @@ class CreateGalleryTable extends Migration
             $table->text('title')->nullable();
             $table->string('image');
             $table->string('video')->nullable();
-            $table->string('small_thumbnail')->nullable();
-            $table->string('medium_thumbnail')->nullable();
-            $table->string('big_thumbnail')->nullable();
-            $table->integer('lft');
-            $table->integer('rgt');
-            $table->integer('depth');
+            $table->integer('lft')->unsigned()->nullable();
+            $table->integer('rgt')->unsigned()->nullable();
+            $table->timestamps();
         });
     }
 

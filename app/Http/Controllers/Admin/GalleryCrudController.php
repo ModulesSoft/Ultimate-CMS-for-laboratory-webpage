@@ -40,11 +40,8 @@ class GalleryCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('title');
-        CRUD::column('image');
-        CRUD::column('video');
-        CRUD::column('small_thumbnail');
-        CRUD::column('medium_thumbnail');
-        CRUD::column('big_thumbnail');
+        CRUD::column('video')->type('url');
+        CRUD::column('image')->type('image');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -64,12 +61,8 @@ class GalleryCrudController extends CrudController
         CRUD::setValidation(GalleryRequest::class);
 
         CRUD::field('title');
-        CRUD::field('image');
-        CRUD::field('video');
-        CRUD::field('small_thumbnail');
-        CRUD::field('medium_thumbnail');
-        CRUD::field('big_thumbnail');
-
+        CRUD::field('image')->type('image');
+        CRUD::field('video')->type('url');
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
