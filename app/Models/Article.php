@@ -25,7 +25,7 @@ class Article extends Model
         'category_id', 'title', 'slug',  'content',
         'image', 'status',  'featured', 'date', 'tags'
     ];
-    protected $translatable = ['title', 'content', 'slug'];
+    protected $translatable = ['title', 'content'];
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [

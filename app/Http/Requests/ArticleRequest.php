@@ -27,12 +27,12 @@ class ArticleRequest extends FormRequest
     {
         return [
             'title' => 'required|min:2|max:255',
-            'slug' => 'unique:articles,slug',
+            'slug' => 'unique:articles,slug,' . \Request::get('id'),
             'content' => 'required|min:2',
             'date' => 'required|date',
             'status' => 'required',
             'category_id' => 'required',
-            'image' => 'string',
+            'image' => 'nullable|string',
             'status' => 'min:2',
             'date' => 'date',
             'featured' => 'boolean'

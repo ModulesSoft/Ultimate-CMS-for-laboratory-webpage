@@ -39,10 +39,9 @@ class SectionCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('icon');
-        CRUD::column('title');
         CRUD::column('page_id');
         CRUD::column('parent_id');
+        CRUD::column('title');
         CRUD::column('featured');
         CRUD::column('status');
 
