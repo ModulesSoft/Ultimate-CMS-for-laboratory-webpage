@@ -26,7 +26,9 @@ class SlideshowRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title' => 'nullable|string',
+            'portrait_image' => 'required',
+            'landscape_image' => 'required'
         ];
     }
 
