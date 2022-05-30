@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\Sluggable;
-use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\SluggableScopeHelpers;
 use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Spatie\Permission\Traits\HasRoles;
@@ -13,7 +11,6 @@ class Category extends Model
 {
     use CrudTrait;
     use HasRoles;
-    use Sluggable, SluggableScopeHelpers;
     use HasTranslations;
 
     /*
@@ -27,33 +24,10 @@ class Category extends Model
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['name', 'slug', 'icon', 'parent_id'];
-    protected $translatable = ['name'];
+    protected $translatable = ['name', 'slug'];
     // protected $hidden = [];
     // protected $dates = [];
 
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'slug_or_name',
-            ],
-        ];
-    }
-
-    // The slug is created automatically from the "name" field if no slug exists.
-    public function getSlugOrNameAttribute()
-    {
-        if ($this->slug != '') {
-            return $this->slug;
-        }
-
-        return $this->name;
-    }
 
     public function parent()
     {

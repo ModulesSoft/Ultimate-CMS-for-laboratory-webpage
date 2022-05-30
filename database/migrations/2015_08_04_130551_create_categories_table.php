@@ -21,6 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('rgt')->unsigned()->nullable();
             $table->integer('depth')->unsigned()->nullable();
             $table->string('name');
+            $table->string('slug')->default('')->unique();
             $table->string('icon')->nullable();
             $table->timestamps();
             $table->softDeletes();

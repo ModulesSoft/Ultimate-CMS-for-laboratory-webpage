@@ -30,7 +30,7 @@ class PageRequest extends FormRequest
             'title' => 'required|min:5|max:255',
             'introduction' => 'nullable|string',
             'conclusion' => 'nullable|string',
-            // 'slug' => 'unique:pages,slug',
+            'slug' => 'required|unique:pages,slug,' . \Request::get('id')
         ];
     }
 

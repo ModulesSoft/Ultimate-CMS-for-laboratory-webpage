@@ -27,7 +27,8 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:255',
-            'icon' => 'string|unique:categories,icon',
+            'icon' => 'nullable|string|unique:categories,icon',
+            'slug' => 'required|unique:categories,slug,' . \Request::get('id')
         ];
     }
 
