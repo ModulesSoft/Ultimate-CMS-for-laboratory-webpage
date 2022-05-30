@@ -21,7 +21,6 @@ Route::group([
     Route::crud('footer-column', 'FooterColumnCrudController');
     Route::crud('footer-row', 'FooterRowCrudController');
     Route::crud('gallery', 'GalleryCrudController');
-    Route::crud('icon', 'IconCrudController');
     Route::crud('page', 'PageCrudController');
     Route::crud('profile', 'ProfileCrudController');
     Route::crud('section', 'SectionCrudController');

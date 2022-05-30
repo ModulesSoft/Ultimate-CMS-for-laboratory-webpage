@@ -11,8 +11,6 @@
             class='nav-icon la la-question'></i> Footer rows</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('gallery') }}'><i class='nav-icon la la-question'></i>
         Galleries</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('icon') }}'><i class='nav-icon la la-question'></i>
-        Icons</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('page') }}'><i class='nav-icon la la-question'></i>
         Pages</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('profile') }}'><i class='nav-icon la la-question'></i>
@@ -38,4 +36,5 @@
     </ul>
 </li>
 
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}\"><i class="nav-icon la la-files-o"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}\"><i
+            class="nav-icon la la-files-o"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
