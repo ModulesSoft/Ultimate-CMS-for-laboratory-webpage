@@ -26,7 +26,11 @@ class SectionRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title' => 'required|min:5|max:255',
+            'content' => 'required|min:5',
+            'page_id' => 'required',
+            'icon' => 'nullable|string',
+            'status' => 'required',
         ];
     }
 
