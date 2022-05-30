@@ -28,9 +28,9 @@ class ArticleCrudController extends CrudController
     public function setup()
     {
 
-        if (!backpack_user()->can('Super admin')) {
-            return backpack_user()->can('Super admin');
-        }
+        // if (!backpack_user()->can('Super admin')) {
+        //     return backpack_user()->can('Super admin');
+        // }
         CRUD::setModel(\App\Models\Article::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/article');
         CRUD::setEntityNameStrings('article', 'articles');
