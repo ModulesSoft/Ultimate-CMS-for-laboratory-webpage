@@ -40,8 +40,8 @@ class SlideshowCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('title');
-        CRUD::column('landscape_image');
-        CRUD::column('portrait_image');
+        CRUD::column('landscape_image')->type('image');
+        CRUD::column('portrait_image')->type('image');
         CRUD::column('link');
 
         /**
@@ -61,10 +61,10 @@ class SlideshowCrudController extends CrudController
     {
         CRUD::setValidation(SlideshowRequest::class);
 
-        CRUD::field('title');
-        CRUD::field('landscape_image');
-        CRUD::field('portrait_image');
-        CRUD::field('link');
+        CRUD::field('title')->type('text');
+        CRUD::field('landscape_image')->type('image')->crop(true)->aspect_ratio(2)->label('Landscape image (ratio 2:1)');
+        CRUD::field('portrait_image')->type('image')->crop(true)->aspect_ratio(0.5)->label('Portrait image (ratio 1:2)');
+        CRUD::field('link')->type('url');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

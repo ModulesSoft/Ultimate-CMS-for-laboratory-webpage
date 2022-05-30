@@ -19,8 +19,8 @@ class CreateSlideshowTable extends Migration
             $table->string('landscape_image');
             $table->string('portrait_image')->nullable();
             $table->text('link')->nullable();
-            $table->integer('lft');
-            $table->integer('rgt');
+            $table->integer('lft')->nullable();
+            $table->integer('rgt')->nullable();
         });
     }
 
