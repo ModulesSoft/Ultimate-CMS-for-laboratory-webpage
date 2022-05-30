@@ -39,8 +39,13 @@ class SettingCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::column('key');
         CRUD::column('value');
-
+        CRUD::column('description');
+        CRUD::column('active')->type('radio')->options([
+            0 => "x",
+            1 => "✓"
+        ]);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -58,7 +63,14 @@ class SettingCrudController extends CrudController
     {
         CRUD::setValidation(SettingRequest::class);
 
-        CRUD::field('value');
+        CRUD::addField([
+            'name' => 'key',
+            'attributes' => [
+                'readonly'    => 'readonly',
+                'disabled'    => 'disabled',
+            ],
+        ]);
+        CRUD::field('value')->type('text');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
