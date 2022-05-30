@@ -42,9 +42,6 @@ class PageCrudController extends CrudController
         CRUD::column('name');
         CRUD::column('title');
         CRUD::column('slug');
-        CRUD::column('introduction');
-        CRUD::column('conclusion');
-        CRUD::column('extras');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -66,8 +63,8 @@ class PageCrudController extends CrudController
         CRUD::field('name');
         CRUD::field('title');
         CRUD::field('slug');
-        CRUD::field('introduction');
-        CRUD::field('conclusion');
+        CRUD::field('introduction')->type('textarea');
+        CRUD::field('conclusion')->type('textarea');
         CRUD::field('extras');
 
         /**

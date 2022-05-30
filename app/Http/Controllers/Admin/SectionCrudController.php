@@ -39,14 +39,12 @@ class SectionCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::column('icon');
         CRUD::column('title');
-        CRUD::column('content');
         CRUD::column('page_id');
         CRUD::column('parent_id');
-        CRUD::column('icon');
         CRUD::column('featured');
         CRUD::column('status');
-        CRUD::column('tags');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -65,13 +63,13 @@ class SectionCrudController extends CrudController
     {
         CRUD::setValidation(SectionRequest::class);
 
-        CRUD::field('title');
-        CRUD::field('content');
+        CRUD::field('title')->type('text');
+        CRUD::field('content')->type('ckeditor');
         CRUD::field('page_id');
         CRUD::field('parent_id');
-        CRUD::field('icon');
+        CRUD::field('icon')->type('icon_picker');
         CRUD::field('featured');
-        CRUD::field('status');
+        CRUD::field('status')->type('enum');
         CRUD::field('tags');
 
         /**

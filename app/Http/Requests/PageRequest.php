@@ -26,7 +26,11 @@ class PageRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required|min:3|max:255',
+            'title' => 'required|min:5|max:255',
+            'introduction' => 'nullable|string',
+            'conclusion' => 'nullable|string',
+            // 'slug' => 'unique:pages,slug',
         ];
     }
 

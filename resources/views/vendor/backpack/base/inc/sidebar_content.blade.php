@@ -13,10 +13,10 @@
         Galleries</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('page') }}'><i class='nav-icon la la-question'></i>
         Pages</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('profile') }}'><i class='nav-icon la la-question'></i>
-        Profiles</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('section') }}'><i class='nav-icon la la-question'></i>
         Sections</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('profile') }}'><i class='nav-icon la la-question'></i>
+        Profiles</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('setting') }}'><i class='nav-icon la la-question'></i>
         Settings</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('slideshow') }}'><i
