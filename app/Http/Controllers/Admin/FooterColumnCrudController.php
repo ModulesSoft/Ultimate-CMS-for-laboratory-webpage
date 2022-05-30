@@ -39,7 +39,7 @@ class FooterColumnCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('title');
+        CRUD::column('title')->type('text');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -58,7 +58,7 @@ class FooterColumnCrudController extends CrudController
     {
         CRUD::setValidation(FooterColumnRequest::class);
 
-        CRUD::field('title');
+        CRUD::field('title')->type('text');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
