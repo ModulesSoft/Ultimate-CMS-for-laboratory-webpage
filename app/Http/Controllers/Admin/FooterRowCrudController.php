@@ -39,10 +39,10 @@ class FooterRowCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('column_id');
+        CRUD::column('base64_image')->type('image');
         CRUD::column('text');
         CRUD::column('link');
-        CRUD::column('base64_image');
+        CRUD::column('column_id');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -64,7 +64,7 @@ class FooterRowCrudController extends CrudController
         CRUD::field('column_id');
         CRUD::field('text');
         CRUD::field('link');
-        CRUD::field('base64_image');
+        CRUD::field('base64_image')->type('image')->crop(true)->aspect_ratio(1);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

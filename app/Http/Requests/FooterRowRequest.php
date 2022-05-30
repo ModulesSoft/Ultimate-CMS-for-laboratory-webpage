@@ -26,7 +26,9 @@ class FooterRowRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'text' => 'required|min:5|max:255',
+            'link' => 'nullable|url|unique:footer_rows,link',
+            'base64_image' => 'nullable|string|max:65535'
         ];
     }
 
