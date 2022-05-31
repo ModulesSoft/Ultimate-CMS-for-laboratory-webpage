@@ -40,13 +40,9 @@ class ProfileCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('name');
-        CRUD::column('image');
-        CRUD::column('research_title');
-        CRUD::column('research_text');
-        CRUD::column('graduation');
-        CRUD::column('status');
-        CRUD::column('user_id');
         CRUD::column('supervisor_id');
+        CRUD::column('research_title');
+        CRUD::column('status');
         CRUD::column('tags');
 
         /**
@@ -65,15 +61,20 @@ class ProfileCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(ProfileRequest::class);
-
         CRUD::field('name');
-        CRUD::field('image');
-        CRUD::field('research_title');
-        CRUD::field('research_text');
-        CRUD::field('graduation');
-        CRUD::field('status');
-        CRUD::field('user_id');
-        CRUD::field('supervisor_id');
+        CRUD::field('image')->type('image');
+        CRUD::field('research_title')->type('text');
+        CRUD::field('research_text')->type('textarea');
+        CRUD::field('status')->type('enum');
+        CRUD::addField(
+            [
+                'name'      => 'supervisor_id', // the db column for the foreign key
+                'options'   => (function ($query) {
+                    return $query->orderBy('name', 'ASC')->where('id', 2)->get();
+                }),
+            ]
+
+        );
         CRUD::field('tags');
 
         /**
