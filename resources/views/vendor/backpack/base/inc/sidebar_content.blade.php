@@ -6,7 +6,7 @@
                 class='nav-icon la la-question'></i>
             Profiles</a></li>
 @endif
-@if (backpack_user()->hasRole('admin'))
+@if (backpack_user()->can('admin'))
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('article') }}'><i
                 class='nav-icon la la-question'></i>
             Articles</a></li>
