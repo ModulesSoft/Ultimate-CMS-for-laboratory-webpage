@@ -6,7 +6,7 @@
                 class='nav-icon la la-question'></i>
             Profiles</a></li>
 @endif
-@if (backpack_user()->can('admin'))
+@if (backpack_user()->hasRole('admin'))
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('article') }}'><i
                 class='nav-icon la la-question'></i>
             Articles</a></li>
@@ -32,6 +32,8 @@
                 class='nav-icon la la-question'></i> Slideshows</a></li>
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('tag') }}'><i class='nav-icon la la-question'></i>
             Tags</a></li>
+@endif
+@if (backpack_user()->id == 1)
     <!-- Users, Roles, Permissions -->
     <li class="nav-item nav-dropdown">
         <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Authentication</a>
@@ -44,7 +46,6 @@
                         class="nav-icon la la-key"></i> <span>Permissions</span></a></li>
         </ul>
     </li>
-
     <li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}\"><i
                 class="nav-icon la la-files-o"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
 @endif
