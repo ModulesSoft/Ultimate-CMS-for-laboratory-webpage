@@ -26,6 +26,9 @@ class FooterRowCrudController extends CrudController
      */
     public function setup()
     {
+        if (!backpack_user()->can('admin')) {
+            return abort(403);
+        }
         CRUD::setModel(\App\Models\FooterRow::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/footer-row');
         CRUD::setEntityNameStrings('footer row', 'footer rows');

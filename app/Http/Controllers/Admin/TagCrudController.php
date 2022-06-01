@@ -26,6 +26,9 @@ class TagCrudController extends CrudController
      */
     public function setup()
     {
+        if (!backpack_user()->can('profile') || !backpack_user()->can('admin')) {
+            return abort(403);
+        }
         CRUD::setModel(\App\Models\Tag::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/tag');
         CRUD::setEntityNameStrings('tag', 'tags');
