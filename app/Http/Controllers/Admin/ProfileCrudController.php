@@ -26,7 +26,7 @@ class ProfileCrudController extends CrudController
      */
     public function setup()
     {
-        if (!backpack_user()->can('profile') || !backpack_user()->can('admin')) {
+        if (!backpack_user()->can('profile') && !backpack_user()->can('admin')) {
             return abort(403);
         }
         CRUD::setModel(\App\Models\Profile::class);

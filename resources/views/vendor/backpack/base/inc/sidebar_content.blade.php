@@ -1,11 +1,6 @@
 <!-- This file is used to store sidebar items, starting with Backpack\Base 0.9.0 -->
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i
             class="la la-home nav-icon"></i> {{ trans('backpack::base.dashboard') }}</a></li>
-@if (backpack_user()->can('profile') || backpack_user()->can('admin'))
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('profile') }}'><i
-                class='nav-icon la la-question'></i>
-            Profiles</a></li>
-@endif
 @if (backpack_user()->can('admin'))
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('article') }}'><i
                 class='nav-icon la la-question'></i>
@@ -30,6 +25,11 @@
             Settings</a></li>
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('slideshow') }}'><i
                 class='nav-icon la la-question'></i> Slideshows</a></li>
+@endif
+@if (backpack_user()->can('profile') || backpack_user()->can('admin'))
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('profile') }}'><i
+                class='nav-icon la la-question'></i>
+            Profiles</a></li>
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('tag') }}'><i class='nav-icon la la-question'></i>
             Tags</a></li>
 @endif
