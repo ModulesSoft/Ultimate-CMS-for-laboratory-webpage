@@ -2,35 +2,52 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i
             class="la la-home nav-icon"></i> {{ trans('backpack::base.dashboard') }}</a></li>
 @if (backpack_user()->can('admin'))
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('article') }}'><i
-                class='nav-icon la la-question'></i>
-            Articles</a></li>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('category') }}'><i
-                class='nav-icon la la-question'></i>
-            Categories</a></li>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('footer-column') }}'><i
-                class='nav-icon la la-question'></i> Footer columns</a></li>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('footer-row') }}'><i
-                class='nav-icon la la-question'></i> Footer rows</a></li>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('gallery') }}'><i
-                class='nav-icon la la-question'></i>
-            Galleries</a></li>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('page') }}'><i class='nav-icon la la-question'></i>
-            Pages</a></li>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('section') }}'><i
-                class='nav-icon la la-question'></i>
-            Sections</a></li>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('setting') }}'><i
-                class='nav-icon la la-question'></i>
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#"><i class="las la-credit-card"></i> Main Menu</a>
+        <ul class="nav-dropdown-items">
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('page') }}'>
+                    <i class="lab la-leanpub"></i>
+                    Pages</a></li>
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('section') }}'>
+                    <i class="las la-plus-square"></i>
+                    Sections</a></li>
+        </ul>
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#"><i class="las la-bars"></i> Side Menu</a>
+        <ul class="nav-dropdown-items">
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('article') }}'>
+                    <i class="las la-newspaper"></i>
+                    Articles</a></li>
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('category') }}'>
+                    <i class="las la-folder"></i>
+                    Categories</a></li>
+        </ul>
+    </li>
+
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('gallery') }}'>
+            <i class="las la-photo-video"></i> Galleries</a></li>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('slideshow') }}'>
+            <i class="las la-images"></i>
+            Slideshows</a></li>
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#"><i class="las la-level-down-alt"></i> Footer</a>
+        <ul class="nav-dropdown-items">
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('footer-column') }}'>
+                    <i class="las la-columns"></i>
+                    Footer columns</a></li>
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('footer-row') }}'>
+                    <i class="las la-grip-lines"></i> Footer rows</a></li>
+        </ul>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('setting') }}'>
+            <i class="las la-radiation-alt"></i>
             Settings</a></li>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('slideshow') }}'><i
-                class='nav-icon la la-question'></i> Slideshows</a></li>
 @endif
 @if (backpack_user()->can('profile') || backpack_user()->can('admin'))
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('profile') }}'><i
-                class='nav-icon la la-question'></i>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('profile') }}'>
+            <i class="las la-portrait"></i>
             Profiles</a></li>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('tag') }}'><i class='nav-icon la la-question'></i>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('tag') }}'>
+            <i class="las la-tags"></i>
             Tags</a></li>
 @endif
 @if (backpack_user()->id == 1)
