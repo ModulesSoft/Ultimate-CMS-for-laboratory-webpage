@@ -60,7 +60,7 @@ class UserCrudController extends CrudController
     }
     public function setupCreateOperation()
     {
-        // $this->addUserFields();
+        $this->addUserFields();
         CRUD::setValidation(StoreRequest::class);
     }
 
@@ -91,8 +91,8 @@ class UserCrudController extends CrudController
      */
     public function update()
     {
-        CRUD::setRequest($this->crud->validateRequest());
-        CRUD::setRequest($this->handlePasswordInput($this->crud->getRequest()));
+        CRUD::setRequest(CRUD::validateRequest());
+        CRUD::setRequest($this->handlePasswordInput(CRUD::getRequest()));
         CRUD::unsetValidation(); // validation has already been run
 
         return $this->traitUpdate();
