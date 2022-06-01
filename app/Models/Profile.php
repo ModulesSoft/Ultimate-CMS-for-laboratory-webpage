@@ -19,6 +19,8 @@ class Profile extends Model
     protected $table = 'profiles';
     protected $primaryKey = 'id';
     public $timestamps = true;
+    // list of supervisor roles for showing in profile supervisors list
+    public $supervisor_roles = ['Professor', 'Adjunct prof'];
 
     protected $fillable = [
         'name', 'image', 'research_title', 'research_text',
@@ -32,7 +34,7 @@ class Profile extends Model
     }
     public function supervisor()
     {
-        return $this->belongsTo(User::class, 'supervisor_id');
+        return $this->belongsToMany(User::class, 'supervisor_id');
     }
     public function scopePublished($query)
     {

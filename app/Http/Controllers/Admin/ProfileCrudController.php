@@ -69,8 +69,17 @@ class ProfileCrudController extends CrudController
         CRUD::addField(
             [
                 'name'      => 'supervisor_id', // the db column for the foreign key
-                'options'   => (function ($query) {
-                    return $query->orderBy('name', 'ASC')->where('id', 2)->get();
+                'options'   => (function () {
+                    $profile = new \App\Models\Profile();
+                    $roles = $profile->supervisor_roles;
+                    return
+                        \App\Models\User::all()
+                        ->filter(function ($user) use ($roles) {
+                            if ($user->hasRole($roles)) {
+                                return $user->id;
+                            }
+                            return false;
+                        });
                 }),
             ]
 
