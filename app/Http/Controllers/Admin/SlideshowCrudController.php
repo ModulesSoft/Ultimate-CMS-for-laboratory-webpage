@@ -26,6 +26,9 @@ class SlideshowCrudController extends CrudController
      */
     public function setup()
     {
+        if (!backpack_user()->can('admin')) {
+            return abort(403);
+        }
         CRUD::setModel(\App\Models\Slideshow::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/slideshow');
         CRUD::setEntityNameStrings('slideshow', 'slideshows');

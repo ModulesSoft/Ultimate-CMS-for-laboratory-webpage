@@ -23,6 +23,10 @@ class UserCrudController extends CrudController
     // use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     public function setup()
     {
+        if (backpack_user()->id != 1) {
+            abort(403);
+        }
+
         /*
         |--------------------------------------------------------------------------
         | BASIC CRUD INFORMATION
@@ -49,13 +53,13 @@ class UserCrudController extends CrudController
                 'attribute' => 'name', // foreign key attribute that is shown to user
                 'model'     => \App\Models\Role::class, // foreign key model
             ],
-            [ // n-n relationship (with pivot table)
-                'type'      => 'select_multiple',
-                'name'      => 'permissions', // the method that defines the relationship in your Model
-                'entity'    => 'permissions', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'model'     => \App\Models\Permission::class, // foreign key model
-            ],
+            // [ // n-n relationship (with pivot table)
+            //     'type'      => 'select_multiple',
+            //     'name'      => 'permissions', // the method that defines the relationship in your Model
+            //     'entity'    => 'permissions', // the method that defines the relationship in your Model
+            //     'attribute' => 'name', // foreign key attribute that is shown to user
+            //     'model'     => \App\Models\Permission::class, // foreign key model
+            // ],
         ]);
     }
     public function setupCreateOperation()

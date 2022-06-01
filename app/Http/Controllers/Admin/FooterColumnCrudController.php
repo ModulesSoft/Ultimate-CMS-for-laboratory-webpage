@@ -18,7 +18,6 @@ class FooterColumnCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -26,6 +25,9 @@ class FooterColumnCrudController extends CrudController
      */
     public function setup()
     {
+        if (!backpack_user()->can('admin')) {
+            return abort(403);
+        }
         CRUD::setModel(\App\Models\FooterColumn::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/footer-column');
         CRUD::setEntityNameStrings('footer column', 'footer columns');

@@ -58,6 +58,9 @@ class PageCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        if (!backpack_user()->can('admin')) {
+            return abort(403);
+        }
         CRUD::setValidation(PageRequest::class);
 
         CRUD::field('name');

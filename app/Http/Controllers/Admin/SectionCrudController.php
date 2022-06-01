@@ -26,6 +26,9 @@ class SectionCrudController extends CrudController
      */
     public function setup()
     {
+        if (!backpack_user()->can('admin')) {
+            return abort(403);
+        }
         CRUD::setModel(\App\Models\Section::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/section');
         CRUD::setEntityNameStrings('section', 'sections');
