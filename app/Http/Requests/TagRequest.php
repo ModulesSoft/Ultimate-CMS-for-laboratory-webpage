@@ -15,7 +15,7 @@ class TagRequest extends FormRequest
     public function authorize()
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check();
+        return backpack_auth()->check() && (backpack_user()->can('admin') || backpack_user()->can('profile'));
     }
 
     /**
@@ -26,7 +26,7 @@ class TagRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'keyword' => 'required|min:5|max:255'
         ];
     }
 
