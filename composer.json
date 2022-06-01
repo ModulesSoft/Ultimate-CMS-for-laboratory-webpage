@@ -8,7 +8,6 @@
         "php": "^7.3|^8.0",
         "backpack/crud": "4.1.*",
         "backpack/filemanager": "1.1.7",
-        "backpack/permissionmanager": "^6.0",
         "cviebrock/eloquent-sluggable": "^8.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
