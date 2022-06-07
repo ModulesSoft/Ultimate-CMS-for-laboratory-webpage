@@ -71,7 +71,11 @@ class ProfileCrudController extends CrudController
         CRUD::field('status')->type('enum');
         CRUD::addField(
             [
-                'name'      => 'supervisor_id', // the db column for the foreign key
+                'name'      => 'users', // the db column for the foreign key
+                'label'     => 'supervisors',
+                'model'     => 'App\Models\User',
+                'entity'    => 'tags',
+                'pivot'     => true,
                 'options'   => (function () {
                     $profile = new \App\Models\Profile();
                     $roles = $profile->supervisor_roles;

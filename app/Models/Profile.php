@@ -32,9 +32,9 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function supervisor()
+    public function users()
     {
-        return $this->belongsToMany(User::class, 'supervisor_id');
+        return $this->belongsToMany(User::class);
     }
     public function scopePublished($query)
     {
@@ -108,7 +108,6 @@ class Profile extends Model
         if (backpack_auth()->check()) {
             $this->user_id = backpack_auth()->user()->id;
         }
-
         parent::save();
     }
 }
