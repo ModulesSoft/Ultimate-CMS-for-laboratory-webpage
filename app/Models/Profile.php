@@ -104,23 +104,31 @@ class Profile extends Model
 
     // POLICIES:
 
-    // Override the update method
-    public function update(array $attributes = [], array $options = [])
-    {
-        // If it's the user's profile or the user is admin let it go on
-        if (backpack_auth()->user()->id !== $this->user_id && !backpack_user()->can('admin')) {
-            return abort(403);
-        }
-    }
-
     // Override the save method to set authentorized user_id to the profile
     public function save(array $options = [])
     {
-        // If the user has already a profile
-        if ($this->where('user_id', '=', backpack_auth()->user()->id)->exists()) {
-            return abort(403);
+        if ($this->user_id === null) { // It's a new profile
+            // Don't let the user create new profile if one exists
+            if ($this->where('user_id', '=', backpack_auth()->user()->id)->exists()) {
+                return abort(403);
+            }
+            $this->user_id = backpack_auth()->user()->id;
+        } else { //It's update
+            if (!backpack_user()->can('admin')) {
+                // Don't let the user edit other's profile (if is not an admin)
+                if ($this->user_id !== backpack_auth()->user()->id) {
+                    return abort(403);
+                }
+            }
         }
-        // If anything is ok, then go on making a new profile with user_id of the user
-        $this->user_id = backpack_auth()->user()->id;
+        parent::save();
+    }
+    public function delete()
+    {
+        // Only admin can delete a profile
+        if (!backpack_user()->can('admin')) {
+            return false;
+        }
+        parent::delete();
     }
 }
