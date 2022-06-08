@@ -77,16 +77,7 @@ class ProfileCrudController extends CrudController
                 'entity'    => 'tags',
                 'pivot'     => true,
                 'options'   => (function () {
-                    $profile = new \App\Models\Profile();
-                    $roles = $profile->supervisor_roles;
-                    return
-                        \App\Models\User::all()
-                        ->filter(function ($user) use ($roles) {
-                            if ($user->hasRole($roles)) {
-                                return $user->id;
-                            }
-                            return false;
-                        });
+                    return (new \App\Models\User)->getSupervisors();
                 }),
             ]
 
