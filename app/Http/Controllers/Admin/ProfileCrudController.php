@@ -43,11 +43,12 @@ class ProfileCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('name');
-        CRUD::column('supervisor_id');
+        CRUD::column('user_id')->label('supervisors');
         CRUD::column('research_title');
         CRUD::column('status');
         CRUD::column('tags');
-
+        if (!backpack_user()->can('admin'))
+            CRUD::removeButton('delete');
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -74,7 +75,7 @@ class ProfileCrudController extends CrudController
                 'name'      => 'users', // the db column for the foreign key
                 'label'     => 'supervisors',
                 'model'     => 'App\Models\User',
-                'entity'    => 'tags',
+                'entity'    => 'users',
                 'pivot'     => true,
                 'options'   => (function () {
                     return (new \App\Models\User)->getSupervisors();
