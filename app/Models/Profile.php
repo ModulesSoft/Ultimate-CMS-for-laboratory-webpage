@@ -113,7 +113,7 @@ class Profile extends Model
             }
             $this->user_id = backpack_auth()->user()->id;
         } else { //It's update
-            if (!backpack_user()->can('admin')) {
+            if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
                 // Don't let the user edit other's profile (if is not an admin)
                 if ($this->user_id !== backpack_auth()->user()->id) {
                     return abort(403);
@@ -125,7 +125,7 @@ class Profile extends Model
     public function delete()
     {
         // Only admin can delete a profile
-        if (!backpack_user()->can('admin')) {
+        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
             return false;
         }
         parent::delete();

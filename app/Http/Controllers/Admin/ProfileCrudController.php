@@ -29,13 +29,13 @@ class ProfileCrudController extends CrudController
      */
     public function setup()
     {
-        if (!backpack_user()->can('profile') && !backpack_user()->can('admin')) {
+        if (!backpack_user()->can(env('PROFILE_PERMISSION')) && !backpack_user()->can(env('ADMIN_PERMISSION'))) {
             return abort(403);
         }
         CRUD::setModel(\App\Models\Profile::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/profile');
-        CRUD::setEntityNameStrings('profile', 'profiles');
-        if (!backpack_user()->can('admin')) {
+        CRUD::setEntityNameStrings(env('PROFILE_PERMISSION'), 'profiles');
+        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
             CRUD::operation('show', function () {
                 CRUD::removeButton('delete');
             });
@@ -55,7 +55,7 @@ class ProfileCrudController extends CrudController
         CRUD::column('research_title');
         CRUD::column('status');
         CRUD::column('tags');
-        if (!backpack_user()->can('admin')) {
+        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
             CRUD::removeButton('delete');
             CRUD::removeButton('reorder');
         }
@@ -115,7 +115,7 @@ class ProfileCrudController extends CrudController
     public function reorder()
     {
         // your custom code here
-        if (!backpack_user()->can('admin')) {
+        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
             return abort(403);
         }
         // call the method in the trait

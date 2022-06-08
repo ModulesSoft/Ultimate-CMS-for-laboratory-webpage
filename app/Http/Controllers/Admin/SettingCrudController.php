@@ -26,7 +26,7 @@ class SettingCrudController extends CrudController
      */
     public function setup()
     {
-        if (!backpack_user()->can('admin')) {
+        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
             return abort(403);
         }
         CRUD::setModel(\App\Models\Setting::class);
