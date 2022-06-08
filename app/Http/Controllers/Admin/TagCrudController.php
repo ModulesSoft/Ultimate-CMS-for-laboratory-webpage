@@ -32,6 +32,12 @@ class TagCrudController extends CrudController
         CRUD::setModel(\App\Models\Tag::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/tag');
         CRUD::setEntityNameStrings('tag', 'tags');
+        if (!backpack_user()->can('admin')) {
+            CRUD::operation('show', function () {
+                CRUD::removeButton('delete');
+                CRUD::removeButton('update');
+            });
+        }
     }
 
     /**
@@ -44,6 +50,10 @@ class TagCrudController extends CrudController
     {
         CRUD::column('keyword');
 
+        if (!backpack_user()->can('admin')) {
+            CRUD::removeButton('delete');
+            CRUD::removeButton('update');
+        }
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');

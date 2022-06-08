@@ -35,4 +35,21 @@ class Tag extends Model
     {
         return $this->belongsToMany(Section::class);
     }
+    // POLICIES:
+    public function delete()
+    {
+        // Only admin can delete a tag
+        if (!backpack_user()->can('admin')) {
+            return false;
+        }
+        parent::delete();
+    }
+    public function save(array $options = [])
+    {
+        // Only admin can update a tag
+        if ($this->id && !backpack_user()->can('admin')) {
+            return false;
+        }
+        parent::save();
+    }
 }
