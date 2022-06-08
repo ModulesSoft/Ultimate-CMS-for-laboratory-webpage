@@ -12,7 +12,12 @@ class User extends Authenticatable
     use CrudTrait;
 
     // list of supervisor roles for showing in profile supervisors list
-    private $supervisor_roles = ['Professor', 'Adjunct prof'];
+    public $supervisor_roles;
+
+    public function __construct()
+    {
+        $this->supervisor_roles = explode(',', env('SUPERVISOR_ROLES'));
+    }
     /**
      * The attributes that are mass assignable.
      *
