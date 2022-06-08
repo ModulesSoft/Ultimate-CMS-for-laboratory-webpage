@@ -34,7 +34,7 @@ class ArticleRequest extends FormRequest
             'category_id' => 'required',
             'image' => 'nullable|string',
             'status' => 'min:2',
-            'date' => 'date',
+            'date' => 'nullable|date',
             'featured' => 'boolean'
         ];
     }
