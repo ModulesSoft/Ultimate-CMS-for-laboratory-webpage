@@ -32,6 +32,11 @@ class ProfileCrudController extends CrudController
         CRUD::setModel(\App\Models\Profile::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/profile');
         CRUD::setEntityNameStrings('profile', 'profiles');
+        if (!backpack_user()->can('admin')) {
+            CRUD::operation('show', function () {
+                CRUD::removeButton('delete');
+            });
+        }
     }
 
     /**
