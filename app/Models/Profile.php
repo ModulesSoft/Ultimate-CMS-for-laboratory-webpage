@@ -20,7 +20,6 @@ class Profile extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // list of supervisor roles for showing in profile supervisors list
-    public $supervisor_roles = ['Professor', 'Adjunct prof'];
 
     protected $fillable = [
         'name', 'image', 'research_title', 'research_text',
@@ -102,12 +101,26 @@ class Profile extends Model
             $this->attributes[$attribute_name] = $public_destination_path . '/' . $filename;
         }
     }
-    // override save method to set authentorized user_id to the profile
+
+    // POLICIES:
+
+    // Override the update method
+    public function update(array $attributes = [], array $options = [])
+    {
+        // If it's the user's profile or the user is admin let it go on
+        if (backpack_auth()->user()->id !== $this->user_id && !backpack_user()->can('admin')) {
+            return abort(403);
+        }
+    }
+
+    // Override the save method to set authentorized user_id to the profile
     public function save(array $options = [])
     {
-        if (backpack_auth()->check()) {
-            $this->user_id = backpack_auth()->user()->id;
+        // If the user has already a profile
+        if ($this->where('user_id', '=', backpack_auth()->user()->id)->exists()) {
+            return abort(403);
         }
-        parent::save();
+        // If anything is ok, then go on making a new profile with user_id of the user
+        $this->user_id = backpack_auth()->user()->id;
     }
 }

@@ -11,6 +11,7 @@ class User extends Authenticatable
     use HasRoles;
     use CrudTrait;
 
+    private $supervisor_roles = ['Professor', 'Adjunct prof'];
     /**
      * The attributes that are mass assignable.
      *
@@ -37,5 +38,17 @@ class User extends Authenticatable
     public function profiles()
     {
         return $this->belongsToMany(Profile::class);
+    }
+
+
+    public function getSupervisors()
+    {
+        // dd($this->all());
+        return $this->all()->filter(function ($user) {
+            if ($user->hasRole($this->supervisor_roles)) {
+                return $user->id;
+            }
+            return false;
+        });
     }
 }
