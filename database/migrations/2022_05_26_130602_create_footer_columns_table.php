@@ -16,6 +16,10 @@ class CreateFooterColumnsTable extends Migration
         Schema::create('footer_columns', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->integer('lft')->unsigned()->nullable();
+            $table->integer('rgt')->unsigned()->nullable();
+            $table->integer('depth')->unsigned()->nullable();
+            $table->integer('parent_id')->unsigned()->nullable();
         });
     }
 

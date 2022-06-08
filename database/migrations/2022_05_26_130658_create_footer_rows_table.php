@@ -19,6 +19,10 @@ class CreateFooterRowsTable extends Migration
             $table->string('link')->nullable();
             $table->binary('base64_image')->nullable();
             $table->integer('column_id')->unsigned();
+            $table->integer('lft')->unsigned()->nullable();
+            $table->integer('rgt')->unsigned()->nullable();
+            $table->integer('depth')->unsigned()->nullable();
+            $table->integer('parent_id')->unsigned()->nullable();
         });
     }
 

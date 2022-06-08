@@ -23,11 +23,14 @@ class CreateArticlesTable extends Migration
             $table->text('content');
             $table->string('image')->nullable();
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
-            $table->date('date');
+            $table->date('date')->nullable();
             $table->boolean('featured')->default(0);
             $table->timestamps();
             $table->softDeletes();
-            // It also has many to many relationship with tags
+            $table->integer('lft')->unsigned()->nullable();
+            $table->integer('rgt')->unsigned()->nullable();
+            $table->integer('depth')->unsigned()->nullable();
+            $table->integer('parent_id')->unsigned()->nullable();
         });
     }
 
