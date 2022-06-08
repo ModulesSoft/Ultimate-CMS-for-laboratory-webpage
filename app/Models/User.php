@@ -11,6 +11,7 @@ class User extends Authenticatable
     use HasRoles;
     use CrudTrait;
 
+    // list of supervisor roles for showing in profile supervisors list
     private $supervisor_roles = ['Professor', 'Adjunct prof'];
     /**
      * The attributes that are mass assignable.
