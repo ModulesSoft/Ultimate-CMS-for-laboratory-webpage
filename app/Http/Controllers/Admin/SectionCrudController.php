@@ -29,9 +29,6 @@ class SectionCrudController extends CrudController
      */
     public function setup()
     {
-        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
-            return abort(403);
-        }
         CRUD::setModel(\App\Models\Section::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/section');
         CRUD::setEntityNameStrings('section', 'sections');
@@ -93,6 +90,12 @@ class SectionCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+    protected function setupDeleteOperation()
+    {
+        if (!backpack_user()->can((env('ADMIN_PERMISSION')))) {
+            return abort(403);
+        }
     }
     public function reorder()
     {

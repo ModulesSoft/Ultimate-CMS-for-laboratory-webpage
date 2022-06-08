@@ -28,9 +28,6 @@ class FooterColumnCrudController extends CrudController
      */
     public function setup()
     {
-        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
-            return abort(403);
-        }
         CRUD::setModel(\App\Models\FooterColumn::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/footer-column');
         CRUD::setEntityNameStrings('footer column', 'footer columns');
@@ -81,6 +78,12 @@ class FooterColumnCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+    protected function setupDeleteOperation()
+    {
+        if (!backpack_user()->can((env('ADMIN_PERMISSION')))) {
+            return abort(403);
+        }
     }
     public function reorder()
     {

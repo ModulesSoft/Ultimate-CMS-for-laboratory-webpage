@@ -23,10 +23,6 @@ class UserCrudController extends CrudController
     // use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     public function setup()
     {
-        if (backpack_user()->id != 1) {
-            abort(403);
-        }
-
         /*
         |--------------------------------------------------------------------------
         | BASIC CRUD INFORMATION
@@ -72,6 +68,12 @@ class UserCrudController extends CrudController
     {
         $this->addUserFields();
         CRUD::setValidation(UpdateRequest::class);
+    }
+    protected function setupDeleteOperation()
+    {
+        if (!backpack_user()->id !== 1) {
+            return abort(403);
+        }
     }
 
     /**

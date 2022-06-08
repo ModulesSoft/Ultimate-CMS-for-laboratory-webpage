@@ -61,9 +61,6 @@ class PageCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
-            return abort(403);
-        }
         CRUD::setValidation(PageRequest::class);
 
         CRUD::field('name');
@@ -89,6 +86,12 @@ class PageCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+    protected function setupDeleteOperation()
+    {
+        if (!backpack_user()->can((env('ADMIN_PERMISSION')))) {
+            return abort(403);
+        }
     }
     public function reorder()
     {
