@@ -29,9 +29,6 @@ class SlideshowCrudController extends CrudController
      */
     public function setup()
     {
-        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
-            return abort(403);
-        }
         CRUD::setModel(\App\Models\Slideshow::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/slideshow');
         CRUD::setEntityNameStrings('slideshow', 'slideshows');
@@ -88,6 +85,12 @@ class SlideshowCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+    protected function setupDeleteOperation()
+    {
+        if (!backpack_user()->can((env('ADMIN_PERMISSION')))) {
+            return abort(403);
+        }
     }
     public function reorder()
     {

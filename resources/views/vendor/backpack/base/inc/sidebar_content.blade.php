@@ -1,7 +1,7 @@
 <!-- This file is used to store sidebar items, starting with Backpack\Base 0.9.0 -->
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i
             class="la la-home nav-icon"></i> {{ trans('backpack::base.dashboard') }}</a></li>
-@if (backpack_user()->can(env('ADMIN_PERMISSION')))
+@if (backpack_user()->can(env('ADMIN_PERMISSION')) || backpack_user()->can(env('DEMO_PERMISSION')))
     <li class="nav-item nav-dropdown">
         <a class="nav-link nav-dropdown-toggle" href="#"><i class="las la-credit-card"></i> Main Menu</a>
         <ul class="nav-dropdown-items">
@@ -42,7 +42,7 @@
             <i class="las la-radiation-alt"></i>
             Settings</a></li>
 @endif
-@if (backpack_user()->can(env('PROFILE_PERMISSION')) || backpack_user()->can(env('ADMIN_PERMISSION')))
+@if (backpack_user()->can(env('PROFILE_PERMISSION')) || backpack_user()->can(env('ADMIN_PERMISSION')) || backpack_user()->can(env('DEMO_PERMISSION')))
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('profile') }}'>
             <i class="las la-portrait"></i>
             Profiles</a></li>
@@ -51,7 +51,7 @@
             Tags</a></li>
 @endif
 <!-- Super Admin -->
-@if (backpack_user()->id === 1)
+@if (backpack_user()->id === 1 || backpack_user()->can(env('DEMO_PERMISSION')))
     <!-- Users, Roles, Permissions -->
     <li class="nav-item nav-dropdown">
         <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Authentication</a>
@@ -64,6 +64,9 @@
                         class="nav-icon la la-key"></i> <span>Permissions</span></a></li>
         </ul>
     </li>
-    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}\"><i
-                class="nav-icon la la-files-o"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
+    @if (backpack_user()->id === 1)
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}\"><i
+                    class="nav-icon la la-files-o"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a>
+        </li>
+    @endif
 @endif

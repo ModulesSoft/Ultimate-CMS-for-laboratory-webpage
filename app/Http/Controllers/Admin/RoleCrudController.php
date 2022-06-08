@@ -18,9 +18,6 @@ class RoleCrudController extends CrudController
 
     public function setup()
     {
-        if (backpack_user()->id != 1) {
-            abort(403);
-        }
         $this->role_model = $role_model = config('backpack.permissionmanager.models.role');
         $this->permission_model = $permission_model = config('backpack.permissionmanager.models.permission');
 
@@ -132,5 +129,11 @@ class RoleCrudController extends CrudController
         }
 
         return $returnable;
+    }
+    protected function setupDeleteOperation()
+    {
+        if (backpack_user()->id !== 1) {
+            return abort(403);
+        }
     }
 }
