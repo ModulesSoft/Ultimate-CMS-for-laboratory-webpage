@@ -19,7 +19,6 @@ class Profile extends Model
     protected $table = 'profiles';
     protected $primaryKey = 'id';
     public $timestamps = true;
-    // list of supervisor roles for showing in profile supervisors list
 
     protected $fillable = [
         'name', 'image', 'research_title', 'research_text',
