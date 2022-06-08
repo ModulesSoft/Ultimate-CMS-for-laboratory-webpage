@@ -18,7 +18,9 @@ class CategoryCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation {
+        reorder as traitReorder;
+    }
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -84,5 +86,22 @@ class CategoryCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+    public function reorder()
+    {
+        // your custom code here
+        if (!backpack_user()->can('admin')) {
+            return abort(403);
+        }
+        // call the method in the trait
+        return $this->traitReorder();
+    }
+    protected function setupReorderOperation()
+    {
+        // define which model attribute will be shown on draggable elements 
+        $this->crud->set('reorder.label', 'name');
+        // define how deep the admin is allowed to nest the items
+        // for infinite levels, set it to 0
+        $this->crud->set('reorder.max_level', 2);
     }
 }

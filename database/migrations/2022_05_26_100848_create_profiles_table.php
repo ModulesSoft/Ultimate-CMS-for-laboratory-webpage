@@ -19,16 +19,13 @@ class CreateProfilesTable extends Migration
             $table->string('image')->nullable();
             $table->text('research_title')->nullable();
             $table->text('research_text')->nullable();
+            $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
+            $table->integer('user_id')->unsigned();
+            $table->timestamps();
             $table->integer('lft')->unsigned()->nullable();
             $table->integer('rgt')->unsigned()->nullable();
             $table->integer('depth')->unsigned()->nullable();
             $table->integer('parent_id')->unsigned()->nullable();
-            // $table->enum('graduation', ['STUDENT', 'GRADUATED', 'PROFESSOR'])->default('STUDENT')->nullable();
-            $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
-            $table->integer('user_id')->unsigned();
-            // $table->integer('supervisor_id')->unsigned()->nullable();
-            $table->timestamps();
-            // It also has many to many relationship with tags & role
         });
     }
 
