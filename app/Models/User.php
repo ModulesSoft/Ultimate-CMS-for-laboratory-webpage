@@ -10,14 +10,6 @@ class User extends Authenticatable
 {
     use HasRoles;
     use CrudTrait;
-
-    // list of supervisor roles for showing in profile supervisors list
-    public $supervisor_roles;
-
-    public function __construct()
-    {
-        $this->supervisor_roles = explode(',', env('SUPERVISOR_ROLES'));
-    }
     /**
      * The attributes that are mass assignable.
      *
@@ -49,8 +41,9 @@ class User extends Authenticatable
 
     public function getSupervisors()
     {
-        return $this->all()->filter(function ($user) {
-            if ($user->hasRole($this->supervisor_roles)) {
+        $supervisor_roles = explode(',', env('SUPERVISOR_ROLES'));
+        return $this->all()->filter(function ($user) use ($supervisor_roles) {
+            if ($user->hasRole($supervisor_roles)) {
                 return $user->id;
             }
             return false;
