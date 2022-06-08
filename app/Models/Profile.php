@@ -23,7 +23,7 @@ class Profile extends Model
 
     protected $fillable = [
         'name', 'image', 'research_title', 'research_text',
-        'status', 'user_id', 'supervisor_id', 'tags'
+        'status', 'user_id', 'tags'
     ];
     protected $translatable = ['name', 'research_title', 'research_text'];
 
