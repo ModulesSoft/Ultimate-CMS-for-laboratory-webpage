@@ -13,7 +13,7 @@ class PermissionStoreCrudRequest extends FormRequest
      */
     public function authorize()
     {
-        // only allow updates if the user is logged in
+        // only allow updates if the user is Super Admin
         return backpack_auth()->check() && backpack_user()->id == 1;
     }
 

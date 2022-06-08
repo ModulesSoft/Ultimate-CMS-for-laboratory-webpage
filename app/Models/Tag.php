@@ -39,7 +39,7 @@ class Tag extends Model
     public function delete()
     {
         // Only admin can delete a tag
-        if (!backpack_user()->can('admin')) {
+        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
             return false;
         }
         parent::delete();
@@ -47,7 +47,7 @@ class Tag extends Model
     public function save(array $options = [])
     {
         // Only admin can update a tag
-        if ($this->id && !backpack_user()->can('admin')) {
+        if ($this->id && !backpack_user()->can(env('ADMIN_PERMISSION'))) {
             return false;
         }
         parent::save();

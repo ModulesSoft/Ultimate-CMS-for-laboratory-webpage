@@ -29,7 +29,7 @@ class GalleryCrudController extends CrudController
      */
     public function setup()
     {
-        if (!backpack_user()->can('admin')) {
+        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
             return abort(403);
         }
         CRUD::setModel(\App\Models\Gallery::class);
@@ -89,7 +89,7 @@ class GalleryCrudController extends CrudController
     public function reorder()
     {
         // your custom code here
-        if (!backpack_user()->can('admin')) {
+        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
             return abort(403);
         }
         // call the method in the trait
