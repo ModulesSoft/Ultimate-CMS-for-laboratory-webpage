@@ -38,9 +38,8 @@
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('footer-row') }}'>
                     <i class="las la-grip-lines"></i> Footer rows</a></li>
         </ul>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('setting') }}'>
-            <i class="las la-radiation-alt"></i>
-            Settings</a></li>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('setting') }}'><i
+                class="las la-radiation-alt"></i> Settings</a></li>
 @endif
 @if (backpack_user()->can(env('PROFILE_PERMISSION')) || backpack_user()->can(env('ADMIN_PERMISSION')) || backpack_user()->can(env('DEMO_PERMISSION')))
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('profile') }}'>
