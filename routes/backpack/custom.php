@@ -24,10 +24,10 @@ Route::group([
     Route::crud('page', 'PageCrudController');
     Route::crud('profile', 'ProfileCrudController');
     Route::crud('section', 'SectionCrudController');
-    Route::crud('setting', 'SettingCrudController');
     Route::crud('slideshow', 'SlideshowCrudController');
     Route::crud('tag', 'TagCrudController');
     Route::crud('user', 'UserCrudController');
     Route::crud('role', 'RoleCrudController');
     Route::crud('permission', 'PermissionCrudController');
+    Route::crud('setting', 'SettingCrudController');
 }); // this should be the absolute last line of this file

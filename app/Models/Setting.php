@@ -15,8 +15,9 @@ class Setting extends Model
     use HasTranslations;
 
     protected $table = 'settings';
-    protected $fillable = ['value'];
-    protected $translatable = ['value'];
+    protected $fillable = ['key', 'value', 'description'];
+    protected $translatable = ['value', 'description'];
+    public $timestamps = false;
 
     /**
      * Grab a setting value from the database.
