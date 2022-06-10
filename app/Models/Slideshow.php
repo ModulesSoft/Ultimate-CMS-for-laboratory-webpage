@@ -26,7 +26,7 @@ class Slideshow extends Model
     {
         parent::boot();
         static::deleted(function ($obj) {
-            \Storage::disk('public_folder')->delete($obj->image);
+            \Storage::disk('public')->delete($obj->image);
         });
     }
     public function setLandscapeImageAttribute($value)
