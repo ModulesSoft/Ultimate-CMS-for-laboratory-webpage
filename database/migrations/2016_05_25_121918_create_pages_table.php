@@ -25,6 +25,7 @@ class CreatePagesTable extends Migration
             $table->text('conclusion')->nullable();
             $table->text('extras')->nullable();
             $table->timestamps();
+            $table->softDeletes();
             $table->integer('lft')->unsigned()->nullable();
             $table->integer('rgt')->unsigned()->nullable();
             $table->integer('depth')->unsigned()->nullable();

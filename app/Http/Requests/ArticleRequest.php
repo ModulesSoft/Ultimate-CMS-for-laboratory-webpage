@@ -26,7 +26,7 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:2|max:255',
+            'title' => 'required|min:2',
             'slug' => 'unique:articles,slug,' . \Request::get('id'),
             'content' => 'required|min:2',
             'date' => 'required|date',
