@@ -16,7 +16,7 @@ class Setting extends Model
 
     protected $table = 'settings';
     protected $fillable = ['key', 'value', 'description'];
-    protected $translatable = ['value', 'description'];
+    protected $translatable = ['value'];
     public $timestamps = false;
 
     /**
