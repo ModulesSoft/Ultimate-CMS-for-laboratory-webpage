@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Profile;
+use App\Models\Role;
 use App\Models\Setting;
 use App\Models\Slideshow;
 
@@ -35,8 +36,6 @@ Route::group(
         Route::get('/articles', fn () => QueryBuilder::for(Article::class)
             ->allowedFilters(['title', 'featured', 'category_id'])
             ->get());
-
-
         Route::get('/slides', fn () => QueryBuilder::for(Slideshow::class)
             ->get());
         Route::get('/pages', fn () => QueryBuilder::for(Page::class)
@@ -49,13 +48,16 @@ Route::group(
             User::whereHas('roles', function ($query) {
                 $supervisor_roles = explode(',', env('SUPERVISOR_ROLES'));
                 array_push($supervisor_roles, 'admin');
-                $query->whereNotIn('name', $supervisor_roles)->with('role');
-            })
-        )->allowedFilters(['name'])->get());
+                $query->whereNotIn('name', $supervisor_roles);
+            })->with('profile')
+        )->allowedFilters(['name', 'role'])->get());
+        Route::get('/roles', fn () => Role::all()->where('name', '!=', 'admin'));
+        Route::get('users/{id}/profile', fn ($id) =>
+        User::findOrFail($id)->profile()->get());
 
         // User::with(['roles' => function ($query) {
         // $query->with(['role', 'Professor']);
-        // Route::get('/sendMail');
+        Route::post('/sendMail', [EmailController::class, 'sendEmail']);
         // footer
     }
 );
