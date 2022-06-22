@@ -18,11 +18,11 @@ class ContactMail extends Mailable
      *
      * @return void
      */
-    public function __construct(Request $request)
+    public function __construct($contactEmail)
     {
-        $this->name = $request->name;
-        $this->email = $request->email;
-        $this->message = $request->message;
+        $this->name = $contactEmail->name;
+        $this->email = $contactEmail->email;
+        $this->message = $contactEmail->message;
     }
 
     /**
