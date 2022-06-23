@@ -7,6 +7,8 @@ use Spatie\QueryBuilder\QueryBuilder;
 use App\Models\User;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\FooterColumn;
+use App\Models\FooterRow;
 use App\Models\Page;
 use App\Models\Profile;
 use App\Models\Role;
@@ -52,13 +54,11 @@ Route::group(
                 $query->whereNotIn('name', $supervisor_roles);
             })->with('profile')
         )->allowedFilters(['name', 'role'])->get());
-        Route::get('/roles', fn () => Role::all()->where('name', '!=', 'admin'));
-        Route::get('users/{id}/profile', fn ($id) =>
-        User::findOrFail($id)->profile()->get());
-
-        // User::with(['roles' => function ($query) {
-        // $query->with(['role', 'Professor']);
+        Route::get('/roles', fn () => Role::where('name', '!=', 'admin')->get());
+        Route::get('users/{id}/profile', fn ($id) => User::findOrFail($id)->profile()->get());
+        Route::get('/footer/columns/', fn () => FooterColumn::all());
+        Route::get('/footer/columns/{id}/rows', fn ($id) => FooterRow::where('column_id', $id)->get());
+        // Services
         Route::post('/sendMail', EmailController::class);
-        // footer
     }
 );
