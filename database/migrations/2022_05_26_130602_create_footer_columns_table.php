@@ -19,7 +19,6 @@ class CreateFooterColumnsTable extends Migration
             $table->integer('lft')->unsigned()->nullable();
             $table->integer('rgt')->unsigned()->nullable();
             $table->integer('depth')->unsigned()->nullable();
-            $table->integer('parent_id')->unsigned()->nullable();
         });
     }
 
