@@ -30,7 +30,7 @@
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('footer-column') }}'>
                     <i class="nav-icon las la-columns"></i>Footer columns</a></li>
             <li class='nav-item'><a class='nav-link' href='{{ backpack_url('footer-row') }}'>
-                    <i class="las la-grip-lines"></i>Footer rows</a></li>
+                    <i class="nav-icon las la-grip-lines"></i>Footer rows</a></li>
         </ul>
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('setting') }}'>
             <i class="nav-icon las la-radiation-alt"></i>Settings</a></li>
@@ -56,8 +56,10 @@
         </ul>
     </li>
     @if (backpack_user()->id === 1)
-        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}\"><i
-                    class="nav-icon la la-files-o"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a>
+        <li class="nav-item"><a class="nav-link"
+                href="{{ backpack_url('elfinder') }}\"><i
+                    class="nav-icon la la-files-o"></i>
+                <span>{{ trans('backpack::crud.file_manager') }}</span></a>
         </li>
     @endif
 @endif
