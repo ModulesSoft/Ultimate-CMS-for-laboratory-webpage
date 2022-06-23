@@ -58,7 +58,7 @@ Route::group(
 
         // User::with(['roles' => function ($query) {
         // $query->with(['role', 'Professor']);
-        Route::post('/sendMail', [EmailController::class, 'sendEmail']);
+        Route::post('/sendMail', EmailController::class);
         // footer
     }
 );
