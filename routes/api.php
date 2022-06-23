@@ -55,9 +55,9 @@ Route::group(
             })->with('profile')
         )->allowedFilters(['name', 'role'])->get());
         Route::get('/roles', fn () => Role::where('name', '!=', 'admin')->get());
-        Route::get('users/{id}/profile', fn ($id) => User::findOrFail($id)->profile()->get());
+        Route::get('users/{id}/profile', fn ($id) => User::findOrFail($id)->profile()->get())->whereNumber('id');
         Route::get('/footer/columns/', fn () => FooterColumn::all());
-        Route::get('/footer/columns/{id}/rows', fn ($id) => FooterRow::where('column_id', $id)->get());
+        Route::get('/footer/columns/{id}/rows', fn ($id) => FooterRow::where('column_id', $id)->get())->whereNumber('id');
         // Services
         Route::post('/sendMail', EmailController::class);
     }
