@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class EmailController extends Controller
 {
-    public function sendEmail(Request $request)
+    public function __invoke(Request $request)
     {
         $validator = Validator::make($request->all(), ['email' => 'required|email', 'name' => 'required|string', 'message' => 'required|min:5']);
         if ($validator->fails()) {
@@ -18,12 +17,10 @@ class EmailController extends Controller
         }
         $attributes = (object)($validator->validated());
         try {
-            Mail::to('majhool.yf@gmail.com')->send(new ContactMail($attributes));
-            return 'done?!';
-        } catch (Exception $e) {
-            return $e;
+            Mail::to(env('MAIL_CONTACT_FORM_TO_ADDRESS'))->send(new ContactMail($attributes));
+            return response()->json(['message' => "Email Sent Successfully."], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
         }
-
-        // return ($request);
     }
 }
