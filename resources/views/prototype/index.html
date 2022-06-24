@@ -3,33 +3,243 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="Laboratory">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
             rel="stylesheet"
             href="https://www.w3schools.com/w3css/4/w3.css"
         />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
         <title>Lorem ipsum dolor sit.</title>
     </head>
     <body>
-        <header></header>
-        <aside>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </aside>
+        <header>
+            <nav>
+                <div class="w3-bar w3-green">
+                    <button class="w3-bar-item w3-button" onclick="w3_open()">
+                        &#9776;
+                    </button>
+                    <a
+                        href="#"
+                        class="w3-bar-item w3-button w3-hover-teal w3-mobile w3-teal"
+                        >Home</a
+                    >
+                    <a
+                        href="#"
+                        class="w3-bar-item w3-button w3-hover-blue w3-mobile"
+                        >Link 1</a
+                    >
+                    <a
+                        href="#"
+                        class="w3-bar-item w3-button w3-hover-blue w3-mobile"
+                        >Link 2</a
+                    >
+                    <a
+                        href="#"
+                        class="w3-bar-item w3-button w3-hover-blue w3-mobile"
+                        >Link 3</a
+                    >
+                    <div class="w3-dropdown-hover w3-mobile w3-right">
+                        <button class="w3-button w3-hover-blue">
+                            language
+                        </button>
+                        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                            <a
+                                href="#"
+                                class="w3-bar-item w3-button w3-hover-blue"
+                                >Link 1</a
+                            >
+                            <a
+                                href="#"
+                                class="w3-bar-item w3-button w3-hover-blue"
+                                >Link 2</a
+                            >
+                            <a
+                                href="#"
+                                class="w3-bar-item w3-button w3-hover-blue"
+                                >Link 3</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Sidebar -->
         <main>
+            <aside>
+                <div class="w3-sidebar w3-bar-block">
+                    <a href="#" class="w3-bar-item w3-button">Link 1</a>
+                    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+                    <div class="w3-dropdown-hover">
+                      <button class="w3-button">Dropdown <i class="fa fa-caret-down"></i></button>
+                      <div class="w3-dropdown-content w3-bar-block">
+                        <a href="#" class="w3-bar-item w3-button">Link</a>
+                        <a href="#" class="w3-bar-item w3-button">Link</a>
+                      </div>
+                    </div>
+                  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+                  </div>
+                </div>
+    
+                <div class="w3-main" style="margin-left: 200px">
+                    <div class="w3-teal">
+                        <button
+                            class="w3-button w3-teal w3-xlarge"
+                            onclick="w3_open()"
+                        >
+                            &#9776;
+                        </button>
+                        <div class="w3-container">
+                            <h1>My Page</h1>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- Overlay -->
+            <div
+                class="w3-overlay"
+                onclick="w3_close()"
+                style="cursor: pointer"
+                id="myOverlay"
+            ></div>
             <section>
-                <article></article>
+                <h2>slideshow</h2>
+                <div>
+                    <div class="slideshow">
+                        <img
+                            class="mySlides"
+                            src="https://www.w3schools.com/w3images/workbench.jpg"
+                        />
+                        <img
+                            class="mySlides"
+                            src="https://www.w3schools.com/w3images/sound.jpg"
+                        />
+                        <img
+                            class="mySlides"
+                            src="https://www.w3schools.com/w3images/workbench.jpg"
+                        />
+                        <img
+                            class="mySlides"
+                            src="https://www.w3schools.com/w3images/coffee.jpg"
+                        />
+                        <button
+                            class="w3-button w3-display-left"
+                            onclick="plusDivs(-1)"
+                        >
+                            &#10094;
+                        </button>
+                        <button
+                            class="w3-button w3-display-right"
+                            onclick="plusDivs(+1)"
+                        >
+                            &#10095;
+                        </button>
+                    </div>
+                </div>
             </section>
             <section>
-                <article></article>
+                <h2>featured</h2>
+                <div class="featured w3-panel w3-blue">
+                    <div class="w3-cell-row">
+                        <div class="w3-container w3-red w3-cell">
+                            <article>
+                                <h2>Post Title</h2>
+                                <p>
+                                    Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Consectetur ipsa at
+                                    delectus sed, aspernatur asperiores
+                                    molestiae nulla maxime laborum nemo.
+                                </p>
+                            </article>
+                        </div>
+
+                        <div class="w3-container w3-red w3-cell">
+                            <article>
+                                <h2>Post Title</h2>
+                                <p>
+                                    Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Consectetur ipsa at
+                                    delectus sed, aspernatur asperiores
+                                    molestiae nulla maxime laborum nemo.
+                                </p>
+                            </article>
+                        </div>
+                        <div class="w3-container w3-red w3-cell">
+                            <article>
+                                <h2>Post Title</h2>
+                                <p>
+                                    Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Consectetur ipsa at
+                                    delectus sed, aspernatur asperiores
+                                    molestiae nulla maxime laborum nemo.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
             </section>
             <section>
-                <article></article>
+                <h2>featured too</h2>
+                <article>
+                    <header>
+                        <h2>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Eaque, consequuntur omnis. In?
+                        </h2>
+                    </header>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Aspernatur quidem fuga nesciunt dolorum non?
+                        Repellat, nam aperiam hic quo ut animi, nulla recusandae
+                        quaerat in quos fugiat earum eveniet eum.
+                    </p>
+                </article>
             </section>
         </main>
         <footer></footer>
     </body>
 </html>
+
+<script>
+    function w3_open() {
+        document.getElementById("main").style.marginLeft = "25%";
+        document.getElementById("mySidebar").style.width = "25%";
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("openNav").style.display = "none";
+    }
+
+    function w3_close() {
+        document.getElementById("main").style.marginLeft = "0%";
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("openNav").style.display = "inline-block";
+    }
+
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs((slideIndex += n));
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = x.length;
+        }
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+    }
+</script>
