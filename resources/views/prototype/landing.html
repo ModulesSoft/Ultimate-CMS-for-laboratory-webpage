@@ -25,37 +25,38 @@
                 <button class="w3-bar-item w3-button" onclick="w3_open()">
                     &#9776;
                 </button>
-                <a
-                    href="#"
-                    class="w3-bar-item w3-button w3-hover-teal w3-mobile w3-teal"
-                    >Home</a
-                >
-                <a
-                    href="#"
-                    class="w3-bar-item w3-button w3-hover-blue w3-mobile"
-                    >Link 1</a
-                >
-                <a
-                    href="#"
-                    class="w3-bar-item w3-button w3-hover-blue w3-mobile"
-                    >Link 2</a
-                >
-                <a
-                    href="#"
-                    class="w3-bar-item w3-button w3-hover-blue w3-mobile"
-                    >Link 3</a
-                >
-                <div class="w3-dropdown-hover w3-mobile w3-right">
-                    <button class="w3-button w3-hover-blue">language</button>
+                <a href="#" class="w3-bar-item w3-button w3-hover-teal w3-teal">
+                    <i class="fa-solid fa-bread-slice"></i>
+                    <span>Link 1</span>
+                </a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-teal">
+                    <i class="fa-solid fa-bread-slice"></i>
+                    <span>Link 2</span>
+                </a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-teal">
+                    <i class="fa-solid fa-bread-slice"></i>
+                    <span>Link 3</span>
+                </a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-teal">
+                    <i class="fa-solid fa-bread-slice"></i>
+                    <span>Link 4</span>
+                </a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-teal">
+                    <i class="fa-solid fa-bread-slice"></i>
+                    <span>Link 5</span>
+                </a>
+                <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+                    <button class="w3-button" style="padding: 0">
+                        <i class="fa-solid fa-flag"></i>
+                        <span> language </span>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
                     <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                        <a href="#" class="w3-bar-item w3-button w3-hover-blue"
+                        <a href="#" class="w3-bar-item w3-button w3-hover-teal"
                             >Link 1</a
                         >
-                        <a href="#" class="w3-bar-item w3-button w3-hover-blue"
+                        <a href="#" class="w3-bar-item w3-button w3-hover-teal"
                             >Link 2</a
-                        >
-                        <a href="#" class="w3-bar-item w3-button w3-hover-blue"
-                            >Link 3</a
                         >
                     </div>
                 </div>
@@ -81,9 +82,18 @@
                     >
                         Close &times;
                     </button>
-                    <a href="#" class="w3-bar-item w3-button">Link 1</a>
-                    <a href="#" class="w3-bar-item w3-button">Link 2</a>
-                    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+                    <a href="#" class="w3-bar-item w3-button">
+                        <i class="fa-solid fa-bread-slice"></i>
+                        <span>Link 1</span>
+                    </a>
+                    <a href="#" class="w3-bar-item w3-button">
+                        <i class="fa-solid fa-bread-slice"></i>
+                        <span>Link 2</span>
+                    </a>
+                    <a href="#" class="w3-bar-item w3-button">
+                        <i class="fa-solid fa-bread-slice"></i>
+                        <span>Link 3</span>
+                    </a>
                 </div>
             </aside>
             <!-- Overlay -->
@@ -290,7 +300,7 @@
                     </h2>
                     <div class="w3-cell w3-mobile-row">
                         <div
-                            class="w3-cell w3-mobile-row w3-light-grey w3-card-4 w3-padding"
+                            class="w3-cell w3-mobile w3-light-grey w3-card-4 w3-padding"
                         >
                             <header>
                                 <img
@@ -315,7 +325,7 @@
                             </article>
                         </div>
                         <div
-                            class="w3-cell w3-mobile-row w3-light-grey w3-card-4 w3-padding"
+                            class="w3-cell w3-mobile w3-light-grey w3-card-4 w3-padding"
                         >
                             <header>
                                 <img
@@ -445,5 +455,10 @@
     }
     .featured--color-background:before {
         background: teal;
+    }
+    @media screen and (max-width: 768px) {
+        nav span {
+            display: none !important;
+        }
     }
 </style>
