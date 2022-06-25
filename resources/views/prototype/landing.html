@@ -62,7 +62,7 @@
             </div>
         </nav>
         <header>
-            <div class="w3-container w3-teal w3-center">
+            <div class="w3-container w3-teal w3-center w3-padding-16">
                 <h1>Lorem ipsum dolor sit amet.</h1>
                 <p>Lorem ipsum dolor sit amet consectetur.</p>
             </div>
@@ -94,98 +94,219 @@
                 id="myOverlay"
             ></div>
             <div id="main" class="w3-container">
-                <section>
-                    <h2>slideshow</h2>
-                    <div>
-                        <div class="slideshow">
-                            <img
-                                class="mySlides"
-                                src="https://www.w3schools.com/w3images/workbench.jpg"
-                            />
-                            <img
-                                class="mySlides"
-                                src="https://www.w3schools.com/w3images/sound.jpg"
-                            />
-                            <img
-                                class="mySlides"
-                                src="https://www.w3schools.com/w3images/workbench.jpg"
-                            />
-                            <img
-                                class="mySlides"
-                                src="https://www.w3schools.com/w3images/coffee.jpg"
-                            />
-                            <button
-                                class="w3-button w3-display-left"
-                                onclick="plusDivs(-1)"
-                            >
-                                &#10094;
-                            </button>
-                            <button
-                                class="w3-button w3-display-right"
-                                onclick="plusDivs(+1)"
-                            >
-                                &#10095;
-                            </button>
+                <section id="slideshow">
+                    <h2 class="w3-text-dark-grey">
+                        <i class="fa-solid fa-photo-film"></i>
+                        slideshow
+                    </h2>
+                    <div class="w3-content" style="max-width: 1200px">
+                        <img
+                            class="mySlides"
+                            src="https://www.w3schools.com/w3css/img_nature_wide.jpg"
+                            style="width: 100%"
+                        />
+                        <img
+                            class="mySlides"
+                            src="https://www.w3schools.com/w3css/img_snow_wide.jpg"
+                            style="width: 100%"
+                        />
+                        <img
+                            class="mySlides"
+                            src="https://www.w3schools.com/w3css/img_mountains_wide.jpg"
+                            style="width: 100%"
+                        />
+
+                        <div class="w3-row-padding w3-section">
+                            <div class="w3-col s4">
+                                <img
+                                    class="demo w3-opacity"
+                                    src="https://www.w3schools.com/w3css/img_nature_wide.jpg"
+                                    style="width: 100%"
+                                    onclick="currentDiv(1)"
+                                />
+                            </div>
+                            <div class="w3-col s4">
+                                <img
+                                    class="demo w3-opacity"
+                                    src="https://www.w3schools.com/w3css/img_snow_wide.jpg"
+                                    style="width: 100%; display: none"
+                                    onclick="currentDiv(2)"
+                                />
+                            </div>
+                            <div class="w3-col s4">
+                                <img
+                                    class="demo w3-opacity"
+                                    src="https://www.w3schools.com/w3css/img_mountains_wide.jpg"
+                                    style="width: 100%; display: none"
+                                    onclick="currentDiv(3)"
+                                />
+                            </div>
                         </div>
                     </div>
                 </section>
-                <section>
-                    <h2>featured</h2>
-                    <div class="featured w3-blue">
+                <section id="featured-2">
+                    <div
+                        class="featured featured--color-background w3-light-grey"
+                    >
+                        <h2 class="w3-text-dark-grey">
+                            <i class="fa-solid fa-star"></i>
+                            featured 2
+                        </h2>
                         <div class="w3-cell w3-mobile-row">
-                            <div class="w3-container w3-red w3-cell w3-mobile">
-                                <article>
-                                    <h2>Post Title</h2>
-                                    <p>
-                                        Lorem ipsum dolor, sit amet consectetur
-                                        adipisicing elit. Consectetur ipsa at
-                                        delectus sed, aspernatur asperiores
-                                        molestiae nulla maxime laborum nemo.
-                                    </p>
-                                </article>
+                            <div
+                                class="w3-container w3-round-large w3-cell w3-mobile w3-border"
+                            >
+                                <div
+                                    class="w3-light-grey w3-padding w3-margin w3-round-large"
+                                >
+                                    <article>
+                                        <h2>Post Title</h2>
+                                        <hr />
+                                        <p class="w3-text-dark-grey">
+                                            Lorem ipsum dolor, sit amet
+                                            consectetur adipisicing elit.
+                                            Consectetur ipsa at delectus sed,
+                                            aspernatur asperiores molestiae
+                                            nulla maxime laborum nemo.
+                                        </p>
+                                    </article>
+                                    <button class="w3-button w3-block w3-teal">
+                                        more
+                                    </button>
+                                </div>
                             </div>
 
-                            <div class="w3-container w3-red w3-cell w3-mobile">
-                                <article>
-                                    <h2>Post Title</h2>
-                                    <p>
-                                        Lorem ipsum dolor, sit amet consectetur
-                                        adipisicing elit. Consectetur ipsa at
-                                        delectus sed, aspernatur asperiores
-                                        molestiae nulla maxime laborum nemo.
-                                    </p>
-                                </article>
-                            </div>
-                            <div class="w3-container w3-red w3-cell w3-mobile">
-                                <article>
-                                    <h2>Post Title</h2>
-                                    <p>
-                                        Lorem ipsum dolor, sit amet consectetur
-                                        adipisicing elit. Consectetur ipsa at
-                                        delectus sed, aspernatur asperiores
-                                        molestiae nulla maxime laborum nemo.
-                                    </p>
-                                </article>
+                            <div
+                                class="w3-container w3-round-large w3-cell w3-mobile w3-border"
+                            >
+                                <div
+                                    class="w3-light-grey w3-padding w3-margin w3-round-large"
+                                >
+                                    <article>
+                                        <h2>Post Title</h2>
+                                        <hr />
+                                        <p class="w3-text-dark-grey">
+                                            Lorem ipsum dolor, sit amet
+                                            consectetur adipisicing elit.
+                                            Consectetur ipsa at dolorum ducimus
+                                            tempore laboriosam sunt? Similique
+                                            corrupti aperiam minus suscipit quis
+                                            cumque tenetur aliquid et
+                                            dignissimos.
+                                        </p>
+                                    </article>
+                                    <button class="w3-button w3-block w3-teal">
+                                        more
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section>
+                <section id="featured-3">
+                    <div class="featured featured--image-background">
+                        <h2 class="w3-text-dark-grey">
+                            <i class="fa-solid fa-star"></i>
+                            featured 3
+                        </h2>
+                        <div class="w3-cell w3-mobile-row">
+                            <div
+                                class="w3-container w3-round-large w3-cell w3-mobile"
+                            >
+                                <div
+                                    class="w3-light-grey w3-padding w3-margin w3-round-large"
+                                >
+                                    <article>
+                                        <h2 class="w3-text-dark-grey">
+                                            Post Title
+                                        </h2>
+                                        <hr />
+                                        <p class="w3-text-dark-grey">
+                                            Lorem ipsum dolor, sit amet
+                                            consectetur adipisicing elit.
+                                            Consectetur ipsa at delectus sed,
+                                            aspernatur asperiores molestiae
+                                            nulla maxime laborum nemo.
+                                        </p>
+                                    </article>
+                                    <button class="w3-button w3-block w3-teal">
+                                        more
+                                    </button>
+                                </div>
+                            </div>
+                            <div
+                                class="w3-container w3-round-large w3-cell w3-mobile"
+                            >
+                                <div
+                                    class="w3-light-grey w3-padding w3-margin w3-round-large"
+                                >
+                                    <article>
+                                        <h2>Post Title</h2>
+                                        <hr />
+                                        <p>
+                                            Lorem ipsum dolor, sit amet
+                                            consectetur adipisicing elit.
+                                            Consectetur ipsa at delectus sed,
+                                            aspernatur asperiores molestiae
+                                            nulla maxime laborum nemo.
+                                        </p>
+                                    </article>
+                                    <button class="w3-button w3-block w3-teal">
+                                        more
+                                    </button>
+                                </div>
+                            </div>
+                            <div
+                                class="w3-container w3-round-large w3-cell w3-mobile"
+                            >
+                                <div
+                                    class="w3-light-grey w3-padding w3-margin w3-round-large"
+                                >
+                                    <article>
+                                        <h2 class="w3-text-dark-grey">
+                                            Post Title
+                                        </h2>
+                                        <hr />
+                                        <p class="w3-text-dark-grey">
+                                            Lorem ipsum dolor, sit amet
+                                            consectetur adipisicing elit.
+                                            Consectetur ipsa at delectus sed,
+                                            aspernatur asperiores molestiae
+                                            nulla maxime laborum nemo.
+                                        </p>
+                                    </article>
+                                    <button class="w3-button w3-block w3-teal">
+                                        more
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="people">
                     <h2 class="w3-indigo w3-panel" style="margin-bottom: 0">
                         Lorem ipsum dolor sit.
                     </h2>
                     <div class="w3-cell w3-mobile-row">
                         <div
-                            class="w3-cell w3-mobile-row w3-blue w3-card-4 w3-padding"
+                            class="w3-cell w3-mobile-row w3-light-grey w3-card-4 w3-padding"
                         >
-                            <img
-                                src="https://www.w3schools.com/howto/img_avatar.png"
-                                class="w3-round"
-                                style="width: 50px; height: 50px"
-                            />
+                            <header>
+                                <img
+                                    src="https://www.w3schools.com/howto/img_avatar.png"
+                                    class="w3-round"
+                                    style="width: 50px; height: 50px"
+                                />
+                                <span class="w3-margin w3-text-dark-grey">
+                                    Lorem, ipsum.
+                                </span>
+                            </header>
                             <article>
-                                <h2>Lorem ipsum dolor sit.</h2>
-                                <p>
+                                <h2 class="w3-text-dark-grey">
+                                    Lorem ipsum dolor sit.
+                                </h2>
+                                <p class="w3-text-grey">
                                     Lorem ipsum dolor sit, amet consectetur
                                     adipisicing elit. Nisi, quisquam est. Optio
                                     earum, veniam quod facere saepe eum
@@ -194,24 +315,27 @@
                             </article>
                         </div>
                         <div
-                            class="w3-cell w3-mobile-row w3-blue w3-card-4 w3-padding"
+                            class="w3-cell w3-mobile-row w3-light-grey w3-card-4 w3-padding"
                         >
-                            <img
-                                src="https://www.w3schools.com/howto/img_avatar.png"
-                                class="w3-round"
-                                style="width: 50px; height: 50px"
-                            />
+                            <header>
+                                <img
+                                    src="https://www.w3schools.com/howto/img_avatar.png"
+                                    class="w3-round"
+                                    style="width: 50px; height: 50px"
+                                />
+                                <span class="w3-margin w3-text-dark-grey">
+                                    Lorem, ipsum.
+                                </span>
+                            </header>
                             <article>
-                                <h2>Lorem ipsum dolor sit.</h2>
-                                <p>
+                                <h2 class="w3-text-dark-grey">
+                                    Lorem ipsum dolor sit.
+                                </h2>
+                                <p class="w3-text-grey">
                                     Lorem ipsum dolor sit amet consectetur
                                     adipisicing elit. Unde nulla qui fuga
                                     molestias eius provident, eos, voluptates
-                                    consequatur magni ipsam quos a maiores
-                                    reiciendis enim quidem. Praesentium rem modi
-                                    minus unde eos consequuntur consequatur,
-                                    velit quaerat, necessitatibus culpa eaque
-                                    architecto doloremque numquam fugit.
+                                    consequatur magni ipsam quos a maiore
                                 </p>
                             </article>
                         </div>
@@ -219,45 +343,40 @@
                 </section>
             </div>
         </main>
-        <footer>
-            <div class="w3-container w3-black w3-margin-top">
-                <div class="w3-cell w3-mobile-row">
-                    <div class="w3-container w3-dark-grey w3-cell w3-mobile">
-                        <article>
-                            <h2 class="w3-text-teal w3-center">Footer Title</h2>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Consectetur ipsa at delectus
-                                sed, aspernatur asperiores molestiae nulla
-                                maxime laborum nemo.
-                            </p>
-                        </article>
-                    </div>
+        <footer class="w3-margin-top">
+            <div class="w3-cell w3-mobile-row">
+                <div class="w3-container w3-dark-grey w3-cell w3-mobile">
+                    <article>
+                        <h2 class="w3-text-teal w3-center">Footer Title</h2>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Consectetur ipsa at delectus sed, aspernatur
+                            asperiores molestiae nulla maxime laborum nemo.
+                        </p>
+                    </article>
+                </div>
 
-                    <div class="w3-container w3-black w3-cell w3-mobile">
-                        <article>
-                            <h2 class="w3-text-light-green w3-center">
-                                Footer Title
-                            </h2>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Consectetur ipsa at delectus
-                                sed, aspernatur asperiores molestiae nulla
-                                maxime laborum nemo.
-                            </p>
-                        </article>
-                    </div>
-                    <div class="w3-container w3-dark-grey w3-cell w3-mobile">
-                        <article>
-                            <h2 class="w3-text-teal w3-center">Footer Title</h2>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Consectetur ipsa at delectus
-                                sed, aspernatur asperiores molestiae nulla
-                                maxime laborum nemo.
-                            </p>
-                        </article>
-                    </div>
+                <div class="w3-container w3-black w3-cell w3-mobile">
+                    <article>
+                        <h2 class="w3-text-light-green w3-center">
+                            Footer Title
+                        </h2>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Consectetur ipsa at delectus sed, aspernatur
+                            asperiores molestiae nulla maxime laborum nemo.
+                        </p>
+                    </article>
+                </div>
+                <div class="w3-container w3-dark-grey w3-cell w3-mobile">
+                    <article>
+                        <h2 class="w3-text-teal w3-center">Footer Title</h2>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Consectetur ipsa at delectus sed, aspernatur
+                            asperiores molestiae nulla maxime laborum nemo.
+                        </p>
+                    </article>
                 </div>
             </div>
         </footer>
@@ -301,3 +420,30 @@
         x[slideIndex - 1].style.display = "block";
     }
 </script>
+<style>
+    section {
+        margin-top: 2rem;
+    }
+    .featured {
+        position: relative;
+        padding: 1rem;
+    }
+
+    .featured:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100%;
+        width: 100vw;
+        background-size: cover;
+        z-index: -1;
+    }
+    .featured--image-background:before {
+        background: url("https://www.w3schools.com/w3images/coffee.jpg");
+    }
+    .featured--color-background:before {
+        background: teal;
+    }
+</style>
