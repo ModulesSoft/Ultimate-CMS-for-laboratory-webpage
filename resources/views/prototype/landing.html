@@ -19,7 +19,7 @@
         />
         <title>Lorem ipsum dolor sit.</title>
     </head>
-    <body>
+    <body class="w3-lightgrey">
         <nav>
             <div class="w3-bar w3-green">
                 <button class="w3-bar-item w3-button" onclick="w3_open()">
@@ -63,7 +63,7 @@
             </div>
         </nav>
         <header>
-            <div class="w3-container w3-teal w3-center w3-padding-16">
+            <div class="header w3-teal w3-padding w3-center">
                 <h1>Lorem ipsum dolor sit amet.</h1>
                 <p>Lorem ipsum dolor sit amet consectetur.</p>
             </div>
@@ -431,15 +431,19 @@
     }
 </script>
 <style>
-    header {
-        height: 25vh;
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        height: 30vh;
     }
     section {
         margin-top: 2rem;
     }
     .slideshow {
         position: inherit;
-        height: 70vh;
+        height: 65vh;
     }
     .slideshow__image {
         height: 70%;
@@ -471,7 +475,7 @@
     }
     @media screen and (max-width: 768px) {
         nav span {
-            display: none !important;
+            display: none;
         }
     }
 </style>
