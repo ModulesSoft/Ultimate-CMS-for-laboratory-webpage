@@ -105,23 +105,23 @@
             ></div>
             <div id="main" class="w3-container">
                 <section id="slideshow">
-                    <h2 class="w3-text-dark-grey">
+                    <!-- <h2 class="w3-text-dark-grey">
                         <i class="fa-solid fa-photo-film"></i>
                         slideshow
-                    </h2>
-                    <div class="w3-content" style="max-width: 1200px">
+                    </h2> -->
+                    <div class="slideshow w3-content">
                         <img
-                            class="mySlides"
+                            class="slideshow__image"
                             src="https://www.w3schools.com/w3css/img_nature_wide.jpg"
                             style="width: 100%"
                         />
                         <img
-                            class="mySlides"
+                            class="slideshow__image"
                             src="https://www.w3schools.com/w3css/img_snow_wide.jpg"
                             style="width: 100%"
                         />
                         <img
-                            class="mySlides"
+                            class="slideshow__image"
                             src="https://www.w3schools.com/w3css/img_mountains_wide.jpg"
                             style="width: 100%"
                         />
@@ -129,7 +129,7 @@
                         <div class="w3-row-padding w3-section">
                             <div class="w3-col s4">
                                 <img
-                                    class="demo w3-opacity"
+                                    class="slideshow__thumbnail demo w3-opacity"
                                     src="https://www.w3schools.com/w3css/img_nature_wide.jpg"
                                     style="width: 100%"
                                     onclick="currentDiv(1)"
@@ -137,7 +137,7 @@
                             </div>
                             <div class="w3-col s4">
                                 <img
-                                    class="demo w3-opacity"
+                                    class="slideshow__thumbnail demo w3-opacity"
                                     src="https://www.w3schools.com/w3css/img_snow_wide.jpg"
                                     style="width: 100%; display: none"
                                     onclick="currentDiv(2)"
@@ -145,7 +145,7 @@
                             </div>
                             <div class="w3-col s4">
                                 <img
-                                    class="demo w3-opacity"
+                                    class="slideshow__thumbnail w3-opacity"
                                     src="https://www.w3schools.com/w3css/img_mountains_wide.jpg"
                                     style="width: 100%; display: none"
                                     onclick="currentDiv(3)"
@@ -417,7 +417,7 @@
 
     function showDivs(n) {
         var i;
-        var x = document.getElementsByClassName("mySlides");
+        var x = document.getElementsByClassName("slideshow__image");
         if (n > x.length) {
             slideIndex = 1;
         }
@@ -431,8 +431,21 @@
     }
 </script>
 <style>
+    header {
+        height: 25vh;
+    }
     section {
         margin-top: 2rem;
+    }
+    .slideshow {
+        position: inherit;
+        height: 70vh;
+    }
+    .slideshow__image {
+        height: 70%;
+    }
+    .slideshow__thumbnail {
+        height: 30%;
     }
     .featured {
         position: relative;
