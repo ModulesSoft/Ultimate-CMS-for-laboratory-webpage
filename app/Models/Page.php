@@ -34,10 +34,6 @@ class Page extends Model
     {
         $this->attributes['slug'] = $this->attributes['slug'];
     }
-    public function getSlugAttribute()
-    {
-        return '-auto-';
-    }
 
     public function getOpenButton()
     {
