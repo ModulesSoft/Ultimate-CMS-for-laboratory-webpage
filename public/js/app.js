@@ -7,29 +7,28 @@
   \*********************************************/
 /***/ (() => {
 
-// hamburger menu
-function w3_open() {
+w3_open = function w3_open() {
   document.getElementById("main").style.marginLeft = "25%";
   document.getElementById("mySidebar").style.width = "25%";
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("openNav").style.display = "none";
-}
+};
 
-function w3_close() {
+w3_close = function w3_close() {
   document.getElementById("main").style.marginLeft = "0%";
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("openNav").style.display = "inline-block";
-} // slideshow
+}; // slideshow
 
 
 var slideIndex = 1;
 showDivs(slideIndex);
 
-function plusDivs(n) {
+plusDivs = function plusDivs(n) {
   showDivs(slideIndex += n);
-}
+};
 
-function showDivs(n) {
+showDivs = function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("slideshow__image");
 
@@ -46,7 +45,7 @@ function showDivs(n) {
   }
 
   x[slideIndex - 1].style.display = "block";
-}
+};
 
 /***/ }),
 

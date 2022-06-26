@@ -1,13 +1,11 @@
-
-    // hamburger menu
-    function w3_open() {
+    w3_open = function(){
         document.getElementById("main").style.marginLeft = "25%";
         document.getElementById("mySidebar").style.width = "25%";
         document.getElementById("mySidebar").style.display = "block";
         document.getElementById("openNav").style.display = "none";
     }
 
-    function w3_close() {
+    w3_close = function () {
         document.getElementById("main").style.marginLeft = "0%";
         document.getElementById("mySidebar").style.display = "none";
         document.getElementById("openNav").style.display = "inline-block";
@@ -16,10 +14,10 @@
     var slideIndex = 1;
     showDivs(slideIndex);
 
-    function plusDivs(n) {
+    plusDivs = function (n) {
         showDivs((slideIndex += n));
     }
-    function showDivs(n) {
+    showDivs = function (n) {
         var i;
         var x = document.getElementsByClassName("slideshow__image");
         if (n > x.length) {
@@ -33,3 +31,4 @@
         }
         x[slideIndex - 1].style.display = "block";
     }
+    
