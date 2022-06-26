@@ -1,0 +1,63 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 30vh;
+  background: url(/images/header-background.svg?3f9afb9fdbd4b077f097f90e60197660);
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+.header__image {
+  height: 100px;
+  width: 100px;
+}
+
+section {
+  margin-top: 2rem;
+}
+
+.slideshow {
+  position: inherit;
+  height: 65vh;
+}
+
+.slideshow__image {
+  height: 70%;
+}
+
+.slideshow__thumbnail {
+  height: 30%;
+}
+
+.featured {
+  position: relative;
+  padding: 1rem;
+}
+
+.featured:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 100vw;
+  background-size: cover;
+  z-index: -1;
+}
+
+.featured--image-background:before {
+  background: url("https://www.w3schools.com/w3images/coffee.jpg");
+}
+
+.featured--color-background:before {
+  background: teal;
+}
+
+@media screen and (max-width: 768px) {
+  nav span {
+    display: none;
+  }
+}
