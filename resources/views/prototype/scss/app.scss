@@ -5,9 +5,13 @@
         align-content: center;
         justify-content: center;
         height: 30vh;
-        background: url("./images/header-background.svg");
+        background: url("../images/header-background.svg");
         background-size: contain;
         background-attachment: fixed;
+    }
+    .header__image{
+        height: 100px;
+        width: 100px;
     }
     section {
         margin-top: 2rem;
