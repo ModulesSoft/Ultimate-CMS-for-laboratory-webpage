@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
-use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\Sluggable;
-use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\SluggableScopeHelpers;
 use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Spatie\Permission\Traits\HasRoles;
@@ -13,7 +12,6 @@ class Page extends Model
 {
     use CrudTrait;
     use HasRoles;
-    use Sluggable, SluggableScopeHelpers;
     use HasTranslations;
 
     protected $table = 'pages';
@@ -26,34 +24,19 @@ class Page extends Model
     // protected $dates = [];
     protected $fakeColumns = ['extras'];
 
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
+    // Generate a slug if it is not set
+    public function setTitleAttribute($value)
     {
-        return [
-            'slug' => [
-                'source' => 'slug_or_title',
-            ],
-        ];
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] =  Str::slug($value);
     }
-
-
-    // The slug is created automatically from the "name" field if no slug exists.
-    public function getSlugOrTitleAttribute()
+    public function setSlugAttribute()
     {
-        if ($this->slug != '') {
-            return $this->slug;
-        }
-
-        return $this->title;
+        $this->attributes['slug'] = $this->attributes['slug'];
     }
-
-    public function getPageLink()
+    public function getSlugAttribute()
     {
-        return url($this->slug);
+        return '-auto-';
     }
 
     public function getOpenButton()
