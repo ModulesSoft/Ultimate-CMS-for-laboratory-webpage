@@ -8,6 +8,11 @@ img {
   height: 150px;
 }
 
+.profile__thumbnail {
+  width: 200px;
+  height: 200px;
+}
+
 .header {
   display: flex;
   flex-direction: column;
