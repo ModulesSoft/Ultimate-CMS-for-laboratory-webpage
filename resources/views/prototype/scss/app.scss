@@ -3,6 +3,10 @@ img {
     max-height: 100%;
     max-width: 100%;
   }
+  .posts__thumbnail{
+    width: 150px;
+    height: 150px;
+  }
     .header {
         display: flex;
         flex-direction: column;
@@ -64,4 +68,16 @@ img {
         nav span {
             display: none;
         }
+    }
+
+
+// posts scroll effect
+    [data-scroll] {
+      transition: opacity 2s;
+    }
+    [data-scroll="in"] {
+      opacity: 1;
+    }
+    [data-scroll="out"] {
+      opacity: 0;
     }

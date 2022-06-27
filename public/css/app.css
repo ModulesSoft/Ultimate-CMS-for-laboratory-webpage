@@ -3,6 +3,11 @@ img {
   max-width: 100%;
 }
 
+.posts__thumbnail {
+  width: 150px;
+  height: 150px;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -74,4 +79,15 @@ section {
   nav span {
     display: none;
   }
+}
+[data-scroll] {
+  transition: opacity 2s;
+}
+
+[data-scroll=in] {
+  opacity: 1;
+}
+
+[data-scroll=out] {
+  opacity: 0;
 }
