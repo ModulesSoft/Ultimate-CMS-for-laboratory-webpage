@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="Laboratory" />
+        <meta name="keywords" content="HTML, CSS, JavaScript" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://www.w3schools.com/w3css/4/w3.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link href="css/app.css" rel="stylesheet" />
+        <script type="text/javascript" src="js/app.js"></script>
+        <title>Lorem ipsum dolor sit.</title>
+    </head>
+
+    <body class="w3-lightgrey">
+        <nav>
+            <div class="w3-bar w3-green">
+                <button class="w3-bar-item w3-button" onclick="w3_open()">
+                    &#9776;
+                </button>
+                <a href="#" class="w3-bar-item w3-button w3-hover-teal w3-teal">
+                    <i class="fa-solid fa-bread-slice"></i>
+                    <span>Link 1</span>
+                </a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-teal">
+                    <i class="fa-solid fa-bread-slice"></i>
+                    <span>Link 2</span>
+                </a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-teal">
+                    <i class="fa-solid fa-bread-slice"></i>
+                    <span>Link 3</span>
+                </a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-teal">
+                    <i class="fa-solid fa-bread-slice"></i>
+                    <span>Link 4</span>
+                </a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-teal">
+                    <i class="fa-solid fa-bread-slice"></i>
+                    <span>Link 5</span>
+                </a>
+                <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+                    <button class="w3-button" style="padding: 0">
+                        <i class="fa-solid fa-flag"></i>
+                        <span> language </span>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                        <a href="#" class="w3-bar-item w3-button w3-hover-teal"
+                            >Link 1</a
+                        >
+                        <a href="#" class="w3-bar-item w3-button w3-hover-teal"
+                            >Link 2</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <header>
+            <div class="w3-center w3-padding w3-teal">
+                <h1 style="margin-top: 0"><a href="#">John Doe</a></h1>
+            </div>
+        </header>
+        <!-- Sidebar -->
+        <main>
+            <aside>
+                <div
+                    class="w3-sidebar w3-bar-block w3-card w3-animate-left"
+                    style="display: none; top: 0"
+                    id="mySidebar"
+                >
+                    <button
+                        class="w3-bar-item w3-button w3-large w3-center"
+                        onclick="w3_close()"
+                    >
+                        &times;
+                    </button>
+
+                    <a
+                        href="/"
+                        class="w3-bar-item w3-button w3-center w3-hover-none"
+                    >
+                        <img
+                            class="w3-large w3-mobile"
+                            src="/images/logo.gif"
+                            alt="logo"
+                        />
+                    </a>
+                    <a href="#" class="w3-bar-item w3-button">
+                        <i class="fa-solid fa-bread-slice"></i>
+                        <span>Link 1</span>
+                    </a>
+                    <a href="#" class="w3-bar-item w3-button">
+                        <i class="fa-solid fa-bread-slice"></i>
+                        <span>Link 2</span>
+                    </a>
+                    <a href="#" class="w3-bar-item w3-button">
+                        <i class="fa-solid fa-bread-slice"></i>
+                        <span>Link 3</span>
+                    </a>
+                </div>
+            </aside>
+            <!-- Overlay -->
+            <div
+                class="w3-overlay"
+                onclick="w3_close()"
+                style="cursor: pointer"
+                id="myOverlay"
+            ></div>
+            <div id="main" class="w3-container">
+                <section>
+                    <div class="w3-card-4 w3-center w3-padding w3-mobile">
+                        <a href="#">
+                            <img
+                                src="https://www.w3schools.com/w3css/img_avatar3.png"
+                                alt="Alps"
+                                class="w3-left w3-round profile__thumbnail"
+                            />
+                        </a>
+                        <div class="w3-container w3-right w3-margin">
+                            <h3 class="w3-left w3-green w3-round w3-badge">
+                                MSc Student
+                            </h3>
+                            <hr />
+                            <strong>Supervisor: Jane Doe</strong>
+                        </div>
+                        <div class="w3-container">
+                            <article>
+                                <h2>
+                                    Reasearch Title: Lorem, ipsum dolor sit amet
+                                    consectetur adipisicing elit. Id illo
+                                    similique aliquid consequatur quo deserunt
+                                    ab dignissimos at atque, ratione
+                                    necessitatibus esse distinctio odit
+                                    perspiciatis maiores tempore doloribus totam
+                                    modi?
+                                </h2>
+                                <hr />
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Minima repellendus fugiat,
+                                    voluptatum suscipit vel inventore excepturi
+                                    quisquam impedit minus explicabo ducimus
+                                    eligendi non molestias labore iure eos
+                                    placeat provident ut dolore, dolor mollitia
+                                    magni voluptatibus delectus? Impedit,
+                                    reiciendis natus asperiores ad ab error. Id
+                                    qui tempora omnis magni recusandae velit!
+                                </p>
+                                <hr />
+                                <footer class="w3-container">
+                                    <h5 class="w3-tag w3-teal w3-round">
+                                        keywords
+                                    </h5>
+                                    <h5 class="w3-tag w3-teal w3-round">
+                                        keywords
+                                    </h5>
+                                    <h5 class="w3-tag w3-teal w3-round">
+                                        keywords
+                                    </h5>
+                                    <h5 class="w3-tag w3-teal w3-round">
+                                        keywords
+                                    </h5>
+                                    <h5 class="w3-tag w3-teal w3-round">
+                                        keywords
+                                    </h5>
+                                </footer>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="w3-margin-top">
+            <div class="w3-container w3-cell w3-dark-grey w3-mobile">
+                <article>
+                    <h2 class="w3-text-light-blue w3-center">Footer Title</h2>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Consectetur ipsa at delectus sed, aspernatur
+                        asperiores molestiae nulla maxime laborum nemo.
+                    </p>
+                </article>
+            </div>
+            <div class="w3-container w3-black w3-cell w3-mobile">
+                <article>
+                    <h2 class="w3-text-teal w3-center">Footer Title</h2>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Consectetur ipsa at delectus sed, aspernatur
+                        asperiores molestiae nulla maxime laborum nemo.
+                    </p>
+                </article>
+            </div>
+            <div class="w3-container w3-dark-grey w3-cell w3-mobile">
+                <article>
+                    <h2 class="w3-text-light-blue w3-center">Footer Title</h2>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Consectetur ipsa at delectus sed, aspernatur
+                        asperiores molestiae nulla maxime laborum nemo.
+                    </p>
+                </article>
+            </div>
+            <div class="w3-dark-grey w3-row w3-mobile w3-center">
+                <p class="w3-black w3-padding" style="margin: 0">
+                    All rights reserved for Majhoolsoft © 2022
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
