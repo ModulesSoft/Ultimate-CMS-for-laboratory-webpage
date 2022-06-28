@@ -37,7 +37,7 @@ img {
   align-content: center;
   justify-content: center;
   height: 30vh;
-  background: url(/images/header-background.svg?3f9afb9fdbd4b077f097f90e60197660);
+  background: url(../images/header-background.svg?3f9afb9fdbd4b077f097f90e60197660);
   background-size: contain;
   background-attachment: fixed;
 }
