@@ -18,6 +18,19 @@ img {
   height: 200px;
 }
 
+.gallery__card {
+  width: 200px;
+}
+
+.gallery__thumbnail {
+  width: 200px;
+  height: 150px;
+}
+
+.gallery__card h3 {
+  font-size: 0.8rem;
+}
+
 .header {
   display: flex;
   flex-direction: column;
