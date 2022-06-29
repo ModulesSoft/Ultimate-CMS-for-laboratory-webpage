@@ -1,13 +1,24 @@
     import React from "react";
-    import * as ReactDOM from 'react-dom/client';
+    import { render } from "react-dom";
+    import Landing from "../views/pages/landing";
+    import {
+      BrowserRouter,
+      Routes,
+      Route
+    } from "react-router-dom";
+
     document.documentElement.setAttribute("lang", 'en');
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(
-        <body>
-          <p>Hello world</p>
-        </body>
+    const rootElement = document.getElementById("root");
+    render(
+    <body>  
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+          </Routes>
+        </BrowserRouter>
+    </body>,
+      rootElement
     );
-    
     // slideshow
     var slideIndex = 1;
     showDivs(slideIndex);
