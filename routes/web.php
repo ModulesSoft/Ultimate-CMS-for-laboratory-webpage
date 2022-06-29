@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/{uri?}', function () {
     return view('index');
-});
+})->where('uri', '(.*)');

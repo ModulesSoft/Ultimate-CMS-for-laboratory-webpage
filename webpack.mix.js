@@ -12,6 +12,6 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.jsx', 'public/js/app.js').react()
-    .sass('resources/views/prototype/scss/app.scss', 'public/css', [
+    .sass('resources/scss/app.scss', 'public/css', [
     ]);
-mix.copy('resources/views/prototype/images/', 'public/images');
+mix.copy('resources/images/', 'public/images');
