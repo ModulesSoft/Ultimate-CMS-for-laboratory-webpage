@@ -1,17 +1,9 @@
+import Header from "../components/header";
 import Layout from "./layout";
 export const posts = () => (
     <Layout
         title="Posts"
-        header={
-            <>
-                <div
-                    style={{ "margin-top": "0" }}
-                    className="w3-center w3-padding w3-teal"
-                >
-                    <h1>Posts</h1>
-                </div>
-            </>
-        }
+        header={<Header h1="Posts" />}
         keywords="posts, articles"
         description="Posts page"
     >

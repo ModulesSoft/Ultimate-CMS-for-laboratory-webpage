@@ -1,15 +1,14 @@
 import Layout from "./layout";
 import Slideshow from "../components/slideshow";
+import LandingHeader from "../components/landingHeader";
 export const Landing = () => (
     <Layout
         title="Home page"
         header={
-            <>
-                <div className="header w3-center">
-                    <h1>Lorem ipsum dolor sit amet.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur.</p>
-                </div>
-            </>
+            <LandingHeader
+                p="Amirkabir University of Technology"
+                h1="Biofluids laboratory"
+            />
         }
         keywords=""
         description=""
