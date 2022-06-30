@@ -1,5 +1,5 @@
-require("./bootstrap");
-require("./application/common");
+import "./bootstrap";
+import "./application/common";
 import React from "react";
 import Landing from "./presentation/pages/landing";
 import Posts from "./presentation/pages/posts";
