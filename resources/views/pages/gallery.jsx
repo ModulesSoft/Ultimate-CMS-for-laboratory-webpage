@@ -1,17 +1,9 @@
 import Layout from "./layout";
+import Header from "../components/header";
 export const Gallery = () => (
     <Layout
         title="Gallery"
-        header={
-            <>
-                <div
-                    style={{ "margin-top": "0" }}
-                    className="w3-center w3-padding w3-teal"
-                >
-                    <h1>Gallery</h1>
-                </div>
-            </>
-        }
+        header={<Header h1="Gallery" />}
         keywords="Gallery, articles"
         description="Gallery page"
     >

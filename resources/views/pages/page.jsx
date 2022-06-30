@@ -1,17 +1,9 @@
+import Header from "../components/header";
 import Layout from "./layout";
 export const Page = () => (
     <Layout
         title="PageA"
-        header={
-            <>
-                <div
-                    style={{ "margin-top": "0" }}
-                    className="w3-center w3-padding w3-teal"
-                >
-                    <h1>PageA</h1>
-                </div>
-            </>
-        }
+        header={<Header h1="Page" />}
         keywords="page, articles"
         description="PageA page"
     >
