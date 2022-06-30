@@ -1,6 +1,6 @@
-import Navbar from "../components/navbar";
-import Aside from "../components/sidebar";
-import Footer from "../components/footer";
+import Navbar from "../../js/presentation/components/navbar";
+import Aside from "../../js/presentation/components/sidebar";
+import Footer from "../../js/presentation/components/footer";
 export const Layout = ({ title, header, keywords, description, children }) => (
     <>
         <head>

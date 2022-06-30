@@ -1,4 +1,4 @@
-import Layout from "./layout";
+import Layout from "../layouts/layout";
 import Slideshow from "../components/slideshow";
 import LandingHeader from "../components/landingHeader";
 export const Landing = () => (

@@ -1,5 +1,5 @@
 import Header from "../components/header";
-import Layout from "./layout";
+import Layout from "../layouts/layout";
 export const Profiles = () => (
     <Layout
         title="Profiles"
