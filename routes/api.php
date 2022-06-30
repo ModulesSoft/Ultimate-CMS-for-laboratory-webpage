@@ -38,7 +38,7 @@ Route::group(
             ->get());
         Route::get('/articles', fn () => QueryBuilder::for(Article::class)
             ->allowedFilters(['title', 'featured', 'category_id'])
-            ->get());
+            ->with('tags')->get());
         Route::get('/slides', fn () => QueryBuilder::for(Slideshow::class)
             ->get());
         Route::get('/pages', fn () => QueryBuilder::for(Page::class)
