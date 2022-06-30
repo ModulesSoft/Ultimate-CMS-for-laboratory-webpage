@@ -1,4 +1,4 @@
-import Layout from "./layout";
+import Layout from "../layouts/layout";
 import Header from "../components/header";
 export const Gallery = () => (
     <Layout

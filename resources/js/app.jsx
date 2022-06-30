@@ -1,12 +1,13 @@
-require("./helpers");
+require("./bootstrap");
+require("./application/common");
 import React from "react";
-import Landing from "../views/pages/landing";
-import Posts from "../views/pages/posts";
-import Post from "../views/pages/post";
-import Gallery from "../views/pages/gallery";
-import Profiles from "../views/pages/profiles";
-import Profile from "../views/pages/profile";
-import Page from "../views/pages/page";
+import Landing from "./presentation/pages/landing";
+import Posts from "./presentation/pages/posts";
+import Post from "./presentation/pages/post";
+import Gallery from "./presentation/pages/gallery";
+import Profiles from "./presentation/pages/profiles";
+import Profile from "./presentation/pages/profile";
+import Page from "./presentation/pages/page";
 
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

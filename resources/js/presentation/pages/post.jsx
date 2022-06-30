@@ -1,4 +1,4 @@
-import Layout from "./layout";
+import Layout from "../layouts/layout";
 export const Post = () => (
     <Layout title="Home page" header={<></>} keywords="" description="">
         <article className="w3-container">
