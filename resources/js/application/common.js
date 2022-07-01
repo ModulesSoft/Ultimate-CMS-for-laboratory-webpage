@@ -2,18 +2,18 @@
 var slideIndex = 1;
 // showDivs(slideIndex);
 
-const w3_open = function () {
-    document.getElementById("main").style.marginLeft = "25%";
-    document.getElementById("mySidebar").style.width = "25%";
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("openNav").style.display = "none";
-};
+// const w3_open = function () {
+//     document.getElementById("main").style.marginLeft = "25%";
+//     document.getElementById("mySidebar").style.width = "25%";
+//     document.getElementById("mySidebar").style.display = "block";
+//     document.getElementById("openNav").style.display = "none";
+// };
 
-const w3_close = function () {
-    document.getElementById("main").style.marginLeft = "0%";
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("openNav").style.display = "inline-block";
-};
+// const w3_close = function () {
+//     document.getElementById("main").style.marginLeft = "0%";
+//     document.getElementById("mySidebar").style.display = "none";
+//     document.getElementById("openNav").style.display = "inline-block";
+// };
 
 const plusDivs = function (n) {
     showDivs((slideIndex += n));

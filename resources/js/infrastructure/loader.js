@@ -8,45 +8,30 @@ import Profile from "../presentation/pages/profile";
 import Page from "../presentation/pages/page";
 import { useFetchCategories } from "./APIHandler";
 import { Routes, Route } from "react-router-dom";
-import Layout from "../presentation/layouts/layout";
-import Loading from "../presentation/components/loading";
-import NotFound from "../presentation/components/404";
 export const Loader = () => {
     const { data, loading } = useFetchCategories({});
     const categories = data;
-    return loading ? (
-        <Layout
-            title="Loading..."
-            header={<Loading />}
-            keywords=""
-            description=""
-        ></Layout>
-    ) : !categories ? (
-        <Layout
-            title="404"
-            header={<NotFound />}
-            keywords=""
-            description=""
-        ></Layout>
-    ) : (
+    const found = categories[0] ? true : false;
+    return (
         <Routes>
             <Route path="/" element={<Landing />} />
-            {categories.map((category) => (
-                <Route
-                    key={category.id}
-                    path={"/" + category.slug.en}
-                    element={
-                        <Posts
-                            title={category.name.en}
-                            keywords=""
-                            description=""
-                            categoryId={category.id}
-                        />
-                    }
-                />
-            ))}
-            <Route path="/News" element={<Posts content="news" />} />
-            <Route path="/News" element={<Posts type="news" />} />
+            {found &&
+                categories.map((category) => (
+                    <Route
+                        key={category.id}
+                        path={"/" + category.slug.en}
+                        element={
+                            <Posts
+                                title={category.name.en}
+                                keywords=""
+                                description=""
+                                categoryId={category.id}
+                                categorySlug={category.slug.en}
+                            />
+                        }
+                    />
+                ))}
+            <Route path="/news" element={<Posts type="news" />} />
             <Route path="/post" element={<Post />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/profiles" element={<Profiles />} />
