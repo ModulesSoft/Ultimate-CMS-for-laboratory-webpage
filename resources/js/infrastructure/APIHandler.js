@@ -31,19 +31,45 @@ export function useFetchPost({ title, featured, category_id }) {
     };
 }
 
-// export const getPost = (title, featured, category_id) => {
-//     useEffect(() => {
-//         let result = null;
-//         instance
-//             .get("/articles", {
-//                 params: {
-//                     "filter[category_id]": category_id,
-//                     "filter[featured]": featured,
-//                     "filter[title]": title,
-//                 },
-//             })
-//             .then((response) => (result = response.data))
-//             .catch((error) => getErrors(error));
-//         return result;
-//     });
-// };
+export function useFetchCategories() {
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        async function fetchData() {
+            await instance
+                .get("/categories")
+                .then((response) => setData(response.data))
+                .catch((error) => errorHandler(error));
+            setLoading(false);
+        }
+        fetchData();
+    }, []);
+    return {
+        data,
+        loading,
+    };
+}
+
+export function useFetchPosts({ categoryId, published = "PUBLISHED" }) {
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        async function fetchData() {
+            await instance
+                .get("/articles", {
+                    params: {
+                        // "filter[published]": published,
+                        "filter[category_id]": categoryId,
+                    },
+                })
+                .then((response) => setData(response.data))
+                .catch((error) => errorHandler(error));
+            setLoading(false);
+        }
+        fetchData();
+    }, []);
+    return {
+        data,
+        loading,
+    };
+}
