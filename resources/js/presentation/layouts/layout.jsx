@@ -1,7 +1,17 @@
 import Navbar from "../components/navbar";
 import Aside from "../components/sidebar";
 import Footer from "../components/footer";
-export const Layout = ({ title, header, keywords, description, children }) => (
+import Loading from "../components/loading";
+import Notfound from "../components/404";
+export const Layout = ({
+    loading,
+    found,
+    title,
+    header,
+    keywords,
+    description,
+    children,
+}) => (
     <>
         <head>
             <meta charSet="UTF-8" />
@@ -27,20 +37,28 @@ export const Layout = ({ title, header, keywords, description, children }) => (
             <title>{title}</title>
         </head>
         <body className="w3-lightgrey">
-            {/* Overlay */}
-            <div
-                className="w3-overlay"
-                onClick="w3_close()"
-                style={{ cursor: "pointer" }}
-                id="myOverlay"
-            />
-            <Navbar />
-            <header>{header}</header>
-            <main>
-                <Aside />
-                {children}
-            </main>
-            <Footer />
+            {loading ? (
+                <Loading />
+            ) : !found ? (
+                <Notfound />
+            ) : (
+                <>
+                    {/* Overlay */}
+                    <div
+                        className="w3-overlay"
+                        // onClick="w3_close()"
+                        style={{ cursor: "pointer" }}
+                        id="myOverlay"
+                    />
+                    <Navbar />
+                    <header>{header}</header>
+                    <main>
+                        <Aside />
+                        <div id="main">{children}</div>
+                    </main>
+                    <Footer />
+                </>
+            )}
         </body>
     </>
 );
