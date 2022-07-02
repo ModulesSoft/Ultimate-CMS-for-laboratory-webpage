@@ -36,8 +36,11 @@ Route::group(
         Route::get('/users', fn () => QueryBuilder::for(User::class)
             ->allowedFilters(['name', 'email'])
             ->get());
+
+        // Route::get('/articles/{id}',  fn ($id) => Article::findOrFail($id)->get())->whereNumber('id');
+
         Route::get('/articles', fn () => QueryBuilder::for(Article::class)
-            ->allowedFilters(['title', 'featured', 'status', 'category_id'])
+            ->allowedFilters(['title', 'slug', 'featured', 'status', 'category_id'])
             ->with('tags')->get());
         Route::get('/slides', fn () => QueryBuilder::for(Slideshow::class)
             ->get());

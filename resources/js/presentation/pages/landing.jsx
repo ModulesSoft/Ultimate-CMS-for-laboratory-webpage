@@ -12,6 +12,7 @@ export const Landing = () => (
         }
         keywords=""
         description=""
+        found={true}
     >
         <Slideshow />
         <section id="featured-2">
