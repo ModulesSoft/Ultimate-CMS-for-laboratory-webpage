@@ -15,7 +15,7 @@ export const posts = ({
     const found = posts[0] ? true : false;
     return (
         <Layout
-            title="Posts"
+            title={title}
             header={<Header h1={title} />}
             keywords={keywords}
             description={description}

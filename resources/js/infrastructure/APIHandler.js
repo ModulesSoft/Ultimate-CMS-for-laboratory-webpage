@@ -6,7 +6,7 @@ const instance = axios.create({
     // headers: { "X-Custom-Header": "foobar" },
 });
 
-export function useFetchPost({ title, featured, category_id }) {
+export function useFetchPost({ slug }) {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -14,9 +14,7 @@ export function useFetchPost({ title, featured, category_id }) {
             await instance
                 .get("/articles", {
                     params: {
-                        "filter[title]": title,
-                        "filter[featured]": featured,
-                        "filter[category_id]": category_id,
+                        "filter[slug]": slug,
                     },
                 })
                 .then((response) => setData(response.data))
