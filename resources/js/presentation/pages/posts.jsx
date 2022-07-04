@@ -2,6 +2,7 @@ import { useFetchPosts } from "../../infrastructure/APIHandler";
 import Header from "../components/header";
 import Loading from "../components/loading";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 export const posts = ({
     title,
     keywords,
@@ -13,7 +14,7 @@ export const posts = ({
         categoryId: categoryId,
     });
     const posts = data;
-    const found = posts[0] ? true : false;
+    const { t, i18n } = useTranslation();
     return (
         <>
             <Helmet>
@@ -41,17 +42,22 @@ export const posts = ({
                                         />
                                     </div>
                                     <div className="w3-container w3-cell w3-margin w3-animate-opacity">
-                                        <h2>{post.title.en}</h2>
+                                        <h2>{post.title[i18n.language]}</h2>
                                         <hr />
                                         <p>
-                                            Last Update:
+                                            {t("last update")}
                                             <time
                                                 className="w3-margin"
                                                 dateTime={post.updated_at}
                                             >
                                                 {new Date(
                                                     post.updated_at
-                                                ).toDateString()}
+                                                ).toLocaleDateString(
+                                                    i18n.language.replace(
+                                                        "_",
+                                                        "-"
+                                                    )
+                                                )}
                                             </time>
                                         </p>
                                     </div>
@@ -60,7 +66,7 @@ export const posts = ({
                                     <p
                                         className="w3-margin"
                                         dangerouslySetInnerHTML={{
-                                            __html: post.content.en,
+                                            __html: post.content[i18n.language],
                                         }}
                                     ></p>
                                 </div>

@@ -1,4 +1,14 @@
+import { useTranslation } from "react-i18next";
 const Navbar = () => {
+    const { t, i18n } = useTranslation();
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+        document.documentElement.setAttribute("lang", i18n.language);
+        document.documentElement.setAttribute(
+            "dir",
+            i18n.language === "en" ? "ltr" : "rtl"
+        );
+    };
     const openSidebar = () => {
         // document.getElementById("main").style.marginLeft = "25%";
         document.getElementById("mySidebar").style.width = "25%";
@@ -51,16 +61,18 @@ const Navbar = () => {
                     </button>
                     <div className="w3-dropdown-content w3-bar-block w3-card-4">
                         <a
+                            onClick={() => changeLanguage("en")}
                             href="#"
                             className="w3-bar-item w3-button w3-hover-teal"
                         >
-                            Link 1
+                            English
                         </a>
                         <a
+                            onClick={() => changeLanguage("fa_IR")}
                             href="#"
                             className="w3-bar-item w3-button w3-hover-teal"
                         >
-                            Link 2
+                            فارسی
                         </a>
                     </div>
                 </div>
