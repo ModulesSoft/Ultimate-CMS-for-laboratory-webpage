@@ -20,9 +20,11 @@
         "sass-loader": "^12.6.0"
     },
     "dependencies": {
+        "i18next": "^21.8.12",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-helmet": "^6.1.0",
+        "react-i18next": "^11.17.4",
         "react-router-dom": "^6.3.0"
     }
 }

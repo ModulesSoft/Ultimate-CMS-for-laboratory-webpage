@@ -11,10 +11,12 @@ import Page from "../presentation/pages/page";
 import { useFetchCategories } from "./APIHandler";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "../presentation/components/404";
+import { useTranslation } from "react-i18next";
 export const Loader = () => {
     const { data, loading } = useFetchCategories({});
     const categories = data;
     const found = categories[0] ? true : false;
+    const { t, i18n } = useTranslation();
     const closeSidebar = () => {
         document.getElementById("main").style.marginLeft = "0%";
         document.getElementById("mySidebar").style.display = "none";
@@ -37,22 +39,30 @@ export const Loader = () => {
                         <Route index path="" element={<Landing />} />
 
                         {found &&
+                            console.log(categories) &&
                             categories.map((category, index) => (
                                 <Route key={index}>
                                     <Route
-                                        path={category.slug.en}
+                                        path={category.slug[i18n.language]}
                                         element={
                                             <Posts
-                                                title={category.name.en}
+                                                title={
+                                                    category.name[i18n.language]
+                                                }
                                                 keywords=""
                                                 description=""
                                                 categoryId={category.id}
-                                                categorySlug={category.slug.en}
+                                                categorySlug={
+                                                    category.slug[i18n.language]
+                                                }
                                             />
                                         }
                                     />
                                     <Route
-                                        path={category.slug.en + "/:slug"}
+                                        path={
+                                            category.slug[i18n.language] +
+                                            "/:slug"
+                                        }
                                         element={<Post />}
                                     />
                                 </Route>
