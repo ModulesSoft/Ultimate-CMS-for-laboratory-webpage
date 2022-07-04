@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CategoryRequest extends FormRequest
@@ -27,7 +26,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:255',
-            'icon' => 'nullable|string|unique:categories,icon',
+            'icon' => 'nullable|string|unique:categories,icon,' . \Request::get('id'),
             'slug' => 'required|unique:categories,slug,' . \Request::get('id')
         ];
     }
