@@ -4,7 +4,7 @@ const Sidebar = () => {
     const closeSidebar = () => {
         document.getElementById("main").style.marginLeft = "0%";
         document.getElementById("mySidebar").style.display = "none";
-        // document.getElementById("openNav").style.display = "inline-block";
+        document.getElementById("myOverlay").style.display = "none";
     };
 
     const { data, loading } = useFetchCategories({});
@@ -14,7 +14,7 @@ const Sidebar = () => {
         <aside>
             <div
                 className="w3-sidebar w3-bar-block w3-card w3-animate-left"
-                style={{ display: "none", top: 0 }}
+                style={{ display: "none", top: 0, zIndex: 10 }}
                 id="mySidebar"
             >
                 <button

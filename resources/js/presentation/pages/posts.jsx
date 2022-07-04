@@ -1,6 +1,7 @@
 import { useFetchPosts } from "../../infrastructure/APIHandler";
 import Header from "../components/header";
-import Layout from "../layouts/layout";
+import Loading from "../components/loading";
+import { Helmet } from "react-helmet";
 export const posts = ({
     title,
     keywords,
@@ -14,17 +15,21 @@ export const posts = ({
     const posts = data;
     const found = posts[0] ? true : false;
     return (
-        <Layout
-            title={title}
-            header={<Header h1={title} />}
-            keywords={keywords}
-            description={description}
-            loading={loading}
-            found={found}
-        >
-            <article className="w3-container">
-                {found &&
-                    posts.map((post) => (
+        <>
+            <Helmet>
+                <meta name="description" content={description} />
+                <meta name="keywords" content={keywords} />
+                <title>{title}</title>
+            </Helmet>
+            <header>
+                <Header h1={title} />
+            </header>
+
+            {loading ? (
+                <Loading />
+            ) : (
+                <article className="w3-container">
+                    {posts.map((post) => (
                         <section key={post.id}>
                             <div className="w3-card-4 w3-animate-left">
                                 <header className="w3-container w3-light-grey w3-padding">
@@ -68,8 +73,9 @@ export const posts = ({
                             </div>
                         </section>
                     ))}
-            </article>
-        </Layout>
+                </article>
+            )}
+        </>
     );
 };
 
