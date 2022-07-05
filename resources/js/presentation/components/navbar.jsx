@@ -9,6 +9,11 @@ const Navbar = () => {
             i18n.language === "en" ? "ltr" : "rtl"
         );
     };
+
+    const overrideBarItem = {
+        textAlign: "right",
+        float: "right",
+    };
     const openSidebar = () => {
         // document.getElementById("main").style.marginLeft = "25%";
         document.getElementById("mySidebar").style.width = "25%";
@@ -20,8 +25,8 @@ const Navbar = () => {
         <nav>
             <div className="w3-bar w3-green">
                 <div
-                    className="w3-bar-item w3-button w3-hover-teal w3-light-green"
-                    style={{ padding: 0 }}
+                    className="w3-bar-item w3-button w3-hover-teal w3-light-green w3-padding-0"
+                    style={i18n.language === "en" ? null : overrideBarItem}
                 >
                     <button className="w3-button" onClick={openSidebar}>
                         ☰
@@ -30,29 +35,46 @@ const Navbar = () => {
                 <a
                     href="#"
                     className="w3-bar-item w3-button w3-hover-teal w3-teal"
+                    style={i18n.language === "en" ? null : overrideBarItem}
                 >
                     <i className="fa-solid fa-bread-slice" />
                     <span>Link 1</span>
                 </a>
-                <a href="#" className="w3-bar-item w3-button w3-hover-teal">
+                <a
+                    href="#"
+                    className="w3-bar-item w3-button w3-hover-teal"
+                    style={i18n.language === "en" ? null : overrideBarItem}
+                >
                     <i className="fa-solid fa-bread-slice" />
                     <span>Link 2</span>
                 </a>
-                <a href="#" className="w3-bar-item w3-button w3-hover-teal">
+                <a
+                    href="#"
+                    className="w3-bar-item w3-button w3-hover-teal"
+                    style={i18n.language === "en" ? null : overrideBarItem}
+                >
                     <i className="fa-solid fa-bread-slice" />
                     <span>Link 3</span>
                 </a>
-                <a href="#" className="w3-bar-item w3-button w3-hover-teal">
+                <a
+                    href="#"
+                    className="w3-bar-item w3-button w3-hover-teal"
+                    style={i18n.language === "en" ? null : overrideBarItem}
+                >
                     <i className="fa-solid fa-bread-slice" />
                     <span>Link 4</span>
                 </a>
-                <a href="#" className="w3-bar-item w3-button w3-hover-teal">
+                <a
+                    href="#"
+                    className="w3-bar-item w3-button w3-hover-teal"
+                    style={i18n.language === "en" ? null : overrideBarItem}
+                >
                     <i className="fa-solid fa-bread-slice" />
                     <span>Link 5</span>
                 </a>
                 <div
-                    className="w3-bar-item w3-dropdown-hover w3-hover-teal"
-                    style={{ padding: 0 }}
+                    className="w3-bar-item w3-dropdown-hover w3-hover-teal w3-padding-0"
+                    style={i18n.language === "en" ? null : overrideBarItem}
                 >
                     <button className="w3-button">
                         <i className="fa-solid fa-flag" />
