@@ -3,6 +3,8 @@ import { useFetchPost } from "../../infrastructure/APIHandler";
 import { useParams } from "react-router-dom";
 import Loading from "../components/loading";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
+
 export const Post = () => {
     let { slug } = useParams();
     const { data, loading } = useFetchPost({
@@ -29,7 +31,7 @@ export const Post = () => {
                             <div className="w3-card-4">
                                 <header className="w3-container w3-teal">
                                     <h1 className="w3-center">
-                                        {post.title.en}
+                                        {post.title[i18n.language]}
                                     </h1>
                                 </header>
                                 <div
@@ -44,7 +46,7 @@ export const Post = () => {
                                     <p
                                         className="w3-margin"
                                         dangerouslySetInnerHTML={{
-                                            __html: post.content.en,
+                                            __html: post.content[i18n.language],
                                         }}
                                     ></p>
                                 </div>
