@@ -68,11 +68,12 @@ export const Loader = () => {
                                         element={<Post />}
                                     />
                                 </Route>
-                            )) &&
+                            ))}
+                        {found &&
                             pages.map((page, index) => (
                                 <Route key={index}>
                                     <Route
-                                        path={"page/" + page.slug}
+                                        path={"/page/" + page.slug}
                                         element={
                                             <Page
                                                 title={page.name[i18n.language]}
