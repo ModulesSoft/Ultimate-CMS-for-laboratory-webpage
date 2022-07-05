@@ -1,5 +1,10 @@
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
+import { useFetchPages } from "../../infrastructure/APIHandler";
+import Loading from "./loading";
 const Navbar = () => {
+    const { data, loading } = useFetchPages({});
+    const pages = data;
     const { t, i18n } = useTranslation();
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
@@ -21,7 +26,9 @@ const Navbar = () => {
         document.getElementById("myOverlay").style.display = "inline-block";
     };
 
-    return (
+    return loading ? (
+        <Loading />
+    ) : (
         <nav>
             <div className="w3-bar w3-green">
                 <div
@@ -32,46 +39,18 @@ const Navbar = () => {
                         ☰
                     </button>
                 </div>
-                <a
-                    href="#"
-                    className="w3-bar-item w3-button w3-hover-teal w3-teal"
-                    style={i18n.language === "en" ? null : overrideBarItem}
-                >
-                    <i className="fa-solid fa-bread-slice" />
-                    <span>Link 1</span>
-                </a>
-                <a
-                    href="#"
-                    className="w3-bar-item w3-button w3-hover-teal"
-                    style={i18n.language === "en" ? null : overrideBarItem}
-                >
-                    <i className="fa-solid fa-bread-slice" />
-                    <span>Link 2</span>
-                </a>
-                <a
-                    href="#"
-                    className="w3-bar-item w3-button w3-hover-teal"
-                    style={i18n.language === "en" ? null : overrideBarItem}
-                >
-                    <i className="fa-solid fa-bread-slice" />
-                    <span>Link 3</span>
-                </a>
-                <a
-                    href="#"
-                    className="w3-bar-item w3-button w3-hover-teal"
-                    style={i18n.language === "en" ? null : overrideBarItem}
-                >
-                    <i className="fa-solid fa-bread-slice" />
-                    <span>Link 4</span>
-                </a>
-                <a
-                    href="#"
-                    className="w3-bar-item w3-button w3-hover-teal"
-                    style={i18n.language === "en" ? null : overrideBarItem}
-                >
-                    <i className="fa-solid fa-bread-slice" />
-                    <span>Link 5</span>
-                </a>
+                {pages.map((page, key) => (
+                    <NavLink
+                        key={key}
+                        to={"/page/" + page.slug}
+                        className="w3-bar-item w3-button w3-hover-teal w3-hover-teal"
+                        style={i18n.language === "en" ? null : overrideBarItem}
+                    >
+                        {/* <i className="fa-solid fa-bread-slice" /> */}
+                        <span>{page.name[i18n.language]}</span>
+                    </NavLink>
+                ))}
+
                 <div
                     className="w3-bar-item w3-dropdown-hover w3-hover-teal w3-padding-0"
                     style={i18n.language === "en" ? null : overrideBarItem}

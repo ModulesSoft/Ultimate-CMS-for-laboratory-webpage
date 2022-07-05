@@ -71,3 +71,21 @@ export function useFetchPosts({ categoryId, status = "PUBLISHED" }) {
         loading,
     };
 }
+export function useFetchPages() {
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        async function fetchData() {
+            await instance
+                .get("/pages")
+                .then((response) => setData(response.data))
+                .catch((error) => errorHandler(error));
+            setLoading(false);
+        }
+        fetchData();
+    }, []);
+    return {
+        data,
+        loading,
+    };
+}

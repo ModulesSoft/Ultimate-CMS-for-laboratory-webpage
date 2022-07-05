@@ -9,13 +9,17 @@ import Profiles from "../presentation/pages/profiles";
 import Profile from "../presentation/pages/profile";
 import Page from "../presentation/pages/page";
 import { useFetchCategories } from "./APIHandler";
+import { useFetchPages } from "./APIHandler";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "../presentation/components/404";
 import { useTranslation } from "react-i18next";
+
 export const Loader = () => {
-    const { data, loading } = useFetchCategories({});
+    let { data } = useFetchCategories({});
     const categories = data;
-    const found = categories[0] ? true : false;
+    ({ data } = useFetchPages({}));
+    const pages = data;
+    const found = categories[0] && pages[0] ? true : false;
     const { t, i18n } = useTranslation();
     const closeSidebar = () => {
         document.getElementById("main").style.marginLeft = "0%";
@@ -64,8 +68,22 @@ export const Loader = () => {
                                         element={<Post />}
                                     />
                                 </Route>
+                            )) &&
+                            pages.map((page, index) => (
+                                <Route key={index}>
+                                    <Route
+                                        path={"page/" + page.slug}
+                                        element={
+                                            <Page
+                                                title={page.name[i18n.language]}
+                                                data={page}
+                                                keywords=""
+                                                description=""
+                                            />
+                                        }
+                                    />
+                                </Route>
                             ))}
-
                         {/* <Route path="/gallery" element={<Gallery />} />
                         <Route path="/profiles" element={<Profiles />} />
                         <Route path="/profile" element={<Profile />} />
