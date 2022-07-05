@@ -3,6 +3,7 @@ import Header from "../components/header";
 import Loading from "../components/loading";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 export const posts = ({
     title,
     keywords,
@@ -70,12 +71,12 @@ export const posts = ({
                                         }}
                                     ></p>
                                 </div>
-                                <a
-                                    href={`/${categorySlug}/${post.slug}`}
+                                <Link
+                                    to={`/${categorySlug}/${post.slug}`}
                                     className="w3-bar w3-button w3-teal"
                                 >
                                     more
-                                </a>
+                                </Link>
                             </div>
                         </section>
                     ))}

@@ -1,6 +1,6 @@
 import { useFetchCategories } from "../../infrastructure/APIHandler";
 import { useTranslation } from "react-i18next";
-
+import { Link } from "react-router-dom";
 const Sidebar = () => {
     const closeSidebar = () => {
         document.getElementById("main").style.marginLeft = "0%";
@@ -31,8 +31,8 @@ const Sidebar = () => {
                 >
                     ×
                 </button>
-                <a
-                    href="/"
+                <Link
+                    to="/"
                     className="w3-bar-item w3-button w3-center w3-hover-none"
                 >
                     <img
@@ -40,12 +40,12 @@ const Sidebar = () => {
                         src="/images/logo.gif"
                         alt="logo"
                     />
-                </a>
+                </Link>
                 {found &&
                     categories.map((category) => (
-                        <a
+                        <Link
                             key={category.id}
-                            href={`/${category.slug[i18n.language]}`}
+                            to={`/${category.slug[i18n.language]}`}
                             className="w3-bar-item w3-button"
                             style={
                                 i18n.language === "en"
@@ -57,7 +57,7 @@ const Sidebar = () => {
                             <span className="w3-padding ">
                                 {category.name[i18n.language]}
                             </span>
-                        </a>
+                        </Link>
                     ))}
             </div>
         </aside>

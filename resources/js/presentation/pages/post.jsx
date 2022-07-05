@@ -10,7 +10,7 @@ export const Post = () => {
     const { data, loading } = useFetchPost({
         slug: slug,
     });
-
+    const { i18n } = useTranslation();
     const post = data[0];
     return (
         <>
