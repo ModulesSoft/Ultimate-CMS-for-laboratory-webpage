@@ -37,9 +37,7 @@ export const Loader = () => {
                 <Routes>
                     <Route path="/">
                         <Route index path="" element={<Landing />} />
-
                         {found &&
-                            console.log(categories) &&
                             categories.map((category, index) => (
                                 <Route key={index}>
                                     <Route
@@ -68,10 +66,10 @@ export const Loader = () => {
                                 </Route>
                             ))}
 
-                        <Route path="/gallery" element={<Gallery />} />
+                        {/* <Route path="/gallery" element={<Gallery />} />
                         <Route path="/profiles" element={<Profiles />} />
                         <Route path="/profile" element={<Profile />} />
-                        <Route path="/page" element={<Page />} />
+                        <Route path="/page" element={<Page />} /> */}
 
                         <Route path="*" element={<NotFound />} />
                     </Route>
