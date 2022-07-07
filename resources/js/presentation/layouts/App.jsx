@@ -1,4 +1,4 @@
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import Loader from "../../infrastructure/loader";
 import { Helmet } from "react-helmet";
 export const Layout = () => (

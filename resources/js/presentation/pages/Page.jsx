@@ -1,4 +1,4 @@
-import Header from "../components/header";
+import Header from "../components/Header";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 

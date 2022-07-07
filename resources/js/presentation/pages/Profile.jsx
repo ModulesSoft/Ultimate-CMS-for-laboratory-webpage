@@ -1,4 +1,4 @@
-import Layout from "../layouts/layout";
+import Layout from "../layouts/App";
 export const Profile = () => (
     <Layout title="profile" header={<></>} keywords="" description="">
         <section>

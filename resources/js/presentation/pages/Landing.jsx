@@ -1,6 +1,6 @@
-import Layout from "../layouts/layout";
-import Slideshow from "../components/slideshow";
-import LandingHeader from "../components/landingHeader";
+import Layout from "../layouts/App";
+import Slideshow from "../components/Slideshow";
+import LandingHeader from "../components/LandingHeader";
 export const Landing = () => (
     <Layout
         title="Home page"

@@ -1,6 +1,6 @@
 import { useFetchPosts } from "../../infrastructure/APIHandler";
-import Header from "../components/header";
-import Loading from "../components/loading";
+import Header from "../components/Header";
+import Loading from "../components/Loading";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";

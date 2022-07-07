@@ -1,6 +1,6 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
+    "/js/index.js": "/js/index.js",
+    "/css/style.css": "/css/style.css",
     "/images/header-background.svg": "/images/header-background.svg",
     "/images/logo.gif": "/images/logo.gif"
 }
