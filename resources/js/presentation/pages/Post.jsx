@@ -1,7 +1,7 @@
 import React from "react";
 import { useFetchPost } from "../../infrastructure/APIHandler";
 import { useParams } from "react-router-dom";
-import Loading from "../components/loading";
+import Loading from "../components/Loading";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 

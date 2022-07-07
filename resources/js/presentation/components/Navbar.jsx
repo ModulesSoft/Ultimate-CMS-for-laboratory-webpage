@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { useFetchPages } from "../../infrastructure/APIHandler";
-import Loading from "./loading";
+import Loading from "./Loading";
 const Navbar = () => {
     const { data, loading } = useFetchPages({});
     const pages = data;

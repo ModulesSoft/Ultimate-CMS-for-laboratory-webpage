@@ -1,5 +1,5 @@
-import Layout from "../layouts/layout";
-import Header from "../components/header";
+import Layout from "../layouts/App";
+import Header from "../components/Header";
 export const Gallery = () => (
     <Layout
         title="Gallery"
