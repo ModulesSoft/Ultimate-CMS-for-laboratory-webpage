@@ -65,7 +65,7 @@ export function useFetchPosts({ categoryId, status = "PUBLISHED" }) {
             setLoading(false);
         }
         fetchData();
-    }, []);
+    }, [categoryId]);
     return {
         data,
         loading,
