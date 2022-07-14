@@ -4,6 +4,7 @@ import Loading from "../components/Loading";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { getThumbUri } from "../../application/common";
 export const posts = ({
     title,
     keywords,
@@ -11,7 +12,6 @@ export const posts = ({
     categoryId,
     categorySlug,
 }) => {
-    console.log("categoryId");
     const { data, loading } = useFetchPosts({
         categoryId: categoryId,
     });
@@ -37,11 +37,16 @@ export const posts = ({
                             <div className="w3-card-4 w3-animate-left">
                                 <header className="w3-container w3-light-grey w3-padding">
                                     <div className="w3-container w3-cell w3-margin">
-                                        <img
-                                            src={post.image}
-                                            alt={post.slug}
-                                            className="w3-round-large posts__thumbnail"
-                                        />
+                                        {post.image && (
+                                            <img
+                                                src={getThumbUri(
+                                                    "150x150",
+                                                    post.image
+                                                )}
+                                                alt={post.slug}
+                                                className="w3-round-large posts__thumbnail"
+                                            />
+                                        )}
                                     </div>
                                     <div className="w3-container w3-cell w3-margin w3-animate-opacity">
                                         <h2>{post.title[i18n.language]}</h2>

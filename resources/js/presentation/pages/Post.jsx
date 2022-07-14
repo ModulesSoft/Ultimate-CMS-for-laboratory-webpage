@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import { getImageUri } from "../../application/common";
 
 export const Post = () => {
     let { slug } = useParams();
@@ -39,7 +40,7 @@ export const Post = () => {
                                     style={{ width: "75%" }}
                                 >
                                     <img
-                                        src={post.image}
+                                        src={getImageUri(post.image)}
                                         alt={post.slug}
                                         className="w3-round w3-margin"
                                     />
