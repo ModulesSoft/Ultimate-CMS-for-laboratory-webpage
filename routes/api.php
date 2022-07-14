@@ -44,8 +44,8 @@ Route::group(
             ->with('tags')->get());
         Route::get('/slides', fn () => QueryBuilder::for(Slideshow::class)
             ->get());
-        Route::get('/pages', fn () => QueryBuilder::for(Page::class)
-            ->get());
+        Route::get('/pages', fn () => QueryBuilder::for(Page::class::with('sections'))
+            ->allowedFilters(['slug'])->get());
         Route::get('/categories', fn () => QueryBuilder::for(Category::class)
             ->orderBy('lft')->allowedFilters(['slug'])->get());
         Route::get('/settings', fn () => QueryBuilder::for(Setting::class)
