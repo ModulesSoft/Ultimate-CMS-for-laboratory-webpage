@@ -45,7 +45,7 @@ const Sidebar = () => {
                     categories.map((category) => (
                         <Link
                             key={category.id}
-                            to={`/${category.slug[i18n.language]}`}
+                            to={`/${category.slug}`}
                             className="w3-bar-item w3-button"
                             style={
                                 i18n.language === "en"
