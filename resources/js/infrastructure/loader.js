@@ -45,7 +45,7 @@ export const Loader = () => {
                             categories.map((category, index) => (
                                 <Route key={index}>
                                     <Route
-                                        path={category.slug[i18n.language]}
+                                        path={category.slug}
                                         element={
                                             <Posts
                                                 title={
@@ -54,17 +54,12 @@ export const Loader = () => {
                                                 keywords=""
                                                 description=""
                                                 categoryId={category.id}
-                                                categorySlug={
-                                                    category.slug[i18n.language]
-                                                }
+                                                categorySlug={category.slug}
                                             />
                                         }
                                     />
                                     <Route
-                                        path={
-                                            category.slug[i18n.language] +
-                                            "/:slug"
-                                        }
+                                        path={category.slug + "/:slug"}
                                         element={<Post />}
                                     />
                                 </Route>

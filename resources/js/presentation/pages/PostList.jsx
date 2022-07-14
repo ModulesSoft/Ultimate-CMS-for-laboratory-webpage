@@ -11,6 +11,7 @@ export const posts = ({
     categoryId,
     categorySlug,
 }) => {
+    console.log("categoryId");
     const { data, loading } = useFetchPosts({
         categoryId: categoryId,
     });
