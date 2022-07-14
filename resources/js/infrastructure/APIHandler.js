@@ -22,7 +22,7 @@ export function useFetchPost({ slug }) {
             setLoading(false);
         }
         fetchData();
-    }, []);
+    }, [slug]);
     return {
         data,
         loading,
@@ -65,7 +65,7 @@ export function useFetchPosts({ categoryId, status = "PUBLISHED" }) {
             setLoading(false);
         }
         fetchData();
-    }, [categoryId]);
+    }, [categoryId, status]);
     return {
         data,
         loading,
