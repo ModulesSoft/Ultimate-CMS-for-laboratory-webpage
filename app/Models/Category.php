@@ -24,7 +24,7 @@ class Category extends Model
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['name', 'slug', 'icon', 'parent_id'];
-    protected $translatable = ['name', 'slug'];
+    protected $translatable = ['name'];
     // protected $hidden = [];
     // protected $dates = [];
 
