@@ -18,8 +18,8 @@ class Gallery extends Model
 
     protected $table = 'gallery';
     protected $primaryKey = 'id';
-    protected $fillable = ['title', 'image', 'video'];
-    protected $translatable = ['title'];
+    protected $fillable = ['title', 'description', 'image', 'video'];
+    protected $translatable = ['title', 'description'];
 
     public static function boot()
     {

@@ -64,6 +64,7 @@ class GalleryCrudController extends CrudController
         CRUD::setValidation(GalleryRequest::class);
 
         CRUD::field('title');
+        CRUD::field('description');
         CRUD::field('image')->type('image');
         CRUD::field('video')->type('url');
         /**
