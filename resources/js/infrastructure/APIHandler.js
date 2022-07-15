@@ -89,3 +89,21 @@ export function useFetchPages() {
         loading,
     };
 }
+export function useFetchFooters() {
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        async function fetchData() {
+            await instance
+                .get("/footers")
+                .then((response) => setData(response.data))
+                .catch((error) => errorHandler(error));
+            setLoading(false);
+        }
+        fetchData();
+    }, []);
+    return {
+        data,
+        loading,
+    };
+}
