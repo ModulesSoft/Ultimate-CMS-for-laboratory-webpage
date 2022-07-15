@@ -30,7 +30,7 @@ export const Layout = () => (
                     rel="stylesheet"
                     href="https://www.w3schools.com/w3css/4/w3.css"
                 />
-                <link href="/css/app.css" rel="stylesheet" />
+                <link href="/css/style.css" rel="stylesheet" />
                 <title>Biofluids Laboratory</title>
             </Helmet>
         </head>
