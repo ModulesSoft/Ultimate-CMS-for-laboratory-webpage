@@ -61,6 +61,9 @@ Route::group(
         Route::get('users/{id}/profile', fn ($id) => User::findOrFail($id)->profile()->get())->whereNumber('id');
         Route::get('/footer/columns/', fn () => FooterColumn::all());
         Route::get('/footer/columns/{id}/rows', fn ($id) => FooterRow::where('column_id', $id)->get())->whereNumber('id');
+        // Footer All at once
+        Route::get('/footers', fn () => FooterColumn::class::with('rows')->get());
+
         // Services
         Route::post('/sendMail', EmailController::class);
     }
