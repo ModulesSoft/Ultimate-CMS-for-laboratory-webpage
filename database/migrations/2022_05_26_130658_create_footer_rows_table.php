@@ -15,7 +15,7 @@ class CreateFooterRowsTable extends Migration
     {
         Schema::create('footer_rows', function (Blueprint $table) {
             $table->id();
-            $table->string('text');
+            $table->text('text');
             $table->string('link')->nullable();
             $table->binary('base64_image')->nullable();
             $table->integer('column_id')->unsigned();
