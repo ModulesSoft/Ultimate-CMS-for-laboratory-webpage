@@ -21,6 +21,6 @@ class FooterColumn extends Model
     protected $translatable = ['title'];
     public function rows()
     {
-        return $this->hasMany(FooterRow::class);
+        return $this->hasMany(FooterRow::class, 'column_id');
     }
 }
