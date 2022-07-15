@@ -14,33 +14,48 @@ export const Page = ({ title, description, keywords, data }) => {
             <header>
                 <Header h1={title} />
             </header>
-            <section>
-                <article>
-                    <div className="w3-row w3-margin">
-                        <header>
-                            <p
-                                className="w3-row w3-padding w3-blue-grey"
+            <article>
+                {data.introduction && (
+                    <section style={{ marginTop: 0 }}>
+                        <div
+                            className="w3-container w3-blue-grey"
+                            dangerouslySetInnerHTML={{
+                                __html: data.introduction[i18n.language],
+                            }}
+                        ></div>
+                    </section>
+                )}
+                {data.sections &&
+                    data.sections.map((section) => (
+                        <section key={section.id} className="w3-container">
+                            <h3>
+                                {section.icon && (
+                                    <i className={section.icon}></i>
+                                )}
+                                <span className="w3-margin">
+                                    {section.title[i18n.language]}
+                                </span>
+                            </h3>
+                            <div
                                 dangerouslySetInnerHTML={{
                                     __html:
-                                        data.introduction &&
-                                        data.introduction[i18n.language],
+                                        section.content &&
+                                        section.content[i18n.language],
                                 }}
-                            ></p>
-                        </header>
-                        <p>...sections....</p>
-                        <footer>
-                            <p
-                                className="w3-row w3-padding w3-teal"
-                                dangerouslySetInnerHTML={{
-                                    __html:
-                                        data.conclusion &&
-                                        data.conclusion[i18n.language],
-                                }}
-                            ></p>
-                        </footer>
-                    </div>
-                </article>
-            </section>
+                            ></div>
+                        </section>
+                    ))}
+                {data.conclusion && (
+                    <footer>
+                        <div
+                            className="w3-container w3-teal"
+                            dangerouslySetInnerHTML={{
+                                __html: data.conclusion[i18n.language],
+                            }}
+                        ></div>
+                    </footer>
+                )}
+            </article>
         </>
     );
 };
