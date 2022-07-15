@@ -26,6 +26,7 @@ class GalleryRequest extends FormRequest
     {
         return [
             'title' => 'nullable|min:5|max:255',
+            'description' => 'nullable',
             'image' => 'string',
             'video' => 'nullable|string'
         ];
