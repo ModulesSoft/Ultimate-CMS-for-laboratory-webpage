@@ -10,9 +10,7 @@ export const Page = ({ title, description, keywords, data }) => {
             keywords={keywords}
             title={title}
         >
-            <header>
-                <Header h1={title} />
-            </header>
+            <Header h1={title} />
             <article>
                 {data.introduction && (
                     <section style={{ marginTop: 0 }}>
