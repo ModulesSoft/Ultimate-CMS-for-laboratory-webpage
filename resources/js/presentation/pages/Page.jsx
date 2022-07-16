@@ -1,16 +1,15 @@
 import Header from "../components/Header";
 import { useTranslation } from "react-i18next";
-import { Helmet } from "react-helmet";
+import PageWrapper from "../components/PageWrapper";
 
 export const Page = ({ title, description, keywords, data }) => {
     const { i18n } = useTranslation();
     return (
-        <>
-            <Helmet>
-                <meta name="description" content={description} />
-                <meta name="keywords" content={keywords} />
-                <title>{title}</title>
-            </Helmet>
+        <PageWrapper
+            description={description}
+            keywords={keywords}
+            title={title}
+        >
             <header>
                 <Header h1={title} />
             </header>
@@ -56,7 +55,7 @@ export const Page = ({ title, description, keywords, data }) => {
                     </footer>
                 )}
             </article>
-        </>
+        </PageWrapper>
     );
 };
 export default Page;
