@@ -9,6 +9,7 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\FooterColumn;
 use App\Models\FooterRow;
+use App\Models\Gallery;
 use App\Models\Page;
 use App\Models\Profile;
 use App\Models\Role;
@@ -43,6 +44,8 @@ Route::group(
             ->allowedFilters(['title', 'slug', 'featured', 'status', 'category_id'])
             ->with('tags')->get());
         Route::get('/slides', fn () => QueryBuilder::for(Slideshow::class)
+            ->get());
+        Route::get('/galleries', fn () => QueryBuilder::for(Gallery::class)
             ->get());
         Route::get('/pages', fn () => QueryBuilder::for(Page::class::with('sections'))
             ->allowedFilters(['slug'])->get());

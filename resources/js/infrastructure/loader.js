@@ -80,8 +80,8 @@ export const Loader = () => {
                                     />
                                 </Route>
                             ))}
-                        {/* <Route path="/gallery" element={<Gallery />} />
-                        <Route path="/profiles" element={<Profiles />} />
+                        <Route path="/gallery" element={<Gallery />} />
+                        {/* <Route path="/profiles" element={<Profiles />} />
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/page" element={<Page />} /> */}
 
