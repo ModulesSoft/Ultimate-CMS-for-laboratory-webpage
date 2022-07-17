@@ -9,10 +9,16 @@ export const Gallery = ({ title, keywords, description }) => {
     const { t, i18n } = useTranslation();
     const { data, loading } = useFetchGalleries();
     const galleries = data;
-
-    const venobox = new VenoBox({ selector: ".venobox", share: true });
+    useEffect(() => {
+        const venobox = new VenoBox({ selector: ".venobox", share: true });
+    }, [galleries]);
     return (
-        <PageWrapper title={title} keywords="" description="" loading={loading}>
+        <PageWrapper
+            title={title}
+            keywords={keywords}
+            description={description}
+            loading={loading}
+        >
             <Header h1={title} />
             <section>
                 <h2 className="w3-row w3-padding w3-blue-grey w3-round">
@@ -25,6 +31,7 @@ export const Gallery = ({ title, keywords, description }) => {
                                 key={gallery.id}
                                 className="venobox gallery__card w3-col w3-padding s3 w3-mobile"
                                 data-href={getImageUri(gallery.image)}
+                                data-gall={t("image gallery")}
                                 title={gallery.description[i18n.language]}
                             >
                                 <div className="w3-card-4 w3-round w3-center">
