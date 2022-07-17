@@ -4,7 +4,8 @@
             "last update": "Last update",
             "gallery":"Gallery",
             "image gallery":"Image Gallery",
-            "video gallery":"Video Gallery"
+            "video gallery":"Video Gallery",
+            "students": "Students"
         }
     },
     "fa_IR": {
@@ -12,7 +13,8 @@
             "last update": "آخرین بروز رسانی",
             "gallery":"گالری",
             "image gallery":"گالری تصویر",
-            "video gallery":"گالری فیلم"
+            "video gallery":"گالری فیلم",
+            "students": "دانشجویان"
         }
     }
 }

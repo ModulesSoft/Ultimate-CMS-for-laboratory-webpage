@@ -71,6 +71,15 @@ const Sidebar = () => {
                     <i className={`fa-solid fa-image`} />
                     <span className="w3-padding ">{t("gallery")}</span>
                 </NavLink>
+
+                <NavLink
+                    to="/students"
+                    className={({ isActive }) => navClasses(isActive)}
+                    style={i18n.language === "en" ? null : overrideTextAlign}
+                >
+                    <i className="fa-solid fa-book-open-reader"></i>
+                    <span className="w3-padding ">{t("students")}</span>
+                </NavLink>
             </div>
         </aside>
     );

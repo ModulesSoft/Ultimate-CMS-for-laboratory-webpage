@@ -91,6 +91,18 @@ export const Loader = () => {
                                 />
                             }
                         />
+                        <Route
+                            path="/students"
+                            element={
+                                <Profiles
+                                    title={t("students")}
+                                    keywords=""
+                                    description=""
+                                    data=""
+                                    type="students"
+                                />
+                            }
+                        />
                         {/* <Route path="/profiles" element={<Profiles />} />
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/page" element={<Page />} /> */}
