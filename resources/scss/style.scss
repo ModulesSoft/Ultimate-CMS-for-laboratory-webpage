@@ -1,3 +1,4 @@
+@import url("venobox.min.css");
 img {
     max-height: 100%;
     max-width: 100%;
@@ -28,7 +29,7 @@ img {
     margin-left: 8px;
 }
 .gallery__card {
-    width: 200px;
+    cursor: pointer;
 }
 .gallery__thumbnail {
     height: 200px;
