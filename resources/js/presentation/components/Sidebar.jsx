@@ -10,7 +10,7 @@ const Sidebar = () => {
     const { data, loading } = useFetchCategories({});
     const categories = data;
     const found = categories[0] ? true : false;
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const overrideTextAlign = {
         textAlign: "right",
     };
@@ -59,6 +59,14 @@ const Sidebar = () => {
                             </span>
                         </Link>
                     ))}
+                <Link
+                    to="/gallery"
+                    className="w3-bar-item w3-button"
+                    style={i18n.language === "en" ? null : overrideTextAlign}
+                >
+                    <i className={`fa-solid fa-image`} />
+                    <span className="w3-padding ">{t("gallery")}</span>
+                </Link>
             </div>
         </aside>
     );

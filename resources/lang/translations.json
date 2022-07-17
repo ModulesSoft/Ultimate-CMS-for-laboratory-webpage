@@ -1,12 +1,18 @@
 {
     "en": {
         "translation": {
-            "last update": "Last update"
+            "last update": "Last update",
+            "gallery":"Gallery",
+            "image gallery":"Image Gallery",
+            "video gallery":"Video Gallery"
         }
     },
     "fa_IR": {
         "translation": {
-            "last update": "آخرین بروز رسانی"
+            "last update": "آخرین بروز رسانی",
+            "gallery":"گالری",
+            "image gallery":"گالری تصویر",
+            "video gallery":"گالری فیلم"
         }
     }
 }
