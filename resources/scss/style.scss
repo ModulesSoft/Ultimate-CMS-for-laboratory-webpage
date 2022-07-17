@@ -30,6 +30,18 @@ img {
 .gallery__card {
     width: 200px;
 }
+.gallery__thumbnail {
+    height: 200px;
+    width: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.gallery__caption {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .header {
     display: flex;
     flex-direction: column;

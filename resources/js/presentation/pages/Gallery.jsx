@@ -1,236 +1,59 @@
-import Layout from "../layouts/App";
 import Header from "../components/Header";
-export const Gallery = () => (
-    <Layout
-        title="Gallery"
-        header={<Header h1="Gallery" />}
-        keywords="Gallery, articles"
-        description="Gallery page"
-    >
-        <>
+import PageWrapper from "../components/PageWrapper";
+import { useFetchGalleries } from "../../infrastructure/APIHandler";
+import { useTranslation } from "react-i18next";
+import { getThumbUri, getImageUri } from "../../application/common";
+
+export const Gallery = () => {
+    const { t, i18n } = useTranslation();
+    const { data, loading } = useFetchGalleries();
+    const galleries = data;
+    return (
+        <PageWrapper title="" keywords="" description="" loading={loading}>
+            <Header h1="Gallery" />
             <section>
                 <h2 className="w3-row w3-padding w3-blue-grey w3-round">
-                    gallery1
+                    Images
                 </h2>
                 <div className="w3-row w3-margin">
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
+                    {galleries[0] &&
+                        galleries.map((gallery) => (
+                            <div
+                                key={gallery.id}
+                                className="w3-col w3-padding s3 w3-mobile"
+                            >
+                                <a
+                                    className="venobox"
+                                    href={getImageUri(gallery.image)}
+                                >
+                                    <div className="w3-card-4 w3-round w3-center">
+                                        <img
+                                            className="gallery__thumbnail"
+                                            src={getThumbUri(
+                                                "300x300",
+                                                gallery.image
+                                            )}
+                                            alt={gallery.title[i18n.language]}
+                                            loading="lazy"
+                                        />
+                                        <div className="w3-container w3-center">
+                                            <p className="gallery__caption w3-text-dark-grey">
+                                                {gallery.title[i18n.language]}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                        ))}
                 </div>
             </section>
             <section>
                 <h2 className="w3-row w3-padding w3-blue-grey w3-round">
-                    gallery2
+                    Videos
                 </h2>
-                <div className="w3-row w3-margin">
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w3-col w3-padding l2 w3-mobile">
-                        <div className="w3-card-4 w3-round w3-center">
-                            <img
-                                src="https://www.w3schools.com/w3css/img_snowtops.jpg"
-                                alt="Alps"
-                            />
-                            <div className="w3-container w3-center">
-                                <p className="w3-text-dark-grey">
-                                    The Italian / Austrian Alps
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div className="w3-row w3-margin"></div>
             </section>
-        </>
-    </Layout>
-);
+        </PageWrapper>
+    );
+};
 export default Gallery;
