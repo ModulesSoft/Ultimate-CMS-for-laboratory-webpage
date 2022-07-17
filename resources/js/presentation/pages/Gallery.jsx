@@ -5,20 +5,18 @@ import { useTranslation } from "react-i18next";
 import { getThumbUri, getImageUri } from "../../application/common";
 import VenoBox from "venobox";
 import { useEffect } from "react";
-export const Gallery = () => {
+export const Gallery = ({ title, keywords, description }) => {
     const { t, i18n } = useTranslation();
     const { data, loading } = useFetchGalleries();
     const galleries = data;
-    useEffect(() => {
-        const venobox = new VenoBox({ selector: ".venobox", share: true });
-        console.log(venobox);
-    }, [data]);
+
+    const venobox = new VenoBox({ selector: ".venobox", share: true });
     return (
-        <PageWrapper title="" keywords="" description="" loading={loading}>
-            <Header h1="Gallery" />
+        <PageWrapper title={title} keywords="" description="" loading={loading}>
+            <Header h1={title} />
             <section>
                 <h2 className="w3-row w3-padding w3-blue-grey w3-round">
-                    Images
+                    {t("image gallery")}
                 </h2>
                 <div className="w3-row w3-margin">
                     {galleries[0] &&
@@ -51,7 +49,7 @@ export const Gallery = () => {
             </section>
             <section>
                 <h2 className="w3-row w3-padding w3-blue-grey w3-round">
-                    Videos
+                    {t("video gallery")}
                 </h2>
                 <div className="w3-row w3-margin"></div>
             </section>

@@ -80,7 +80,17 @@ export const Loader = () => {
                                     />
                                 </Route>
                             ))}
-                        <Route path="/gallery" element={<Gallery />} />
+                        <Route
+                            path="/gallery"
+                            element={
+                                <Gallery
+                                    title={t("gallery")}
+                                    keywords=""
+                                    description=""
+                                    data=""
+                                />
+                            }
+                        />
                         {/* <Route path="/profiles" element={<Profiles />} />
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/page" element={<Page />} /> */}
