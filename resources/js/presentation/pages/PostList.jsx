@@ -41,6 +41,7 @@ export const posts = ({
                                                 )}
                                                 alt={post.slug}
                                                 className="w3-round-large posts__thumbnail"
+                                                loading="lazy"
                                             />
                                         )}
                                     </div>

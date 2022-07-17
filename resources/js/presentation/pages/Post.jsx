@@ -31,6 +31,7 @@ export const Post = () => {
                                     src={getImageUri(post.image)}
                                     alt={post.slug}
                                     className="w3-round w3-margin"
+                                    loading="lazy"
                                 />
                                 <p
                                     className="w3-margin"
