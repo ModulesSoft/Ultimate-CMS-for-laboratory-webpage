@@ -1,6 +1,6 @@
 import { useFetchCategories } from "../../infrastructure/APIHandler";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const Sidebar = () => {
     const closeSidebar = () => {
         document.getElementById("main").style.marginLeft = "0%";
@@ -14,6 +14,10 @@ const Sidebar = () => {
     const overrideTextAlign = {
         textAlign: "right",
     };
+    const navClasses = (isActive) =>
+        isActive
+            ? "w3-text-teal w3-bar-item w3-button"
+            : "w3-bar-item w3-button";
     return (
         <aside>
             <div
@@ -43,10 +47,10 @@ const Sidebar = () => {
                 </Link>
                 {found &&
                     categories.map((category) => (
-                        <Link
+                        <NavLink
                             key={category.id}
                             to={`/${category.slug}`}
-                            className="w3-bar-item w3-button"
+                            className={({ isActive }) => navClasses(isActive)}
                             style={
                                 i18n.language === "en"
                                     ? null
@@ -57,16 +61,16 @@ const Sidebar = () => {
                             <span className="w3-padding ">
                                 {category.name[i18n.language]}
                             </span>
-                        </Link>
+                        </NavLink>
                     ))}
-                <Link
+                <NavLink
                     to="/gallery"
-                    className="w3-bar-item w3-button"
+                    className={({ isActive }) => navClasses(isActive)}
                     style={i18n.language === "en" ? null : overrideTextAlign}
                 >
                     <i className={`fa-solid fa-image`} />
                     <span className="w3-padding ">{t("gallery")}</span>
-                </Link>
+                </NavLink>
             </div>
         </aside>
     );
