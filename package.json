@@ -25,6 +25,7 @@
         "react-dom": "^18.2.0",
         "react-helmet": "^6.1.0",
         "react-i18next": "^11.17.4",
-        "react-router-dom": "^6.3.0"
+        "react-router-dom": "^6.3.0",
+        "venobox": "^2.0.4"
     }
 }

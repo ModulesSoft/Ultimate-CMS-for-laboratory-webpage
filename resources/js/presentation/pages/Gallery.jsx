@@ -3,11 +3,16 @@ import PageWrapper from "../components/PageWrapper";
 import { useFetchGalleries } from "../../infrastructure/APIHandler";
 import { useTranslation } from "react-i18next";
 import { getThumbUri, getImageUri } from "../../application/common";
-
+import VenoBox from "venobox";
+import { useEffect } from "react";
 export const Gallery = () => {
     const { t, i18n } = useTranslation();
     const { data, loading } = useFetchGalleries();
     const galleries = data;
+    useEffect(() => {
+        const venobox = new VenoBox({ selector: ".venobox", share: true });
+        console.log(venobox);
+    }, [data]);
     return (
         <PageWrapper title="" keywords="" description="" loading={loading}>
             <Header h1="Gallery" />
@@ -20,29 +25,26 @@ export const Gallery = () => {
                         galleries.map((gallery) => (
                             <div
                                 key={gallery.id}
-                                className="w3-col w3-padding s3 w3-mobile"
+                                className="venobox gallery__card w3-col w3-padding s3 w3-mobile"
+                                data-href={getImageUri(gallery.image)}
+                                title={gallery.description[i18n.language]}
                             >
-                                <a
-                                    className="venobox"
-                                    href={getImageUri(gallery.image)}
-                                >
-                                    <div className="w3-card-4 w3-round w3-center">
-                                        <img
-                                            className="gallery__thumbnail"
-                                            src={getThumbUri(
-                                                "300x300",
-                                                gallery.image
-                                            )}
-                                            alt={gallery.title[i18n.language]}
-                                            loading="lazy"
-                                        />
-                                        <div className="w3-container w3-center">
-                                            <p className="gallery__caption w3-text-dark-grey">
-                                                {gallery.title[i18n.language]}
-                                            </p>
-                                        </div>
+                                <div className="w3-card-4 w3-round w3-center">
+                                    <img
+                                        className="gallery__thumbnail"
+                                        src={getThumbUri(
+                                            "300x300",
+                                            gallery.image
+                                        )}
+                                        alt={gallery.title[i18n.language]}
+                                        loading="lazy"
+                                    />
+                                    <div className="w3-container w3-center">
+                                        <p className="w3-text-teal gallery__caption ">
+                                            {gallery.title[i18n.language]}
+                                        </p>
                                     </div>
-                                </a>
+                                </div>
                             </div>
                         ))}
                 </div>
