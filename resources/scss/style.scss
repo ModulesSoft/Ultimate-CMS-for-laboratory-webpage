@@ -63,7 +63,7 @@ img {
 .w3-padding-0 {
     padding: 0 !important;
 }
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 768px) {
     h1 {
         font-size: 1.5rem;
     }
@@ -102,11 +102,6 @@ section {
 }
 .featured--color-background:before {
     background: teal;
-}
-@media screen and (max-width: 768px) {
-    nav span {
-        display: none;
-    }
 }
 
 // posts scroll effect

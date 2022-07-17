@@ -25,7 +25,10 @@ const Navbar = () => {
         document.getElementById("mySidebar").style.display = "block";
         document.getElementById("myOverlay").style.display = "inline-block";
     };
-
+    const navClasses = (isActive) =>
+        isActive
+            ? "w3-teal w3-bar-item w3-button w3-hover-teal w3-hover-teal"
+            : "w3-bar-item w3-button w3-hover-teal w3-hover-teal";
     return loading ? (
         <Loading />
     ) : (
@@ -43,7 +46,7 @@ const Navbar = () => {
                     <NavLink
                         key={key}
                         to={"/page/" + page.slug}
-                        className="w3-bar-item w3-button w3-hover-teal w3-hover-teal"
+                        className={({ isActive }) => navClasses(isActive)}
                         style={i18n.language === "en" ? null : overrideBarItem}
                     >
                         {/* <i className="fa-solid fa-bread-slice" /> */}
