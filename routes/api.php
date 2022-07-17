@@ -58,7 +58,7 @@ Route::group(
                 $supervisor_roles = explode(',', env('SUPERVISOR_ROLES'));
                 array_push($supervisor_roles, 'admin');
                 $query->whereNotIn('name', $supervisor_roles);
-            })->with('profile')
+            })->with('profile', 'roles')
         )->allowedFilters(['name', 'role'])->get());
         Route::get('/roles', fn () => Role::where('name', '!=', 'admin')->get());
         Route::get('users/{id}/profile', fn ($id) => User::findOrFail($id)->profile()->get())->whereNumber('id');
