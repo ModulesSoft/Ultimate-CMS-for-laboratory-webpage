@@ -25,15 +25,15 @@ class Profile extends Model
         'status', 'user_id', 'tags'
     ];
     protected $translatable = ['name', 'research_title', 'research_text'];
-
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function users()
+    public function supervisors()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->whereIn('user_id', (new \App\Models\User)->getSupervisors()->pluck('id')->toArray());
     }
+
     public function scopePublished($query)
     {
         return $query->where('status', 'PUBLISHED')

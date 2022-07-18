@@ -48,7 +48,7 @@ class ProfileCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('name');
-        CRUD::column('user_id')->label('supervisors');
+        CRUD::column('supervisors');
         CRUD::column('research_title');
         CRUD::column('status');
         CRUD::column('tags');
@@ -77,19 +77,9 @@ class ProfileCrudController extends CrudController
         CRUD::field('research_title')->type('text');
         CRUD::field('research_text')->type('textarea');
         CRUD::field('status')->type('enum');
-        CRUD::addField(
-            [
-                'name'      => 'users', // the db column for the foreign key
-                'label'     => 'supervisors',
-                'model'     => 'App\Models\User',
-                'entity'    => 'users',
-                'pivot'     => true,
-                'options'   => (function () {
-                    return (new \App\Models\User)->getSupervisors();
-                }),
-            ]
-
-        );
+        CRUD::field('supervisors')->options((function () {
+            return (new \App\Models\User)->getSupervisors();
+        }));
         CRUD::field('tags');
 
         /**
