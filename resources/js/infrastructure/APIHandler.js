@@ -132,7 +132,7 @@ export function useFetchProfiles({ type, status = "PUBLISHED" }) {
     useEffect(() => {
         async function fetchData() {
             await instance
-                .get("/students", {
+                .get("/students/profiles", {
                     // params: {
                     //     "filter[status]": status,
                     //     "filter[category_id]": categoryId,

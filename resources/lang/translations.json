@@ -5,7 +5,9 @@
             "gallery":"Gallery",
             "image gallery":"Image Gallery",
             "video gallery":"Video Gallery",
-            "students": "Students"
+            "students": "Students",
+            "profiles": "Profiles",
+            "supervisors" : "Suprevisors:"
         }
     },
     "fa_IR": {
@@ -14,7 +16,9 @@
             "gallery":"گالری",
             "image gallery":"گالری تصویر",
             "video gallery":"گالری فیلم",
-            "students": "دانشجویان"
+            "students": "دانشجویان",
+            "profiles": "پروفایل",
+            "supervisors" : "اساتید راهنما: "
         }
     }
 }
