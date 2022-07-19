@@ -7,7 +7,9 @@
             "video gallery":"Video Gallery",
             "students": "Students",
             "profiles": "Profiles",
-            "supervisors" : "Suprevisors: "
+            "supervisors" : "Suprevisors: ",
+            "research title":"Research Title: ",
+            "research text":"Research Details: "
         }
     },
     "fa_IR": {
@@ -18,7 +20,9 @@
             "video gallery":"گالری فیلم",
             "students": "دانشجویان",
             "profiles": "پروفایل",
-            "supervisors" : "اساتید راهنما: "
+            "supervisors" : "اساتید راهنما: ",
+            "research title":"موضوع پژوهش: ",
+            "research text":"جزییات پژوهش: "
         }
     }
 }

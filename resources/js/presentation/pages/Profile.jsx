@@ -1,64 +1,89 @@
-import Layout from "../layouts/App";
-export const Profile = () => (
-    <Layout title="profile" header={<></>} keywords="" description="">
-        <section>
-            <div className="w3-card-4 w3-center w3-padding w3-mobile">
-                <a href="#">
-                    <img
-                        src="https://www.w3schools.com/w3css/img_avatar3.png"
-                        alt="Alps"
-                        className="w3-left w3-round profile__thumbnail"
-                    />
-                </a>
-                <div className="w3-container w3-right w3-margin">
-                    <h3 className="w3-left w3-green w3-round w3-badge">
-                        MSc Student
-                    </h3>
-                    <hr />
-                    <strong>Supervisor: Jane Doe</strong>
-                </div>
-                <div className="w3-container">
-                    <article>
-                        <h2>
-                            Reasearch Title: Lorem, ipsum dolor sit amet
-                            consectetur adipisicing elit. Id illo similique
-                            aliquid consequatur quo deserunt ab dignissimos at
-                            atque, ratione necessitatibus esse distinctio odit
-                            perspiciatis maiores tempore doloribus totam modi?
-                        </h2>
-                        <hr />
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Minima repellendus fugiat, voluptatum suscipit
-                            vel inventore excepturi quisquam impedit minus
-                            explicabo ducimus eligendi non molestias labore iure
-                            eos placeat provident ut dolore, dolor mollitia
-                            magni voluptatibus delectus? Impedit, reiciendis
-                            natus asperiores ad ab error. Id qui tempora omnis
-                            magni recusandae velit!
-                        </p>
-                        <hr />
-                        <footer className="w3-container">
-                            <h5 className="w3-tag w3-teal w3-round">
-                                keywords
-                            </h5>
-                            <h5 className="w3-tag w3-teal w3-round">
-                                keywords
-                            </h5>
-                            <h5 className="w3-tag w3-teal w3-round">
-                                keywords
-                            </h5>
-                            <h5 className="w3-tag w3-teal w3-round">
-                                keywords
-                            </h5>
-                            <h5 className="w3-tag w3-teal w3-round">
-                                keywords
-                            </h5>
-                        </footer>
-                    </article>
-                </div>
-            </div>
-        </section>
-    </Layout>
-);
+import PageWrapper from "../components/PageWrapper";
+import { useTranslation } from "react-i18next";
+import { getImageUri } from "../../application/common";
+import { useLocation } from "react-router-dom";
+
+export const Profile = () => {
+    const { t, i18n } = useTranslation();
+    const location = useLocation();
+    const loading = false;
+    if (location.state) {
+        // if the data is passed through profile list
+        var { profile } = location.state;
+        console.log(profile);
+    } else {
+        console.log("profile");
+    }
+    return (
+        <PageWrapper loading={loading} title="" description="" keywords="">
+            {profile && (
+                <section>
+                    <div className="w3-card-4 w3-center w3-padding w3-mobile">
+                        <a href="#">
+                            <img
+                                src={getImageUri(profile.image)}
+                                alt="Alps"
+                                className="w3-left w3-round profile__thumbnail"
+                                loading="lazy"
+                            />
+                        </a>
+                        <div className="w3-container w3-right w3-margin">
+                            <h3 className="w3-center w3-green w3-round w3-badge">
+                                {profile.user.roles[0] &&
+                                    profile.user.roles[0].name}
+                            </h3>
+                            <div>
+                                <strong>
+                                    <hr />
+                                    {t("supervisors")}
+                                    {profile.supervisors.map(
+                                        (supervisor, index) =>
+                                            index !==
+                                            profile.supervisors.length - 1
+                                                ? supervisor.name[
+                                                      i18n.language
+                                                  ] + ", "
+                                                : supervisor.name[i18n.language]
+                                    )}
+                                    <hr />
+                                </strong>
+                            </div>
+                        </div>
+                        <div className="w3-container">
+                            <article>
+                                <h2>
+                                    {t("research title")}
+                                    {profile.research_title[i18n.language]}
+                                </h2>
+                                <hr />
+                                <p>
+                                    {t("research text")}
+                                    {profile.research_text[i18n.language]}
+                                </p>
+                                <hr />
+                                <footer className="w3-container">
+                                    <h5 className="w3-tag w3-teal w3-round">
+                                        keywords
+                                    </h5>
+                                    <h5 className="w3-tag w3-teal w3-round">
+                                        keywords
+                                    </h5>
+                                    <h5 className="w3-tag w3-teal w3-round">
+                                        keywords
+                                    </h5>
+                                    <h5 className="w3-tag w3-teal w3-round">
+                                        keywords
+                                    </h5>
+                                    <h5 className="w3-tag w3-teal w3-round">
+                                        keywords
+                                    </h5>
+                                </footer>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            )}
+        </PageWrapper>
+    );
+};
 export default Profile;

@@ -63,7 +63,10 @@ export const Profiles = ({ title, keywords, description, type }) => {
                                     }`}
                                 >
                                     <div className="w3-card-4 w3-round w3-center w3-mobile">
-                                        <Link to={profile.user.name["en"]}>
+                                        <Link
+                                            to={profile.user.name["en"]}
+                                            state={{ profile: profile }}
+                                        >
                                             <img
                                                 src={getThumbUri(
                                                     "300x300",
