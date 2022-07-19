@@ -40,7 +40,7 @@ export const Loader = () => {
                 />
                 <Routes>
                     <Route path="/">
-                        <Route index path="" element={<Landing />} />
+                        <Route index element={<Landing />} />
                         {found &&
                             categories.map((category, index) => (
                                 <Route key={index}>
@@ -58,10 +58,7 @@ export const Loader = () => {
                                             />
                                         }
                                     />
-                                    <Route
-                                        path={category.slug + "/:slug"}
-                                        element={<Post />}
-                                    />
+                                    <Route path={":slug"} element={<Post />} />
                                 </Route>
                             ))}
                         {found &&
@@ -91,21 +88,31 @@ export const Loader = () => {
                                 />
                             }
                         />
-                        <Route
-                            path="/students"
-                            element={
-                                <Profiles
-                                    title={t("students")}
-                                    keywords=""
-                                    description=""
-                                    data=""
-                                    type="students"
-                                />
-                            }
-                        />
-                        {/* <Route path="/profiles" element={<Profiles />} />
-                        <Route path="/profile" element={<Profile />} />
-                        <Route path="/page" element={<Page />} /> */}
+                        <Route path="/students">
+                            <Route
+                                index
+                                element={
+                                    <Profiles
+                                        title={t("students")}
+                                        keywords=""
+                                        description=""
+                                        data=""
+                                        type="students"
+                                    />
+                                }
+                            />
+                            <Route
+                                path=":student"
+                                element={
+                                    <Profile
+                                        title=""
+                                        keywords=""
+                                        description=""
+                                        data=""
+                                    ></Profile>
+                                }
+                            />
+                        </Route>
 
                         <Route path="*" element={<NotFound />} />
                     </Route>
