@@ -25,7 +25,6 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:5',
             'image' => 'required',
             'status' => 'min:2',
             'research_title' => 'required|min:2|max:255',

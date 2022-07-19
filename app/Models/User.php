@@ -5,11 +5,13 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class User extends Authenticatable
 {
     use HasRoles;
     use CrudTrait;
+    use HasTranslations;
     /**
      * The attributes that are mass assignable.
      *
@@ -18,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
+    protected $translatable = ['name'];
 
     /**
      * The attributes that should be hidden for arrays.

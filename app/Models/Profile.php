@@ -21,10 +21,10 @@ class Profile extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'name', 'image', 'research_title', 'research_text',
+        'image', 'research_title', 'research_text',
         'status', 'user_id', 'tags'
     ];
-    protected $translatable = ['name', 'research_title', 'research_text'];
+    protected $translatable = ['research_title', 'research_text'];
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -55,6 +55,14 @@ class Profile extends Model
         static::deleted(function ($obj) {
             \Storage::disk('public')->delete($obj->image);
         });
+    }
+    public function getNameAttribute()
+    {
+        $user = new User;
+        $name = $user->whereHas('profile', function ($q) {
+            $q->where('id', $this->id);
+        })->first()->name;
+        return $name;
     }
     public function setImageAttribute($value)
     {

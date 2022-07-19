@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\ProfileRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use App\Models\User;
 
 /**
  * Class ProfileCrudController
@@ -72,13 +73,15 @@ class ProfileCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(ProfileRequest::class);
-        CRUD::field('name');
+        CRUD::field('name')->attributes(([
+            'readonly' => 'readonly'
+        ]))->type('text');
         CRUD::field('image')->type('image');
         CRUD::field('research_title')->type('text');
         CRUD::field('research_text')->type('textarea');
         CRUD::field('status')->type('enum');
         CRUD::field('supervisors')->options((function () {
-            return (new \App\Models\User)->getSupervisors();
+            return (new User)->getSupervisors();
         }));
         CRUD::field('tags');
 
