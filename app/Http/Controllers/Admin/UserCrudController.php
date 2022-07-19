@@ -67,6 +67,20 @@ class UserCrudController extends CrudController
     public function setupUpdateOperation()
     {
         $this->addUserFields();
+        CRUD::removeFields(
+            [
+                'name'  => 'password',
+                'type'  => 'password',
+            ]
+        );
+        CRUD::removeFields(
+
+            [
+                'name'  => 'password_confirmation',
+                'label' => 'Confirm Password',
+                'type'  => 'password',
+            ]
+        );
         CRUD::setValidation(UpdateRequest::class);
     }
     protected function setupDeleteOperation()
