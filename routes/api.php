@@ -62,7 +62,7 @@ Route::group(
                         array_push($supervisor_roles, 'admin');
                         $query2->whereNotIn('name', $supervisor_roles);
                     });
-                })->with('user.roles')
+                })->with('user.roles', 'supervisors')
             )->allowedFilters(['user.roles.id', 'user.roles.name'])->orderBy('lft', 'asc')->get()
         );
         // Route::get('/students', fn () => QueryBuilder::for(
