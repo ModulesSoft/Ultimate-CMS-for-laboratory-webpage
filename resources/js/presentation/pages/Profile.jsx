@@ -1,8 +1,8 @@
 import PageWrapper from "../components/PageWrapper";
 import { useTranslation } from "react-i18next";
 import { getImageUri } from "../../application/common";
-import { useLocation } from "react-router-dom";
-
+import { useLocation, useParams } from "react-router-dom";
+import { useFetchProfile } from "../../infrastructure/APIHandler";
 export const Profile = () => {
     const { t, i18n } = useTranslation();
     const location = useLocation();
@@ -10,9 +10,9 @@ export const Profile = () => {
     if (location.state) {
         // if the data is passed through profile list
         var { profile } = location.state;
-        console.log(profile);
     } else {
-        console.log("profile");
+        const { student } = useParams();
+        console.log(useFetchProfile({ user: student }));
     }
     return (
         <PageWrapper loading={loading} title="" description="" keywords="">
