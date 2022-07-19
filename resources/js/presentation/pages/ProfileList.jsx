@@ -57,6 +57,7 @@ export const Profiles = ({ title, keywords, description, type }) => {
                                             )}
                                             className="profiles__thumbnail"
                                             alt={profile.name[i18n.language]}
+                                            loading="lazy"
                                         />
                                     </a>
                                     <div className="w3-container w3-padding">
