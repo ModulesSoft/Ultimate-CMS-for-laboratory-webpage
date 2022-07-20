@@ -52,7 +52,7 @@ Route::group(
         Route::get('/categories', fn () => QueryBuilder::for(Category::class)
             ->orderBy('lft')->allowedFilters(['slug'])->get());
         Route::get('/settings', fn () => QueryBuilder::for(Setting::class)
-            ->allowedFilters(['key'])->get());
+            ->allowedFilters(['key'])->first());
         Route::get(
             '/students/profiles',
             fn () => QueryBuilder::for(
