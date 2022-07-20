@@ -62,8 +62,8 @@ Route::group(
                         array_push($supervisor_roles, 'admin');
                         $query2->whereNotIn('name', $supervisor_roles);
                     });
-                })->with('user.roles', 'supervisors')
-            )->allowedFilters(['user.roles.id', 'user.roles.name'])->orderBy('lft', 'asc')->get()
+                })->with('user.roles', 'supervisors', 'tags')
+            )->allowedFilters(['user.roles.id', 'user.roles.name', 'tags'])->orderBy('lft', 'asc')->get()
         );
         // Route::get('/students', fn () => QueryBuilder::for(
         //     User::whereHas('roles', function ($query) {
@@ -73,7 +73,7 @@ Route::group(
         //     })->with(['profile.supervisors', 'roles'])
         // )->allowedFilters(['name', 'roles'])->get());
         Route::get('/roles', fn () => Role::where('name', '!=', 'admin')->get());
-        Route::get('/users/{name}/profile', fn ($name) => User::where('name', 'like', "%" . $name . "%")->first()->profile()->with('tags')->first())->where('name', '[a-zA-Z][a-zA-Z ]+');
+        Route::get('/users/{name}/profile', fn ($name) => User::where('name', 'like', "%" . $name . "%")->first()->profile()->with('user.roles', 'supervisors', 'tags')->first())->where('name', '[a-zA-Z][a-zA-Z ]+');
         Route::get('/footer/columns/', fn () => FooterColumn::all());
         Route::get('/footer/columns/{id}/rows', fn ($id) => FooterRow::where('column_id', $id)->get())->whereNumber('id');
         // Footer All at once
