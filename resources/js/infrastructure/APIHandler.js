@@ -172,3 +172,25 @@ export function useFetchProfile({ user, status = "PUBLISHED" }) {
         loading,
     };
 }
+export function useFetchSetting({ key }) {
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        async function fetchData() {
+            await instance
+                .get("/settings", {
+                    params: {
+                        "filter[key]": key,
+                    },
+                })
+                .then((response) => setData(response.data))
+                .catch((error) => errorHandler(error));
+            setLoading(false);
+        }
+        fetchData();
+    }, [key]);
+    return {
+        data,
+        loading,
+    };
+}
