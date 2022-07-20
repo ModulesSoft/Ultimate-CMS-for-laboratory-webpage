@@ -41,13 +41,13 @@ Route::group(
         // Route::get('/articles/{id}',  fn ($id) => Article::findOrFail($id)->get())->whereNumber('id');
 
         Route::get('/articles', fn () => QueryBuilder::for(Article::class)
-            ->allowedFilters(['title', 'slug', 'featured', 'status', 'category_id'])
-            ->with('tags')->get());
+            ->allowedFilters(['title', 'slug', 'featured', 'status', 'category_id', 'tags'])
+            ->orderBy('lft')->with('tags')->get());
         Route::get('/slides', fn () => QueryBuilder::for(Slideshow::class)
-            ->get());
+            ->orderBy('lft')->get());
         Route::get('/galleries', fn () => QueryBuilder::for(Gallery::class)
-            ->get());
-        Route::get('/pages', fn () => QueryBuilder::for(Page::class::with('sections'))
+            ->orderBy('lft')->get());
+        Route::get('/pages', fn () => QueryBuilder::for(Page::class::orderBy('lft')->with(['sections.tags', 'sections' => fn ($q) => $q->where('status', 'PUBLISHED')->orderBy('lft')]))
             ->allowedFilters(['slug'])->get());
         Route::get('/categories', fn () => QueryBuilder::for(Category::class)
             ->orderBy('lft')->allowedFilters(['slug'])->get());
@@ -62,8 +62,8 @@ Route::group(
                         array_push($supervisor_roles, 'admin');
                         $query2->whereNotIn('name', $supervisor_roles);
                     });
-                })->with('user.roles', 'supervisors', 'tags')
-            )->allowedFilters(['user.roles.id', 'user.roles.name', 'tags'])->orderBy('lft', 'asc')->get()
+                })->where('status', 'PUBLISHED')->with('user.roles', 'supervisors', 'tags')
+            )->allowedFilters(['user.roles.id', 'user.roles.name', 'tags'])->orderBy('lft')->get()
         );
         // Route::get('/students', fn () => QueryBuilder::for(
         //     User::whereHas('roles', function ($query) {
@@ -74,10 +74,10 @@ Route::group(
         // )->allowedFilters(['name', 'roles'])->get());
         Route::get('/roles', fn () => Role::where('name', '!=', 'admin')->get());
         Route::get('/users/{name}/profile', fn ($name) => User::where('name', 'like', "%" . $name . "%")->first()->profile()->with('user.roles', 'supervisors', 'tags')->first())->where('name', '[a-zA-Z][a-zA-Z ]+');
-        Route::get('/footer/columns/', fn () => FooterColumn::all());
-        Route::get('/footer/columns/{id}/rows', fn ($id) => FooterRow::where('column_id', $id)->get())->whereNumber('id');
+        Route::get('/footer/columns/', fn () => FooterColumn::orderBy('lft')->get());
+        Route::get('/footer/columns/{id}/rows', fn ($id) => FooterRow::orderBy('lft')->where('column_id', $id)->get())->whereNumber('id');
         // Footer All at once
-        Route::get('/footers', fn () => FooterColumn::class::with('rows')->get());
+        Route::get('/footers', fn () => FooterColumn::class::orderBy('lft')->with('rows', fn ($q) => $q->orderBy('lft'))->get());
 
         // Services
         Route::post('/sendMail', EmailController::class);
