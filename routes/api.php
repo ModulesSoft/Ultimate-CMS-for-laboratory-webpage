@@ -62,8 +62,19 @@ Route::group(
                         array_push($supervisor_roles, 'admin');
                         $query2->whereNotIn('name', $supervisor_roles);
                     });
-                })->where('status', 'PUBLISHED')->with('user.roles', 'supervisors', 'tags')
-            )->allowedFilters(['user.roles.id', 'user.roles.name', 'tags'])->orderBy('lft')->get()
+                })->with('user.roles', 'supervisors', 'tags')
+            )->allowedFilters(['status', 'user.roles.id', 'user.roles.name', 'tags'])->orderBy('lft')->get()
+        );
+        Route::get(
+            '/professors/profiles',
+            fn () => QueryBuilder::for(
+                Profile::whereHas('user', function ($query1) {
+                    $query1->whereHas('roles', function ($query2) {
+                        $supervisor_roles = explode(',', env('SUPERVISOR_ROLES'));
+                        $query2->whereIn('name', $supervisor_roles);
+                    });
+                })->with('user.roles', 'supervisors', 'tags')
+            )->allowedFilters(['status', 'user.roles.id', 'user.roles.name', 'tags'])->orderBy('lft')->get()
         );
         // Route::get('/students', fn () => QueryBuilder::for(
         //     User::whereHas('roles', function ($query) {
