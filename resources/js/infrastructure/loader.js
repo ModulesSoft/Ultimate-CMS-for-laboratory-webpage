@@ -13,7 +13,7 @@ import { useFetchPages } from "./APIHandler";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "../presentation/components/404";
 import { useTranslation } from "react-i18next";
-
+import Footer from "../presentation/components/Footer";
 export const Loader = () => {
     let { data } = useFetchCategories({});
     const categories = data;
@@ -118,6 +118,7 @@ export const Loader = () => {
                     </Route>
                 </Routes>
             </main>
+            <Footer />
         </BrowserRouter>
     );
 };

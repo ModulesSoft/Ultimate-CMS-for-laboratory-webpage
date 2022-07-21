@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import Loader from "../../infrastructure/loader";
 import { Helmet } from "react-helmet";
 export const Layout = () => (
@@ -36,7 +35,6 @@ export const Layout = () => (
         </head>
         <body className="w3-lightgrey">
             <Loader />
-            <Footer />
         </body>
     </>
 );
