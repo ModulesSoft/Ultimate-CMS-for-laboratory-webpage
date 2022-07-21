@@ -1,9 +1,14 @@
 import Slideshow from "../components/Slideshow";
 import LandingHeader from "../components/LandingHeader";
 import PageWrapper from "../components/PageWrapper";
-import { useFetchPosts, useFetchSlides } from "../../infrastructure/APIHandler";
+import {
+    useFetchPosts,
+    useFetchSlides,
+    useFetchProfiles,
+} from "../../infrastructure/APIHandler";
 import { useTranslation } from "react-i18next";
 export const Landing = () => {
+    const { t, i18n } = useTranslation();
     let { data, loading } = useFetchSlides();
     const slides = data;
     ({ data, loading } = useFetchPosts({
@@ -14,8 +19,11 @@ export const Landing = () => {
         var featuredPostsFirstRow = featuredPosts.slice(0, 2);
         var featuredPostsSecondRow = featuredPosts.slice(2, 5);
     }
-    const { t, i18n } = useTranslation();
-    console.log(featuredPosts);
+    ({ data, loading } = useFetchProfiles({
+        type: "professors",
+    }));
+    const professors = data;
+    console.log(professors);
     return (
         <PageWrapper
             keywords=""

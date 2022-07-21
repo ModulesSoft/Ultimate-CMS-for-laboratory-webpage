@@ -133,11 +133,10 @@ export function useFetchProfiles({ type, status = "PUBLISHED" }) {
     useEffect(() => {
         async function fetchData() {
             await instance
-                .get("/students/profiles", {
-                    // params: {
-                    //     "filter[status]": status,
-                    //     "filter[category_id]": categoryId,
-                    // },
+                .get(`/${type}/profiles`, {
+                    params: {
+                        "filter[status]": status,
+                    },
                 })
                 .then((response) => setData(response.data))
                 .catch((error) => errorHandler(error));
@@ -150,6 +149,7 @@ export function useFetchProfiles({ type, status = "PUBLISHED" }) {
         loading,
     };
 }
+
 export function useFetchProfile({ user, status = "PUBLISHED" }) {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
