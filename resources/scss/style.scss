@@ -85,7 +85,14 @@ section {
     position: relative;
     padding: 1rem;
 }
-
+.featured__text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .featured:before {
     content: "";
     position: absolute;

@@ -48,7 +48,7 @@ export function useFetchCategories() {
     };
 }
 
-export function useFetchPosts({ categoryId, status = "PUBLISHED" }) {
+export function useFetchPosts({ categoryId, status = "PUBLISHED", featured }) {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -58,6 +58,7 @@ export function useFetchPosts({ categoryId, status = "PUBLISHED" }) {
                     params: {
                         "filter[status]": status,
                         "filter[category_id]": categoryId,
+                        "filter[featured]": featured,
                     },
                 })
                 .then((response) => setData(response.data))
