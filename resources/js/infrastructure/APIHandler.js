@@ -194,3 +194,21 @@ export function useFetchSetting({ key }) {
         loading,
     };
 }
+export function useFetchSlides() {
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        async function fetchData() {
+            await instance
+                .get("/slides", {})
+                .then((response) => setData(response.data))
+                .catch((error) => errorHandler(error));
+            setLoading(false);
+        }
+        fetchData();
+    }, []);
+    return {
+        data,
+        loading,
+    };
+}
