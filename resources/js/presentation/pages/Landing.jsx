@@ -1,8 +1,10 @@
 import Slideshow from "../components/Slideshow";
 import LandingHeader from "../components/LandingHeader";
 import PageWrapper from "../components/PageWrapper";
+import { useFetchSlides } from "../../infrastructure/APIHandler";
 export const Landing = () => {
-    const loading = false;
+    const { data, loading } = useFetchSlides();
+    const slides = data;
     return (
         <PageWrapper
             keywords=""
@@ -14,7 +16,7 @@ export const Landing = () => {
                 p="Amirkabir University of Technology"
                 h1="Biofluids laboratory"
             />
-            <Slideshow />
+            {slides[0] && <Slideshow slides={slides} />}
             <section id="featured-2">
                 <div className="featured featured--color-background w3-light-grey">
                     <h2 className="w3-text-dark-grey">
