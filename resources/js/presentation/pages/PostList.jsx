@@ -1,5 +1,4 @@
 import { useFetchPosts } from "../../infrastructure/APIHandler";
-import Header from "../components/Header";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getThumbUri } from "../../application/common";
@@ -22,10 +21,9 @@ export const posts = ({
             description={description}
             keywords={keywords}
             title={title}
+            header={title}
             loading={loading}
         >
-            <Header h1={title} />
-
             <article className="w3-container">
                 {posts[0] &&
                     posts.map((post) => (

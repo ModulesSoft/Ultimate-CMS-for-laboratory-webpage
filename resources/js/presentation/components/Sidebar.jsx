@@ -1,15 +1,11 @@
-import { useFetchCategories } from "../../infrastructure/APIHandler";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink } from "react-router-dom";
-const Sidebar = () => {
+const Sidebar = ({ categories }) => {
     const closeSidebar = () => {
         document.getElementById("main").style.marginLeft = "0%";
         document.getElementById("mySidebar").style.display = "none";
         document.getElementById("myOverlay").style.display = "none";
     };
-    const { data, loading } = useFetchCategories({});
-    const categories = data;
-    const found = categories[0] ? true : false;
     const { t, i18n } = useTranslation();
     const overrideTextAlign = {
         textAlign: "right",
@@ -45,7 +41,7 @@ const Sidebar = () => {
                         alt="logo"
                     />
                 </Link>
-                {found &&
+                {categories[0] &&
                     categories.map((category) => (
                         <NavLink
                             key={category.id}

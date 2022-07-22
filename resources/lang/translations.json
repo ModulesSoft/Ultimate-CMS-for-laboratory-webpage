@@ -9,7 +9,10 @@
             "profiles": "Profiles",
             "supervisors" : "Suprevisors: ",
             "faculty":"Faculty",
-            "more":"more"
+            "more":"more",
+            "featured first row":"Latest News",
+            "featured second row":"Latest Articles",
+            "contact us":"Contact Us"
         }
     },
     "fa_IR": {
@@ -22,7 +25,10 @@
             "profiles": "پروفایل",
             "supervisors" : "اساتید راهنما: ",
             "faculty":"اساتید",
-            "more":"بیشتر"
+            "more":"بیشتر",
+            "featured first row":"آخرین اخبار",
+            "featured second row":"آخرین مطالب",
+            "contact us":"تماس با ما"
         }
     }
 }
