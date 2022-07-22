@@ -101,22 +101,28 @@ export const Profiles = ({ title, keywords, description, type }) => {
                                                     profile.user.roles[0].name}
                                             </span>
                                             <hr />
-                                            <strong>
-                                                {t("supervisors")}
-                                                {profile.supervisors.map(
-                                                    (supervisor, index) =>
-                                                        index !==
-                                                        profile.supervisors
-                                                            .length -
-                                                            1
-                                                            ? supervisor.name[
-                                                                  i18n.language
-                                                              ] + ", "
-                                                            : supervisor.name[
-                                                                  i18n.language
-                                                              ]
-                                                )}
-                                            </strong>
+                                            {profile.supervisors[0] && (
+                                                <strong>
+                                                    {t("supervisors")}
+                                                    {profile.supervisors.map(
+                                                        (supervisor, index) =>
+                                                            index !==
+                                                            profile.supervisors
+                                                                .length -
+                                                                1
+                                                                ? supervisor
+                                                                      .name[
+                                                                      i18n
+                                                                          .language
+                                                                  ] + ", "
+                                                                : supervisor
+                                                                      .name[
+                                                                      i18n
+                                                                          .language
+                                                                  ]
+                                                    )}
+                                                </strong>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

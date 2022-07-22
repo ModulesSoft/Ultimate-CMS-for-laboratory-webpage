@@ -102,7 +102,7 @@ export const Loader = () => {
                                 }
                             />
                             <Route
-                                path=":student"
+                                path=":user"
                                 element={
                                     <Profile
                                         title=""
@@ -114,6 +114,31 @@ export const Loader = () => {
                             />
                         </Route>
 
+                        <Route path="/faculty">
+                            <Route
+                                index
+                                element={
+                                    <Profiles
+                                        title={t("faculty")}
+                                        keywords=""
+                                        description=""
+                                        data=""
+                                        type="professors"
+                                    />
+                                }
+                            />
+                            <Route
+                                path=":user"
+                                element={
+                                    <Profile
+                                        title=""
+                                        keywords=""
+                                        description=""
+                                        data=""
+                                    ></Profile>
+                                }
+                            />
+                        </Route>
                         <Route path="*" element={<NotFound />} />
                     </Route>
                 </Routes>
