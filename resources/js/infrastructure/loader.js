@@ -43,9 +43,9 @@ export const Loader = () => {
                         <Route index element={<Landing />} />
                         {found &&
                             categories.map((category, index) => (
-                                <Route key={index}>
+                                <Route key={index} path={category.slug}>
                                     <Route
-                                        path={category.slug}
+                                        index
                                         element={
                                             <Posts
                                                 title={
@@ -57,7 +57,7 @@ export const Loader = () => {
                                                 categorySlug={category.slug}
                                             />
                                         }
-                                    />
+                                    ></Route>
                                     <Route path={":slug"} element={<Post />} />
                                 </Route>
                             ))}
