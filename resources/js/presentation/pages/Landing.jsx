@@ -42,7 +42,7 @@ export const Landing = () => {
                     <h2 className="w3-text-dark-grey">
                         <i className="fa-solid fa-star" />
                         <span className="w3-padding">
-                            {t("featuredPostsFirstRow")}
+                            {t("featured first row")}
                         </span>
                     </h2>
                     <div className="w3-cell w3-mobile-row">
@@ -82,7 +82,7 @@ export const Landing = () => {
                     <h2 className="w3-text-dark-grey">
                         <i className="fa-solid fa-bolt" />
                         <span className="w3-padding">
-                            {t("featuredPostsSecondRow")}
+                            {t("featured second row")}
                         </span>
                     </h2>
                     <div className="w3-cell w3-mobile-row">
@@ -178,7 +178,7 @@ export const Landing = () => {
                 <div className="w3-padding-large w3-light-grey">
                     <h2 className="w3-text-dark-grey">
                         <i className="fa-solid fa-pen-to-square" />
-                        <span className="w3-padding">{t("contactUs")}</span>
+                        <span className="w3-padding">{t("contact us")}</span>
                     </h2>
                     <div className="w3-row w3-center">
                         <div className="w3-third w3-dark-grey w3-padding-24">

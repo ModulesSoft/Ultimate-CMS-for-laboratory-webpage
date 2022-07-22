@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import PageWrapper from "../components/PageWrapper";
 import { useFetchGalleries } from "../../infrastructure/APIHandler";
 import { useTranslation } from "react-i18next";
@@ -10,16 +9,16 @@ export const Gallery = ({ title, keywords, description }) => {
     const { data, loading } = useFetchGalleries();
     const galleries = data;
     useEffect(() => {
-        const venobox = new VenoBox({ selector: ".venobox", share: true });
+        new VenoBox({ selector: ".venobox", share: true });
     }, [galleries]);
     return (
         <PageWrapper
             title={title}
+            header={title}
             keywords={keywords}
             description={description}
             loading={loading}
         >
-            <Header h1={title} />
             <section>
                 <h2 className="w3-row w3-padding w3-blue-grey w3-round">
                     {t("image gallery")}

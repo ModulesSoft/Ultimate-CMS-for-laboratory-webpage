@@ -8,8 +8,7 @@ import Gallery from "../presentation/pages/Gallery";
 import Profiles from "../presentation/pages/ProfileList";
 import Profile from "../presentation/pages/Profile";
 import Page from "../presentation/pages/Page";
-import { useFetchCategories } from "./APIHandler";
-import { useFetchPages } from "./APIHandler";
+import { useFetchCategories, useFetchPages } from "./APIHandler";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "../presentation/components/404";
 import { useTranslation } from "react-i18next";
@@ -28,8 +27,8 @@ export const Loader = () => {
     };
     return (
         <BrowserRouter>
-            <Navbar />
-            <Aside />
+            <Navbar pages={pages} />
+            <Aside categories={categories} />
             <main id="main">
                 {/* Overlay */}
                 <div

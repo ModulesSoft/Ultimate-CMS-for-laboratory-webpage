@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import { useTranslation } from "react-i18next";
 import PageWrapper from "../components/PageWrapper";
 
@@ -9,8 +8,8 @@ export const Page = ({ title, description, keywords, data }) => {
             description={description}
             keywords={keywords}
             title={title}
+            header={title}
         >
-            <Header h1={title} />
             <article>
                 {data.introduction && (
                     <section style={{ marginTop: 0 }}>

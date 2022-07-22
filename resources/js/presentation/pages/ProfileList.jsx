@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { useFetchProfiles } from "../../infrastructure/APIHandler";
-import Header from "../components/Header";
 import PageWrapper from "../components/PageWrapper";
 import { getThumbUri } from "../../application/common";
 import { Link } from "react-router-dom";
@@ -45,9 +44,9 @@ export const Profiles = ({ title, keywords, description, type }) => {
             description={description}
             keywords={keywords}
             title={title}
+            header={title}
             loading={loading}
         >
-            <Header h1={title} />
             {profiles[0] && (
                 <section>
                     <h2 className="w3-row w3-padding w3-blue-grey w3-round">
