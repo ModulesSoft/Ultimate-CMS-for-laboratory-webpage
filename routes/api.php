@@ -40,7 +40,7 @@ Route::group(
 
         // Route::get('/articles/{id}',  fn ($id) => Article::findOrFail($id)->get())->whereNumber('id');
 
-        Route::get('/articles', fn () => QueryBuilder::for(Article::class)
+        Route::get('/articles', fn () => QueryBuilder::for(Article::class)->with('category')
             ->allowedFilters(['title', 'slug', 'featured', 'status', 'category_id', 'tags'])
             ->orderBy('lft')->with('tags')->get());
         Route::get('/slides', fn () => QueryBuilder::for(Slideshow::class)
