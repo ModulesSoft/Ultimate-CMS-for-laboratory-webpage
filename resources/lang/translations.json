@@ -8,8 +8,7 @@
             "students": "Students",
             "profiles": "Profiles",
             "supervisors" : "Suprevisors: ",
-            "research title":"Research Title: ",
-            "research text":"Research Details: "
+            "faculty":"Faculty"
         }
     },
     "fa_IR": {
@@ -21,8 +20,7 @@
             "students": "دانشجویان",
             "profiles": "پروفایل",
             "supervisors" : "اساتید راهنما: ",
-            "research title":"موضوع پژوهش: ",
-            "research text":"جزییات پژوهش: "
+            "faculty":"اساتید"
         }
     }
 }

@@ -73,6 +73,14 @@ const Sidebar = () => {
                 </NavLink>
 
                 <NavLink
+                    to="/faculty"
+                    className={({ isActive }) => navClasses(isActive)}
+                    style={i18n.language === "en" ? null : overrideTextAlign}
+                >
+                    <i className="fa-solid fa-chalkboard-user"></i>
+                    <span className="w3-padding ">{t("faculty")}</span>
+                </NavLink>
+                <NavLink
                     to="/students"
                     className={({ isActive }) => navClasses(isActive)}
                     style={i18n.language === "en" ? null : overrideTextAlign}
