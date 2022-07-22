@@ -1,15 +1,10 @@
 import { useTranslation } from "react-i18next";
-import {
-    useFetchFooters,
-    useFetchSetting,
-} from "../../infrastructure/APIHandler";
+import { useFetchFooters } from "../../infrastructure/APIHandler";
 
 const Footer = () => {
     let { data, loading } = useFetchFooters();
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const columns = data;
-    ({ data, loading } = useFetchSetting({ key: "copyright" }));
-    const copyright = data.value;
     return (
         !loading && (
             <footer className="w3-margin-top">
@@ -70,7 +65,7 @@ const Footer = () => {
                 </div>
                 <div className="w3-dark-grey w3-row w3-mobile w3-center">
                     <p className="w3-black w3-padding" style={{ margin: 0 }}>
-                        {copyright && copyright[i18n.language]}
+                        {t("copyright")}
                     </p>
                 </div>
             </footer>
