@@ -1,9 +1,10 @@
 import PageWrapper from "../components/PageWrapper";
 import { useTranslation } from "react-i18next";
 import { getImageUri } from "../../application/common";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useFetchProfile } from "../../infrastructure/APIHandler";
 import Header from "../components/Header";
+import Tags from "../components/Tags";
 export const Profile = () => {
     const { t, i18n } = useTranslation();
     const { user } = useParams();
@@ -61,22 +62,7 @@ export const Profile = () => {
                                         {profile.research_text[i18n.language]}
                                     </p>
                                     <hr />
-                                    <footer className="w3-container">
-                                        {profile.tags.map((tag) => (
-                                            <Link
-                                                className="w3-padding"
-                                                key={tag.id}
-                                                to={
-                                                    "/tags/" +
-                                                    tag.keyword[i18n.language]
-                                                }
-                                            >
-                                                <h5 className="w3-tag w3-teal w3-round">
-                                                    {tag.keyword[i18n.language]}
-                                                </h5>
-                                            </Link>
-                                        ))}
-                                    </footer>
+                                    <Tags tags={profile.tags} />
                                 </article>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { getImageUri } from "../../application/common";
 import PageWrapper from "../components/PageWrapper";
 import Header from "../components/Header";
+import Tags from "../components/Tags";
 
 export const Post = () => {
     let { slug } = useParams();
@@ -38,16 +39,7 @@ export const Post = () => {
                                 }}
                             ></p>
                         </div>
-                        <footer className="w3-container w3-light-grey">
-                            {post.tags.map((tag, index) => (
-                                <h5
-                                    key={index}
-                                    className="w3-tag w3-teal w3-round"
-                                >
-                                    {tag}
-                                </h5>
-                            ))}
-                        </footer>
+                        <Tags tags={post.tags} />
                     </article>
                 </>
             )}
