@@ -79,8 +79,11 @@ export const Profiles = ({ title, keywords, description, type }) => {
                                             />
                                         </Link>
                                         <div className="w3-container w3-padding">
-                                            <h3>
+                                            <h3 className="w3-text-teal">
                                                 <Link
+                                                    style={{
+                                                        textDecoration: "none",
+                                                    }}
                                                     to={profile.user.name["en"]}
                                                 >
                                                     {
