@@ -8,7 +8,8 @@
             "students": "Students",
             "profiles": "Profiles",
             "supervisors" : "Suprevisors: ",
-            "faculty":"Faculty"
+            "faculty":"Faculty",
+            "more":"more"
         }
     },
     "fa_IR": {
@@ -20,7 +21,8 @@
             "students": "دانشجویان",
             "profiles": "پروفایل",
             "supervisors" : "اساتید راهنما: ",
-            "faculty":"اساتید"
+            "faculty":"اساتید",
+            "more":"بیشتر"
         }
     }
 }

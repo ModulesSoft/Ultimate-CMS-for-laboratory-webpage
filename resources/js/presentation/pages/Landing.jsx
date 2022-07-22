@@ -65,9 +65,12 @@ export const Landing = () => {
                                                 }}
                                             ></p>
                                         </article>
-                                        <button className="w3-button w3-block w3-teal w3-round">
-                                            more
-                                        </button>
+                                        <Link
+                                            to={`/${post.category.slug}/${post.slug}`}
+                                            className="w3-button w3-block w3-teal w3-round"
+                                        >
+                                            {t("more")}
+                                        </Link>
                                     </div>
                                 </div>
                             ))}
@@ -104,9 +107,12 @@ export const Landing = () => {
                                                 }}
                                             ></p>
                                         </article>
-                                        <button className="w3-button w3-block w3-teal w3-round">
-                                            more
-                                        </button>
+                                        <Link
+                                            to={`/${post.category.slug}/${post.slug}`}
+                                            className="w3-button w3-block w3-teal w3-round"
+                                        >
+                                            {t("more")}
+                                        </Link>
                                     </div>
                                 </div>
                             ))}
@@ -161,7 +167,7 @@ export const Landing = () => {
                                         className="w3-button w3-block w3-teal w3-round"
                                         to={`/faculty/${professor.user.name["en"]}`}
                                     >
-                                        more
+                                        {t("more")}
                                     </Link>
                                 </article>
                             </div>

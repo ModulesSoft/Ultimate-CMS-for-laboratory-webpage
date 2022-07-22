@@ -78,7 +78,7 @@ export const posts = ({
                                     to={`/${categorySlug}/${post.slug}`}
                                     className="w3-bar w3-button w3-teal"
                                 >
-                                    more
+                                    {t("more")}
                                 </Link>
                             </div>
                         </section>
