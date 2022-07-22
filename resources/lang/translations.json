@@ -12,7 +12,15 @@
             "more":"more",
             "featured first row":"Latest News",
             "featured second row":"Latest Articles",
-            "contact us":"Contact Us"
+            "contact us":"Contact Us",
+            "contact email":"nasser@aut.ac.ir",
+            "contact address":"Amirkabir University of Technology , Tehran, Iran",
+            "contact phone":"+98 (21) 64545575",
+            "contact input name":"Full Name",
+            "contact input email":"Email Address",
+            "contact input message":"Email Message",
+            "contact input submit":"Send",
+            "copyright":"© Biofluid Laboratory @ AUT - Established in 2002"
         }
     },
     "fa_IR": {
@@ -28,7 +36,15 @@
             "more":"بیشتر",
             "featured first row":"آخرین اخبار",
             "featured second row":"آخرین مطالب",
-            "contact us":"تماس با ما"
+            "contact us":"تماس با ما",
+            "contact email":"nasser@aut.ac.ir",
+            "contact address":"ایران, تهران, دانشگاه صنعتی امیرکبیر",
+            "contact phone":"021-64545575",
+            "contact input name":"نام و نام خانوادگی",
+            "contact input email":"آدرس ایمیل",
+            "contact input message":"پیام",
+            "contact input submit":"ارسال",
+            "copyright":"© آزمایشگاه سیالات زیستی سال تاسیس 1381 (هجری شمسی)"
         }
     }
 }
