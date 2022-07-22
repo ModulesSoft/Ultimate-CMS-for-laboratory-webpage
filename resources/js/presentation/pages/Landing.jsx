@@ -9,6 +9,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { getThumbUri } from "../../application/common";
 import { Link } from "react-router-dom";
+import ContactForm from "../components/ContactForm";
 export const Landing = () => {
     const { t, i18n } = useTranslation();
     let { data, loading } = useFetchSlides();
@@ -174,88 +175,7 @@ export const Landing = () => {
                         ))}
                 </div>
             </section>
-            <section id="contact">
-                <div className="w3-padding-large w3-light-grey">
-                    <h2 className="w3-text-dark-grey">
-                        <i className="fa-solid fa-pen-to-square" />
-                        <span className="w3-padding">{t("contact us")}</span>
-                    </h2>
-                    <div className="w3-row w3-center">
-                        <div className="w3-third w3-dark-grey w3-padding-24">
-                            <i className="fa fa-envelope w3-xxlarge w3-text-light-grey" />
-                            <p>John@doe.com</p>
-                        </div>
-                        <div className="w3-third w3-teal w3-padding-24">
-                            <i className="fa fa-location-dot w3-xxlarge w3-text-light-grey" />
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Et, ut!
-                            </p>
-                        </div>
-                        <div className="w3-third w3-dark-grey w3-padding-24">
-                            <i className="fa fa-phone w3-xxlarge w3-text-light-grey" />
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </div>
-                    <hr className="w3-opacity" />
-                    <form action="#" method="POST">
-                        <div className="w3-section">
-                            <label htmlFor="name">
-                                Lorem ipsum dolor sit amet.
-                            </label>
-                            <input
-                                className="w3-input w3-border w3-round"
-                                type="text"
-                                name="name"
-                                required=""
-                            />
-                        </div>
-                        <div className="w3-section">
-                            <label htmlFor="email">
-                                Email ipsum dolor sit amet.
-                            </label>
-                            <input
-                                className="w3-input w3-border w3-round"
-                                type="text"
-                                name="email"
-                                required=""
-                            />
-                        </div>
-                        <div className="w3-section">
-                            <label htmlFor="message">Lorem, ipsum dolor.</label>
-                            <textarea
-                                className="w3-input w3-border w3-round"
-                                type="text"
-                                name="mesage"
-                                rows={5}
-                                required=""
-                                defaultValue={""}
-                            />
-                        </div>
-                        <div className="w3-section">
-                            <div className="w3-text-red">
-                                <ul>
-                                    <li>
-                                        Lorem ipsum dolor, sit amet consectetur
-                                        adipisicing elit. Nisi, dignissimos.
-                                    </li>
-                                    <li>Lorem ipsum dolor sit.</li>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                </ul>
-                            </div>
-                            <div className="w3-center">
-                                <button
-                                    type="submit"
-                                    className="w3-button w3-teal w3-margin-bottom w3-round"
-                                >
-                                    <i className="fa fa-paper-plane w3-margin-right" />
-                                    Send Message
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </section>
+            <ContactForm />
         </PageWrapper>
     );
 };
