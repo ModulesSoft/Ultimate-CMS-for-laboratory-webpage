@@ -57,8 +57,10 @@ const Sidebar = () => {
                                     : overrideTextAlign
                             }
                         >
-                            <i className={`fa-solid ${category.icon}`} />
-                            <span className="w3-padding ">
+                            <i
+                                className={`sidebar__icon fa-solid ${category.icon}`}
+                            />
+                            <span className="w3-padding sidebar__text">
                                 {category.name[i18n.language]}
                             </span>
                         </NavLink>
@@ -68,8 +70,10 @@ const Sidebar = () => {
                     className={({ isActive }) => navClasses(isActive)}
                     style={i18n.language === "en" ? null : overrideTextAlign}
                 >
-                    <i className={`fa-solid fa-image`} />
-                    <span className="w3-padding ">{t("gallery")}</span>
+                    <i className="sidebar__icon fa-solid fa-image" />
+                    <span className="w3-padding sidebar__text">
+                        {t("gallery")}
+                    </span>
                 </NavLink>
 
                 <NavLink
@@ -77,16 +81,20 @@ const Sidebar = () => {
                     className={({ isActive }) => navClasses(isActive)}
                     style={i18n.language === "en" ? null : overrideTextAlign}
                 >
-                    <i className="fa-solid fa-chalkboard-user"></i>
-                    <span className="w3-padding ">{t("faculty")}</span>
+                    <i className="sidebar__icon fa-solid fa-chalkboard-user"></i>
+                    <span className="w3-padding sidebar__text">
+                        {t("faculty")}
+                    </span>
                 </NavLink>
                 <NavLink
                     to="/students"
                     className={({ isActive }) => navClasses(isActive)}
                     style={i18n.language === "en" ? null : overrideTextAlign}
                 >
-                    <i className="fa-solid fa-book-open-reader"></i>
-                    <span className="w3-padding ">{t("students")}</span>
+                    <i className="sidebar__icon fa-solid fa-book-open-reader"></i>
+                    <span className="w3-padding sidebar__text">
+                        {t("students")}
+                    </span>
                 </NavLink>
             </div>
         </aside>
