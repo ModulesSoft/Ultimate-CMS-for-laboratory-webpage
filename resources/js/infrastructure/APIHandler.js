@@ -6,28 +6,28 @@ const instance = axios.create({
     // headers: { "X-Custom-Header": "foobar" },
 });
 
-export function useFetchPost({ slug }) {
-    const [data, setData] = useState({});
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        async function fetchData() {
-            await instance
-                .get("/articles", {
-                    params: {
-                        "filter[slug]": slug,
-                    },
-                })
-                .then((response) => setData(response.data))
-                .catch((error) => errorHandler(error));
-            setLoading(false);
-        }
-        fetchData();
-    }, [slug]);
-    return {
-        data,
-        loading,
-    };
-}
+// export function useFetchPost({ slug }) {
+//     const [data, setData] = useState({});
+//     const [loading, setLoading] = useState(true);
+//     useEffect(() => {
+//         async function fetchData() {
+//             await instance
+//                 .get("/articles", {
+//                     params: {
+//                         "filter[slug]": slug,
+//                     },
+//                 })
+//                 .then((response) => setData(response.data[0]))
+//                 .catch((error) => errorHandler(error));
+//             setLoading(false);
+//         }
+//         fetchData();
+//     }, [slug]);
+//     return {
+//         data,
+//         loading,
+//     };
+// }
 
 export function useFetchCategories() {
     const [data, setData] = useState({});
@@ -48,7 +48,12 @@ export function useFetchCategories() {
     };
 }
 
-export function useFetchPosts({ categoryId, status = "PUBLISHED", featured }) {
+export function useFetchPosts({
+    slug,
+    categoryId,
+    status = "PUBLISHED",
+    featured,
+}) {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -59,6 +64,7 @@ export function useFetchPosts({ categoryId, status = "PUBLISHED", featured }) {
                         "filter[status]": status,
                         "filter[category_id]": categoryId,
                         "filter[featured]": featured,
+                        "filter[slug]": slug,
                     },
                 })
                 .then((response) => setData(response.data))
