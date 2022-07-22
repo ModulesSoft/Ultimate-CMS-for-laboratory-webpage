@@ -3,6 +3,9 @@ img {
     max-height: 100%;
     max-width: 100%;
 }
+.sidebar__icon {
+    width: 15px;
+}
 .posts__thumbnail {
     width: 150px;
     height: 150px;
@@ -66,6 +69,15 @@ img {
 @media screen and (max-width: 768px) {
     h1 {
         font-size: 1.5rem;
+    }
+    .sidebar__text {
+        display: none;
+    }
+    .sidebar__icon {
+        text-align: center;
+        width: 100%;
+        font-size: 1.7rem;
+        margin-top: 1rem;
     }
 }
 section {
