@@ -13,7 +13,7 @@ class EmailController extends Controller
     {
         $validator = Validator::make($request->all(), ['email' => 'required|email', 'name' => 'required|string', 'message' => 'required|min:5']);
         if ($validator->fails()) {
-            return $validator->errors();
+            return response()->json($validator->errors(), 400);
         }
         $attributes = (object)($validator->validated());
         try {
