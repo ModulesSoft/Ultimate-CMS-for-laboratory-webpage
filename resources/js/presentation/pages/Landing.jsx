@@ -23,9 +23,9 @@ export const Landing = () => {
         var featuredPostsSecondRow = featuredPosts.slice(2, 5);
     }
     ({ data, loading } = useFetchProfiles({
-        type: "professors",
+        type: "faculty",
     }));
-    const professors = data;
+    const faculty = data;
     return (
         <PageWrapper
             keywords=""
@@ -129,8 +129,8 @@ export const Landing = () => {
                     <span className="w3-padding">{t("faculty")}</span>
                 </h2>
                 <div className="w3-cell w3-mobile-row">
-                    {professors[0] &&
-                        professors.map((professor) => (
+                    {faculty[0] &&
+                        faculty.map((professor) => (
                             <div
                                 key={professor.id}
                                 className="w3-cell w3-mobile w3-light-grey w3-card-4 w3-padding w3-round"
