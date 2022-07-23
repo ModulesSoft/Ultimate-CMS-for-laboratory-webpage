@@ -1,7 +1,31 @@
 import { useTranslation } from "react-i18next";
-
+import { useSendEmail } from "../../infrastructure/APIHandler";
+import { useRef, useState } from "react";
+import FromResponse from "./FormResponse";
+import Loading from "./Loading";
 const ContactForm = () => {
     const { t, i18n } = useTranslation();
+    const nameInputRef = useRef(null);
+    const emailInputRef = useRef(null);
+    const messageInputRef = useRef(null);
+    const [formData, setFormData] = useState({});
+    const handleSubmission = (e) => {
+        e.preventDefault();
+        const name = nameInputRef?.current.value;
+        const email = emailInputRef?.current.value;
+        const message = messageInputRef?.current.value;
+        //validation
+
+        setFormData({ name, email, message });
+    };
+    const { data, status, loading } = useSendEmail(formData);
+    const response = data;
+    if (status === 200) {
+        nameInputRef.current.value = "";
+        emailInputRef.current.value = "";
+        messageInputRef.current.value = "";
+        // setFormData({});
+    }
     return (
         <section id="contact">
             <div className="w3-padding-large w3-light-grey">
@@ -24,14 +48,21 @@ const ContactForm = () => {
                     </div>
                 </div>
                 <hr className="w3-opacity" />
-                <form action="#" method="POST">
+                <form onSubmit={handleSubmission}>
                     <div className="w3-section">
                         <label htmlFor="name">{t("contact input name")}</label>
                         <input
                             className="w3-input w3-border w3-round"
                             type="text"
                             name="name"
-                            required=""
+                            ref={nameInputRef}
+                            required
+                        />
+
+                        <FromResponse
+                            input="name"
+                            status={status}
+                            response={response}
                         />
                     </div>
                     <div className="w3-section">
@@ -40,9 +71,15 @@ const ContactForm = () => {
                         </label>
                         <input
                             className="w3-input w3-border w3-round"
-                            type="text"
+                            type="email"
                             name="email"
-                            required=""
+                            ref={emailInputRef}
+                            required
+                        />
+                        <FromResponse
+                            input="email"
+                            status={status}
+                            response={response}
                         />
                     </div>
                     <div className="w3-section">
@@ -54,29 +91,31 @@ const ContactForm = () => {
                             type="text"
                             name="mesage"
                             rows={5}
-                            required=""
                             defaultValue={""}
+                            minLength="5"
+                            ref={messageInputRef}
+                            required
+                        />
+                        <FromResponse
+                            input="message"
+                            status={status}
+                            response={response}
                         />
                     </div>
                     <div className="w3-section">
-                        <div className="w3-text-red">
-                            <ul>
-                                <li>
-                                    Lorem ipsum dolor, sit amet consectetur
-                                    adipisicing elit. Nisi, dignissimos.
-                                </li>
-                                <li>Lorem ipsum dolor sit.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                            </ul>
-                        </div>
                         <div className="w3-center">
-                            <button
-                                type="submit"
-                                className="w3-button w3-teal w3-margin-bottom w3-round"
-                            >
-                                <i className="fa fa-paper-plane w3-margin-right" />
-                                {t("contact input submit")}
-                            </button>
+                            <FromResponse status={status} response={response} />
+                            {loading ? (
+                                <Loading />
+                            ) : (
+                                <button
+                                    type="submit"
+                                    className="w3-button w3-teal w3-margin-bottom w3-round"
+                                >
+                                    <i className="fa fa-paper-plane w3-margin-right" />
+                                    {t("contact input submit")}
+                                </button>
+                            )}
                         </div>
                     </div>
                 </form>
