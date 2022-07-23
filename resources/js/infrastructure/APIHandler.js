@@ -53,6 +53,7 @@ export function useFetchPosts({
     categoryId,
     status = "PUBLISHED",
     featured,
+    tag,
 }) {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
@@ -65,6 +66,7 @@ export function useFetchPosts({
                         "filter[category_id]": categoryId,
                         "filter[featured]": featured,
                         "filter[slug]": slug,
+                        "filter[tags.keyword]": tag,
                     },
                 })
                 .then((response) => setData(response.data))
@@ -133,7 +135,7 @@ export function useFetchGalleries() {
         loading,
     };
 }
-export function useFetchProfiles({ type, status = "PUBLISHED" }) {
+export function useFetchProfiles({ type, tag, status = "PUBLISHED" }) {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -142,6 +144,7 @@ export function useFetchProfiles({ type, status = "PUBLISHED" }) {
                 .get(`/${type}/profiles`, {
                     params: {
                         "filter[status]": status,
+                        "filter[tags.keyword]": tag,
                     },
                 })
                 .then((response) => setData(response.data))

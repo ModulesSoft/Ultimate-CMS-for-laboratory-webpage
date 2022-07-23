@@ -3,7 +3,9 @@ import { useFetchProfiles } from "../../infrastructure/APIHandler";
 import PageWrapper from "../components/PageWrapper";
 import { getThumbUri } from "../../application/common";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 export const Profiles = ({ title, keywords, description, type }) => {
+    const { tag } = useParams();
     const numberOfColumns = 3;
     // add more colors if necessary
     const colors = [
@@ -15,9 +17,9 @@ export const Profiles = ({ title, keywords, description, type }) => {
         "w3-pink",
         "w3-indigo",
     ];
-
     const { data, loading } = useFetchProfiles({
         type: type,
+        tag: tag,
     });
     const profiles = data;
     const { t, i18n } = useTranslation();
@@ -50,7 +52,7 @@ export const Profiles = ({ title, keywords, description, type }) => {
             {profiles[0] && (
                 <section>
                     <h2 className="w3-row w3-padding w3-blue-grey w3-round">
-                        {t("profiles")}
+                        {t(type)}
                     </h2>
                     {chunkedProfiles.map((profiles, index) => (
                         <div className="w3-row" key={index}>
@@ -62,7 +64,9 @@ export const Profiles = ({ title, keywords, description, type }) => {
                                     }`}
                                 >
                                     <div className="w3-card-4 w3-round w3-center w3-mobile">
-                                        <Link to={profile.user.name["en"]}>
+                                        <Link
+                                            to={`/${type}/${profile.user.name["en"]}`}
+                                        >
                                             <img
                                                 src={getThumbUri(
                                                     "300x300",
@@ -83,7 +87,7 @@ export const Profiles = ({ title, keywords, description, type }) => {
                                                     style={{
                                                         textDecoration: "none",
                                                     }}
-                                                    to={profile.user.name["en"]}
+                                                    to={`/${type}/${profile.user.name["en"]}`}
                                                 >
                                                     {
                                                         profile.user.name[

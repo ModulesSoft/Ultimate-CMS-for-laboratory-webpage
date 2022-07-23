@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getThumbUri } from "../../application/common";
 import PageWrapper from "../components/PageWrapper";
+import { useParams } from "react-router-dom";
 
 export const posts = ({
     title,
@@ -11,9 +12,12 @@ export const posts = ({
     categoryId,
     categorySlug,
 }) => {
+    const { tag } = useParams();
     const { data, loading } = useFetchPosts({
         categoryId: categoryId,
+        tag: tag,
     });
+
     const posts = data;
     const { t, i18n } = useTranslation();
     return (
@@ -21,7 +25,7 @@ export const posts = ({
             description={description}
             keywords={keywords}
             title={title}
-            header={title}
+            header={title ? title : tag}
             loading={loading}
         >
             <article className="w3-container">
@@ -73,7 +77,7 @@ export const posts = ({
                                     ></p>
                                 </div>
                                 <Link
-                                    to={`/${categorySlug}/${post.slug}`}
+                                    to={`/${post.category.slug}/${post.slug}`}
                                     className="w3-bar w3-button w3-teal"
                                 >
                                     {t("more")}
