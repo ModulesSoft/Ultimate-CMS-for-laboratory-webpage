@@ -122,7 +122,7 @@ export const Loader = () => {
                                         keywords=""
                                         description=""
                                         data=""
-                                        type="professors"
+                                        type="faculty"
                                     />
                                 }
                             />
@@ -138,6 +138,32 @@ export const Loader = () => {
                                 }
                             />
                         </Route>
+                        <Route
+                            path="tags/:tag"
+                            element={
+                                <>
+                                    <Posts
+                                        title=""
+                                        keywords=""
+                                        description=""
+                                    />
+                                    <Profiles
+                                        title=""
+                                        keywords=""
+                                        description=""
+                                        data=""
+                                        type="faculty"
+                                    />
+                                    <Profiles
+                                        title=""
+                                        keywords=""
+                                        description=""
+                                        data=""
+                                        type="students"
+                                    />
+                                </>
+                            }
+                        />
                         <Route path="*" element={<NotFound />} />
                     </Route>
                 </Routes>

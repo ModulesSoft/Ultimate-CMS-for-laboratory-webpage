@@ -41,7 +41,7 @@ Route::group(
         // Route::get('/articles/{id}',  fn ($id) => Article::findOrFail($id)->get())->whereNumber('id');
 
         Route::get('/articles', fn () => QueryBuilder::for(Article::class)->with('category')
-            ->allowedFilters(['title', 'slug', 'featured', 'status', 'category_id', 'tags'])
+            ->allowedFilters(['title', 'slug', 'featured', 'status', 'category_id', 'tags.keyword'])
             ->orderBy('lft')->with('tags')->get());
         Route::get('/slides', fn () => QueryBuilder::for(Slideshow::class)
             ->orderBy('lft')->get());
@@ -63,10 +63,10 @@ Route::group(
                         $query2->whereNotIn('name', $supervisor_roles);
                     });
                 })->with('user.roles', 'supervisors', 'tags')
-            )->allowedFilters(['status', 'user.roles.id', 'user.roles.name', 'tags'])->orderBy('lft')->get()
+            )->allowedFilters(['status', 'user.roles.id', 'user.roles.name', 'tags.keyword'])->orderBy('lft')->get()
         );
         Route::get(
-            '/professors/profiles',
+            '/faculty/profiles',
             fn () => QueryBuilder::for(
                 Profile::whereHas('user', function ($query1) {
                     $query1->whereHas('roles', function ($query2) {
@@ -74,7 +74,7 @@ Route::group(
                         $query2->whereIn('name', $supervisor_roles);
                     });
                 })->with('user.roles', 'supervisors', 'tags')
-            )->allowedFilters(['status', 'user.roles.id', 'user.roles.name', 'tags'])->orderBy('lft')->get()
+            )->allowedFilters(['status', 'user.roles.id', 'user.roles.name', 'tags.keyword'])->orderBy('lft')->get()
         );
         // Route::get('/students', fn () => QueryBuilder::for(
         //     User::whereHas('roles', function ($query) {
