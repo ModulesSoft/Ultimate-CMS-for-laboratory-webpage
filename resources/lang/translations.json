@@ -1,6 +1,8 @@
 {
     "en": {
         "translation": {
+            "laboratory":"Biofluids laboratory",
+            "university":"Amirkabir University of Technology",
             "last update": "Last update",
             "gallery":"Gallery",
             "image gallery":"Image Gallery",
@@ -26,6 +28,8 @@
     },
     "fa_IR": {
         "translation": {
+            "laboratory":"آزمایشگاه سیالات بیولوژیکی",
+            "university":"دانشگاه صنعتی امیرکبیر",
             "last update": "آخرین بروز رسانی",
             "gallery":"گالری",
             "image gallery":"گالری تصویر",

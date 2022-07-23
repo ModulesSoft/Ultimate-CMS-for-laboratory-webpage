@@ -33,10 +33,7 @@ export const Landing = () => {
             title="Home page"
             loading={loading}
         >
-            <LandingHeader
-                p="Amirkabir University of Technology"
-                h1="Biofluids laboratory"
-            />
+            <LandingHeader h1={t("laboratory")} p={t("university")} />
             {slides[0] && <Slideshow slides={slides} />}
             <section id="featured-2">
                 <div className="featured featured--color-background w3-light-grey">
