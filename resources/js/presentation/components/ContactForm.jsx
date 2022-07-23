@@ -3,20 +3,23 @@ import { useSendEmail } from "../../infrastructure/APIHandler";
 import { useRef, useState } from "react";
 import FromResponse from "./FormResponse";
 import Loading from "./Loading";
+import ReCAPTCHA from "react-google-recaptcha";
 const ContactForm = () => {
     const { t, i18n } = useTranslation();
     const nameInputRef = useRef(null);
     const emailInputRef = useRef(null);
     const messageInputRef = useRef(null);
+    const recaptchaInputRef = useRef(null);
     const [formData, setFormData] = useState({});
-    const handleSubmission = (e) => {
+    const submissionHandler = async (e) => {
         e.preventDefault();
-        const name = nameInputRef?.current.value;
-        const email = emailInputRef?.current.value;
-        const message = messageInputRef?.current.value;
-        //validation
-
-        setFormData({ name, email, message });
+        const token = await recaptchaInputRef.current.executeAsync();
+        if (token) {
+            const name = nameInputRef?.current.value;
+            const email = emailInputRef?.current.value;
+            const message = messageInputRef?.current.value;
+            setFormData({ name, email, message });
+        }
     };
     const { data, status, loading } = useSendEmail(formData);
     const response = data;
@@ -24,7 +27,6 @@ const ContactForm = () => {
         nameInputRef.current.value = "";
         emailInputRef.current.value = "";
         messageInputRef.current.value = "";
-        // setFormData({});
     }
     return (
         <section id="contact">
@@ -48,7 +50,7 @@ const ContactForm = () => {
                     </div>
                 </div>
                 <hr className="w3-opacity" />
-                <form onSubmit={handleSubmission}>
+                <form onSubmit={submissionHandler}>
                     <div className="w3-section">
                         <label htmlFor="name">{t("contact input name")}</label>
                         <input
@@ -108,13 +110,21 @@ const ContactForm = () => {
                             {loading ? (
                                 <Loading />
                             ) : (
-                                <button
-                                    type="submit"
-                                    className="w3-button w3-teal w3-margin-bottom w3-round"
-                                >
-                                    <i className="fa fa-paper-plane w3-margin-right" />
-                                    {t("contact input submit")}
-                                </button>
+                                <>
+                                    <button
+                                        type="submit"
+                                        className="w3-button w3-teal w3-margin-bottom w3-round"
+                                    >
+                                        <i className="fa fa-paper-plane w3-margin-right" />
+                                        {t("contact input submit")}
+                                    </button>
+                                    <ReCAPTCHA
+                                        badge="inline"
+                                        ref={recaptchaInputRef}
+                                        size="invisible"
+                                        sitekey={t("google recaptcha sitekey")}
+                                    />
+                                </>
                             )}
                         </div>
                     </div>
