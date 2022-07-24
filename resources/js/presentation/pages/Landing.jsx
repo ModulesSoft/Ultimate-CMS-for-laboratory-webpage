@@ -1,5 +1,5 @@
 import Slideshow from "../components/Slideshow";
-import LandingHeader from "../components/LandingHeader";
+import Hero from "../components/Hero";
 import PageWrapper from "../components/PageWrapper";
 import {
     useFetchPosts,
@@ -33,10 +33,12 @@ export const Landing = () => {
             title="Home page"
             loading={loading}
         >
-            <LandingHeader h1={t("laboratory")} p={t("university")} />
-            {slides[0] && <Slideshow slides={slides} />}
+            <section id="intro">
+                <Hero h1={t("laboratory")} p={t("university")} />
+                {slides[0] && <Slideshow slides={slides} />}
+            </section>
             <section id="featured-2">
-                <div className="featured featured--color-background w3-light-grey">
+                <div className="featured featured--first-background">
                     <h2 className="w3-text-dark-grey">
                         <i className="fa-solid fa-star" />
                         <span className="w3-padding">
@@ -48,7 +50,7 @@ export const Landing = () => {
                             featuredPostsFirstRow.map((post) => (
                                 <div
                                     key={post.id}
-                                    className="w3-container w3-round-large w3-cell w3-mobile w3-border"
+                                    className="w3-container w3-round-large w3-cell w3-mobile "
                                 >
                                     <div className="w3-light-grey w3-padding w3-margin w3-round-large">
                                         <article>
@@ -76,7 +78,7 @@ export const Landing = () => {
                 </div>
             </section>
             <section id="featured-3">
-                <div className="featured featured--image-background">
+                <div className="featured featured--second-background">
                     <h2 className="w3-text-dark-grey">
                         <i className="fa-solid fa-bolt" />
                         <span className="w3-padding">
@@ -118,10 +120,7 @@ export const Landing = () => {
                 </div>
             </section>
             <section id="people">
-                <h2
-                    className="w3-text-dark-grey w3-light-blue w3-panel w3-padding"
-                    style={{ marginBottom: 0 }}
-                >
+                <h2 className="people__header w3-text-dark-grey w3-light-blue w3-padding">
                     <i className="fa-solid fa-chalkboard-user" />
                     <span className="w3-padding">{t("faculty")}</span>
                 </h2>
@@ -140,6 +139,7 @@ export const Landing = () => {
                                         )}
                                         className="w3-round"
                                         style={{ width: 50, height: 50 }}
+                                        loading="lazy"
                                     />
                                     <span className="w3-margin w3-text-dark-grey">
                                         {
@@ -153,6 +153,7 @@ export const Landing = () => {
                                     <h3 className="w3-text-teal">
                                         <Link
                                             to={`/faculty/${professor.user.name["en"]}`}
+                                            style={{ textDecoration: "none" }}
                                         >
                                             {professor.user.name[i18n.language]}
                                         </Link>

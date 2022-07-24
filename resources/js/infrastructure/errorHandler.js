@@ -15,5 +15,5 @@ export default function getErrors(error) {
         console.log("Error", error.message);
     }
     console.log(error.config);
-    alert("Error with getting data!");
+    // alert("Error with getting data!");
 }
