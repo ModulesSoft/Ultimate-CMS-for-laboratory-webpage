@@ -50,7 +50,7 @@ export const Landing = () => {
                             featuredPostsFirstRow.map((post) => (
                                 <div
                                     key={post.id}
-                                    className="w3-container w3-round-large w3-cell w3-mobile "
+                                    className="w3-round-large w3-cell w3-mobile "
                                 >
                                     <div className="w3-light-grey w3-padding w3-margin w3-round-large">
                                         <article>
@@ -90,7 +90,7 @@ export const Landing = () => {
                             featuredPostsSecondRow.map((post) => (
                                 <div
                                     key={post.id}
-                                    className="w3-container w3-round-large w3-cell w3-mobile"
+                                    className="w3-round-large w3-cell w3-mobile"
                                 >
                                     <div className="w3-light-grey w3-padding w3-margin w3-round-large">
                                         <article>

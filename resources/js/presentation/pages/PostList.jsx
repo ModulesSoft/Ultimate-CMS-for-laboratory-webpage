@@ -32,22 +32,22 @@ export const posts = ({
                 {posts[0] &&
                     posts.map((post) => (
                         <section key={post.id}>
-                            <div className="w3-card-4 w3-animate-left">
-                                <header className="w3-container w3-light-grey w3-padding">
-                                    <div className="w3-container w3-cell w3-margin">
-                                        {post.image && (
+                            <div className="w3-card-4 w3-animate-left w3-margin-bottom">
+                                <header className="w3-row w3-light-grey w3-padding w3-animate-opacity">
+                                    {post.image && (
+                                        <div className="posts__thumbnail w3-col s3 w3-mobile">
                                             <img
                                                 src={getThumbUri(
                                                     "150x150",
                                                     post.image
                                                 )}
                                                 alt={post.slug}
-                                                className="w3-round-large posts__thumbnail"
+                                                className="w3-round-large"
                                                 loading="lazy"
                                             />
-                                        )}
-                                    </div>
-                                    <div className="w3-container w3-cell w3-margin w3-animate-opacity">
+                                        </div>
+                                    )}
+                                    <div className="w3-col s8 w3-mobile">
                                         <h2>{post.title[i18n.language]}</h2>
                                         <hr />
                                         <p>
@@ -70,7 +70,7 @@ export const posts = ({
                                 </header>
                                 <div className="w3-container w3-padding">
                                     <p
-                                        className="w3-margin"
+                                        className="posts__text w3-margin"
                                         dangerouslySetInnerHTML={{
                                             __html: post.content[i18n.language],
                                         }}
