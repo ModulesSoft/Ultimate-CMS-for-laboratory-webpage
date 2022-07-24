@@ -43,12 +43,16 @@ export const Page = ({ title, description, keywords, data }) => {
                     ))}
                 {data.conclusion && (
                     <footer>
-                        <div
-                            className="w3-container w3-teal"
+                        <h3
+                            className="w3-container w3-padding w3-teal"
+                            style={{ marginBottom: 0 }}
                             dangerouslySetInnerHTML={{
                                 __html: data.conclusion[i18n.language],
                             }}
-                        ></div>
+                        ></h3>
+                        <div className="w3-black">
+                            <br />
+                        </div>
                     </footer>
                 )}
             </article>

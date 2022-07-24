@@ -50,7 +50,7 @@ export const Profiles = ({ title, keywords, description, type }) => {
             loading={loading}
         >
             {profiles[0] && (
-                <section>
+                <section className="w3-container w3-margin-bottom">
                     <h2 className="w3-row w3-padding w3-blue-grey w3-round">
                         {t(type)}
                     </h2>

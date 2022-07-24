@@ -7,7 +7,7 @@ const Footer = () => {
     const columns = data;
     return (
         !loading && (
-            <footer className="w3-margin-top">
+            <footer>
                 <div className="w3-row">
                     {columns &&
                         columns.map((column, index) => (

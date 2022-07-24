@@ -29,7 +29,7 @@ const ContactForm = () => {
         messageInputRef.current.value = "";
     }
     return (
-        <section id="contact">
+        <section id="contact" className="w3-margin-top">
             <div className="w3-padding-large w3-light-grey">
                 <h2 className="w3-text-dark-grey">
                     <i className="fa-solid fa-pen-to-square" />

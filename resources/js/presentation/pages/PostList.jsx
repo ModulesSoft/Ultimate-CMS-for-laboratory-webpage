@@ -28,7 +28,7 @@ export const posts = ({
             header={title ? title : tag}
             loading={loading}
         >
-            <article className="w3-container">
+            <article className="w3-container w3-margin-bottom">
                 {posts[0] &&
                     posts.map((post) => (
                         <section key={post.id}>

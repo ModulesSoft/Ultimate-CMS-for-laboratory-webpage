@@ -69,22 +69,49 @@ img {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.header {
+#intro {
+    position: relative;
+    top: 0;
+    height: 100vh;
+    // background-color: black;
+}
+.hero {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
     height: 30vh;
-    background: url("../images/header-background.svg");
+    background: url("../images/hero/4-teal.svg");
     background-size: contain;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    color: #87ceeb;
+    text-shadow: 1px 1px 0 #009688, 1px -1px 0 #009688, -1px 1px 0 #009688,
+        -1px -1px 0 #009688, 1px 0px 0 #009688, 0px 1px 0 #009688,
+        -1px 0px 0 #009688, 0px -1px 0 #009688;
 }
-.header span {
+.hero p {
+    color: black;
+    text-shadow: none;
+}
+.hero span {
     max-width: 100%;
 }
-.header__image {
+.hero__image {
     max-height: 25%;
     max-width: 25%;
+}
+.slideshow {
+    position: relative;
+    height: 70vh;
+}
+.slideshow__image {
+    height: 70%;
+}
+.slideshow__thumbnail {
+    height: 30%;
 }
 .w3-padding-0 {
     padding: 0 !important;
@@ -103,19 +130,7 @@ img {
         margin-top: 1rem;
     }
 }
-section {
-    margin-top: 2rem;
-}
-.slideshow {
-    position: inherit;
-    height: 65vh;
-}
-.slideshow__image {
-    height: 70%;
-}
-.slideshow__thumbnail {
-    height: 30%;
-}
+
 .featured {
     position: relative;
     padding: 1rem;
@@ -139,13 +154,22 @@ section {
     background-size: cover;
     z-index: -1;
 }
-.featured--image-background:before {
-    background: url("https://www.w3schools.com/w3images/coffee.jpg");
+.featured--first-background {
+    background: url("../images/featured-first-background.svg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
-.featured--color-background:before {
-    background: teal;
+.featured--second-background {
+    background: url("../images/featured-second-background.svg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-
+.people__header {
+    margin-bottom: 0;
+    margin-top: 0;
+}
 // posts scroll effect
 [data-scroll] {
     transition: opacity 2s;

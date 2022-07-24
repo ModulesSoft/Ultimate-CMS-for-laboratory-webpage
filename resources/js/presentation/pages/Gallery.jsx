@@ -19,7 +19,7 @@ export const Gallery = ({ title, keywords, description }) => {
             description={description}
             loading={loading}
         >
-            <section>
+            <section className="w3-container w3-margin-bottom">
                 <h2 className="w3-row w3-padding w3-blue-grey w3-round">
                     {t("image gallery")}
                 </h2>
