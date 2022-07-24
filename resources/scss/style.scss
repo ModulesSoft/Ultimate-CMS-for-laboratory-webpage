@@ -22,6 +22,12 @@ h4 {
         "Helvetica Neue", sans-serif, Yekan;
     font-display: optional;
 }
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
 img {
     max-height: 100%;
     max-width: 100%;
@@ -30,6 +36,10 @@ img {
     width: 15px;
 }
 .posts__thumbnail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 150px;
     height: 150px;
 }
@@ -105,37 +115,37 @@ img {
 }
 .slideshow {
     position: relative;
-    height: 70vh;
+    height: 65vh;
 }
 .slideshow__image {
-    height: 70%;
+    height: 80%;
+    a {
+        position: absolute;
+        width: 50%;
+        bottom: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-line-clamp: 1; /* number of lines to show */
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        z-index: 1;
+    }
 }
 .slideshow__thumbnail {
-    height: 30%;
+    height: 20%;
 }
 .w3-padding-0 {
     padding: 0 !important;
-}
-@media screen and (max-width: 768px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-    .sidebar__text {
-        display: none;
-    }
-    .sidebar__icon {
-        text-align: center;
-        width: 100%;
-        font-size: 1.7rem;
-        margin-top: 1rem;
-    }
 }
 
 .featured {
     position: relative;
     padding: 1rem;
 }
-.featured__text {
+.featured__text,
+.posts__text {
     display: -webkit-box;
     -webkit-line-clamp: 2; /* number of lines to show */
     line-clamp: 2;
@@ -170,13 +180,37 @@ img {
     margin-bottom: 0;
     margin-top: 0;
 }
-// posts scroll effect
-[data-scroll] {
-    transition: opacity 2s;
+
+.navbar__pages--dropdown {
+    display: none !important;
 }
-[data-scroll="in"] {
-    opacity: 1;
+.navbar__pages {
+    display: block;
 }
-[data-scroll="out"] {
-    opacity: 0;
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    .sidebar__text {
+        display: none;
+    }
+    .sidebar__icon {
+        text-align: center;
+        width: 100%;
+        font-size: 1.7rem;
+        margin-top: 1rem;
+    }
+    .navbar__pages {
+        display: none;
+    }
+    .navbar__pages--dropdown {
+        display: block !important;
+    }
+}
+@media screen and (max-width: 480px) {
+    .navbar {
+        span {
+            display: none;
+        }
+    }
 }

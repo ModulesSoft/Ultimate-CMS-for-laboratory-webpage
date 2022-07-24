@@ -28,55 +28,51 @@ const Slideshow = ({ slides }) => {
     let thumbnail_image = getThumbUri("150x150", currentImage.landscape_image);
     let alt = currentImage.title[i18n.language];
     let link = currentImage.link;
+    let title = currentImage.title;
     return (
-        <section id="slideshow">
-            <div className="slideshow w3-container w3-center">
-                <a href={link} target="_blank">
-                    <picture>
-                        <source
-                            media="(min-width: 728px)"
-                            srcSet={landscape_image}
-                        />
-                        <source
-                            media="(min-width: 0px)"
-                            srcSet={portrait_image}
-                        />
-                        <img
-                            className="slideshow__image  w3-round w3-animate-left"
-                            style={{ width: "80%" }}
-                            src={thumbnail_image}
-                            alt={alt}
-                            loading="lazy"
-                        />
-                    </picture>
+        <div className="slideshow w3-container w3-center">
+            <div className="slideshow__image">
+                <a
+                    className="w3-panel w3-text-blue w3-pale-green w3-leftbar w3-rightbar w3-border-green"
+                    href={link}
+                    target="_blank"
+                >
+                    {title[i18n.language]}
                 </a>
-                <div className="w3-row-padding w3-section">
-                    {slides.map((slide) => (
-                        <div
-                            key={slide.id}
-                            className="w3-col"
-                            style={{
-                                width: (1 / slides.length) * 100 + "%",
-                                cursor: "pointer",
-                            }}
-                        >
-                            <img
-                                className="slideshow__thumbnail demo w3-opacity w3-round-large w3-border"
-                                src={getThumbUri(
-                                    "150x150",
-                                    slide.landscape_image
-                                )}
-                                style={{ width: "100%" }}
-                                onClick={(e) => {
-                                    setPlay(false);
-                                    setCurrentSlide(slide.id);
-                                }}
-                            />
-                        </div>
-                    ))}
-                </div>
+                <picture>
+                    <source
+                        media="(min-width: 728px)"
+                        srcSet={landscape_image}
+                    />
+                    <source media="(min-width: 0px)" srcSet={portrait_image} />
+                    <img
+                        className="w3-round w3-animate-left"
+                        src={thumbnail_image}
+                        alt={alt}
+                        loading="lazy"
+                    />
+                </picture>
             </div>
-        </section>
+            <div className="slideshow__thumbnail">
+                {slides.map((slide) => (
+                    <img
+                        key={slide.id}
+                        className="w3-col w3-border w3-border-green 
+                            w3-hover-border-teal w3-shadow w3-round-xxlarge"
+                        style={{
+                            width: (1 / slides.length) * 100 + "%",
+                            cursor: "pointer",
+                        }}
+                        src={getThumbUri("150x150", slide.landscape_image)}
+                        onClick={(e) => {
+                            setPlay(false);
+                            setCurrentSlide(slide.id);
+                        }}
+                        loading="lazy"
+                    />
+                ))}
+            </div>
+        </div>
     );
 };
 export default Slideshow;
