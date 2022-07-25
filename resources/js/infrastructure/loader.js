@@ -46,15 +46,7 @@ export const Loader = () => {
                                     <Route
                                         index
                                         element={
-                                            <Posts
-                                                title={
-                                                    category.name[i18n.language]
-                                                }
-                                                keywords=""
-                                                description=""
-                                                categoryId={category.id}
-                                                categorySlug={category.slug}
-                                            />
+                                            <Posts categoryId={category.id} />
                                         }
                                     ></Route>
                                     <Route path={":slug"} element={<Post />} />
@@ -69,98 +61,34 @@ export const Loader = () => {
                                             <Page
                                                 title={page.name[i18n.language]}
                                                 data={page}
-                                                keywords=""
-                                                description=""
                                             />
                                         }
                                     />
                                 </Route>
                             ))}
-                        <Route
-                            path="/gallery"
-                            element={
-                                <Gallery
-                                    title={t("gallery")}
-                                    keywords=""
-                                    description=""
-                                    data=""
-                                />
-                            }
-                        />
+                        <Route path="/gallery" element={<Gallery />} />
                         <Route path="/students">
                             <Route
                                 index
-                                element={
-                                    <Profiles
-                                        title={t("students")}
-                                        keywords=""
-                                        description=""
-                                        data=""
-                                        type="students"
-                                    />
-                                }
+                                element={<Profiles type="students" />}
                             />
-                            <Route
-                                path=":user"
-                                element={
-                                    <Profile
-                                        title=""
-                                        keywords=""
-                                        description=""
-                                        data=""
-                                    ></Profile>
-                                }
-                            />
+                            <Route path=":user" element={<Profile />} />
                         </Route>
 
                         <Route path="/faculty">
                             <Route
                                 index
-                                element={
-                                    <Profiles
-                                        title={t("faculty")}
-                                        keywords=""
-                                        description=""
-                                        data=""
-                                        type="faculty"
-                                    />
-                                }
+                                element={<Profiles type="faculty" />}
                             />
-                            <Route
-                                path=":user"
-                                element={
-                                    <Profile
-                                        title=""
-                                        keywords=""
-                                        description=""
-                                        data=""
-                                    ></Profile>
-                                }
-                            />
+                            <Route path=":user" element={<Profile />} />
                         </Route>
                         <Route
                             path="tags/:tag"
                             element={
                                 <>
-                                    <Posts
-                                        title=""
-                                        keywords=""
-                                        description=""
-                                    />
-                                    <Profiles
-                                        title=""
-                                        keywords=""
-                                        description=""
-                                        data=""
-                                        type="faculty"
-                                    />
-                                    <Profiles
-                                        title=""
-                                        keywords=""
-                                        description=""
-                                        data=""
-                                        type="students"
-                                    />
+                                    <Posts />
+                                    <Profiles type="faculty" />
+                                    <Profiles type="students" />
                                 </>
                             }
                         />

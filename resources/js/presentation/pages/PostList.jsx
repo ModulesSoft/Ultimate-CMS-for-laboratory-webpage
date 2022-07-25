@@ -4,22 +4,20 @@ import { Link } from "react-router-dom";
 import { getThumbUri } from "../../application/common";
 import PageWrapper from "../components/PageWrapper";
 import { useParams } from "react-router-dom";
-
-export const posts = ({
-    title,
-    keywords,
-    description,
-    categoryId,
-    categorySlug,
-}) => {
+import { extractKeywords } from "../../application/common";
+export const posts = ({ categoryId }) => {
+    const { t, i18n } = useTranslation();
     const { tag } = useParams();
     const { data, loading } = useFetchPosts({
         categoryId: categoryId,
         tag: tag,
     });
-
     const posts = data;
-    const { t, i18n } = useTranslation();
+    const title = tag
+        ? t("keywords") + ": " + tag
+        : posts[0] && posts[0].category.name[i18n.language];
+    const description = title;
+    const keywords = posts[0] && extractKeywords(posts, i18n.language);
     return (
         <PageWrapper
             description={description}
