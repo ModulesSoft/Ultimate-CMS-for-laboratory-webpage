@@ -68,12 +68,25 @@ img {
 }
 .gallery__card {
     cursor: pointer;
+    position: relative;
 }
 .gallery__thumbnail {
     height: 200px;
     width: auto;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+}
+.gallery__playicon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: solid #009688;
+    border-radius: 20px;
+    padding: 10px;
+    color: #009688;
+    box-shadow: 2px 2px 5px grey;
+    text-shadow: 2px 2px 5px grey;
 }
 .gallery__caption {
     white-space: nowrap;
