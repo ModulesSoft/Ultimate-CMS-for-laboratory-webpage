@@ -143,6 +143,7 @@ export const Landing = () => {
                                         className="w3-round"
                                         style={{ width: 50, height: 50 }}
                                         loading="lazy"
+                                        alt={professor.user.name[i18n.language]}
                                     />
                                     <span className="w3-margin w3-text-dark-grey">
                                         {
