@@ -25,6 +25,8 @@ export const Gallery = () => {
             <section className="w3-container w3-margin-bottom">
                 <h2 className="w3-row w3-padding w3-blue-grey w3-round">
                     {t("image gallery")}
+                    {" + "}
+                    {t("video gallery")}
                 </h2>
                 <div className="w3-row w3-margin">
                     {galleries[0] &&
@@ -32,9 +34,14 @@ export const Gallery = () => {
                             <div
                                 key={gallery.id}
                                 className="venobox gallery__card w3-col w3-padding s3 w3-mobile"
-                                data-href={getImageUri(gallery.image)}
+                                data-href={
+                                    gallery.video
+                                        ? gallery.video
+                                        : getImageUri(gallery.image)
+                                }
                                 data-gall={t("image gallery")}
                                 title={gallery.description[i18n.language]}
+                                data-vbtype={gallery.video && "video"}
                             >
                                 <div className="w3-card-4 w3-round w3-center">
                                     <img
@@ -46,6 +53,9 @@ export const Gallery = () => {
                                         alt={gallery.title[i18n.language]}
                                         loading="lazy"
                                     />
+                                    {gallery.video && (
+                                        <i className="gallery__playicon fa-solid fa-play" />
+                                    )}
                                     <div className="w3-container w3-center">
                                         <p className="w3-text-teal gallery__caption ">
                                             {gallery.title[i18n.language]}
@@ -55,12 +65,6 @@ export const Gallery = () => {
                             </div>
                         ))}
                 </div>
-            </section>
-            <section>
-                <h2 className="w3-row w3-padding w3-blue-grey w3-round">
-                    {t("video gallery")}
-                </h2>
-                <div className="w3-row w3-margin"></div>
             </section>
         </PageWrapper>
     );
