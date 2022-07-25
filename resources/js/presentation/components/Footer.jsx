@@ -34,29 +34,32 @@ const Footer = () => {
                                     {column.rows &&
                                         column.rows.map((row) => (
                                             <li key={row.id}>
-                                                <a href={row.link}>
-                                                    {row.base64_image && (
-                                                        <img
-                                                            src={
-                                                                row.base64_image
-                                                            }
-                                                            alt=""
-                                                            className={
-                                                                i18n.language ===
-                                                                "en"
-                                                                    ? "footer__thumbnail"
-                                                                    : "footer__thumbnail--rtl"
-                                                            }
-                                                        />
-                                                    )}
-                                                    <span className="w3-text-light-grey">
-                                                        {
-                                                            row.text[
-                                                                i18n.language
-                                                            ]
+                                                {row.base64_image && (
+                                                    <img
+                                                        src={row.base64_image}
+                                                        alt=""
+                                                        className={
+                                                            i18n.language ===
+                                                            "en"
+                                                                ? "footer__thumbnail"
+                                                                : "footer__thumbnail--rtl"
                                                         }
-                                                    </span>
-                                                </a>
+                                                    />
+                                                )}
+                                                <span className="w3-text-light-grey">
+                                                    {row.link ? (
+                                                        <a href={row.link}>
+                                                            {
+                                                                row.text[
+                                                                    i18n
+                                                                        .language
+                                                                ]
+                                                            }
+                                                        </a>
+                                                    ) : (
+                                                        row.text[i18n.language]
+                                                    )}
+                                                </span>
                                             </li>
                                         ))}
                                 </ul>

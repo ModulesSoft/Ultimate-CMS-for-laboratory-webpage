@@ -69,6 +69,7 @@ const Slideshow = ({ slides }) => {
                             setCurrentSlide(slide.id);
                         }}
                         loading="lazy"
+                        alt={alt + "-thumbnail"}
                     />
                 ))}
             </div>
