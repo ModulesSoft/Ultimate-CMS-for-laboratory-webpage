@@ -4,13 +4,16 @@ import { useTranslation } from "react-i18next";
 import { getThumbUri, getImageUri } from "../../application/common";
 import VenoBox from "venobox";
 import { useEffect } from "react";
-export const Gallery = ({ title, keywords, description }) => {
+export const Gallery = () => {
     const { t, i18n } = useTranslation();
     const { data, loading } = useFetchGalleries();
     const galleries = data;
     useEffect(() => {
         new VenoBox({ selector: ".venobox", share: true });
     }, [galleries]);
+    const title = t("gallery");
+    const description = t("gallery");
+    const keywords = [t("image gallery"), t("video gallery")].toString();
     return (
         <PageWrapper
             title={title}

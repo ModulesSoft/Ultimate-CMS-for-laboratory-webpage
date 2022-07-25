@@ -28,3 +28,12 @@ export const getThumbUri = (size, uri) => {
 export const getImageUri = (uri) => {
     return uri.startsWith("/") ? uri : "/" + uri;
 };
+export const extractKeywords = (posts, language) => {
+    const extractedKeywords = posts
+        .filter((post) => post.tags.length > 0)
+        .map((post) => post.tags.map((tag) => tag.keyword[language]));
+    const keywordsArray = extractedKeywords && [].concat(...extractedKeywords);
+    const uniqueKeywordsArray = [...new Set(keywordsArray)];
+    const keywords = uniqueKeywordsArray.toString();
+    return keywords;
+};

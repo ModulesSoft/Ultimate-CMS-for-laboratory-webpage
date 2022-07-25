@@ -1,8 +1,10 @@
 import { useTranslation } from "react-i18next";
 import PageWrapper from "../components/PageWrapper";
-
-export const Page = ({ title, description, keywords, data }) => {
+import { extractKeywords } from "../../application/common";
+export const Page = ({ title, data }) => {
     const { i18n } = useTranslation();
+    const description = title + " - " + data.introduction[i18n.language];
+    const keywords = extractKeywords(data.sections, i18n.language);
     return (
         <PageWrapper
             description={description}
@@ -11,7 +13,7 @@ export const Page = ({ title, description, keywords, data }) => {
             header={title}
         >
             <article>
-                {data.introduction && (
+                {data.id && (
                     <section style={{ marginTop: 0 }}>
                         <div
                             className="w3-container w3-blue-grey"

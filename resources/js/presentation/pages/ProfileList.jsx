@@ -4,7 +4,8 @@ import PageWrapper from "../components/PageWrapper";
 import { getThumbUri } from "../../application/common";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-export const Profiles = ({ title, keywords, description, type }) => {
+export const Profiles = ({ type }) => {
+    const { t, i18n } = useTranslation();
     const { tag } = useParams();
     const numberOfColumns = 3;
     // add more colors if necessary
@@ -22,7 +23,11 @@ export const Profiles = ({ title, keywords, description, type }) => {
         tag: tag,
     });
     const profiles = data;
-    const { t, i18n } = useTranslation();
+    const title = t(type);
+    const description = title;
+    const keywords =
+        profiles[0] &&
+        profiles.map((profile) => profile.user.name[i18n.language]).toString();
     if (profiles[0]) {
         const extractedRoles = profiles.map(
             (profile) => profile.user.roles[0].id

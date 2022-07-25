@@ -26,11 +26,14 @@ export const Landing = () => {
         type: "faculty",
     }));
     const faculty = data;
+    const keywords = t("site keywords");
+    const description = t("home");
+    const title = t("laboratory") + " - " + t("home");
     return (
         <PageWrapper
-            keywords=""
-            description=""
-            title="Home page"
+            keywords={keywords}
+            description={description}
+            title={title}
             loading={loading}
         >
             <section id="intro">

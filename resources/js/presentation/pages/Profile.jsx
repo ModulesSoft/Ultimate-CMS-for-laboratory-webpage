@@ -1,6 +1,6 @@
 import PageWrapper from "../components/PageWrapper";
 import { useTranslation } from "react-i18next";
-import { getImageUri } from "../../application/common";
+import { extractKeywords, getImageUri } from "../../application/common";
 import { useParams } from "react-router-dom";
 import { useFetchProfile } from "../../infrastructure/APIHandler";
 import Tags from "../components/Tags";
@@ -9,13 +9,21 @@ export const Profile = () => {
     const { user } = useParams();
     const { data, loading } = useFetchProfile({ user: user });
     const profile = data;
+    const title = profile.id && profile.user.name[i18n.language];
+    const adapter = [profile];
+    const keywords = profile.id && extractKeywords(adapter, i18n.language);
+    const description =
+        profile.id &&
+        profile.research_title[i18n.language] +
+            " - " +
+            profile.user.name[i18n.language];
     return (
         <PageWrapper
             loading={loading}
-            title=""
-            header={profile.id && profile.user.name[i18n.language]}
-            description=""
-            keywords=""
+            title={title}
+            header={title}
+            description={description}
+            keywords={keywords}
         >
             {profile.id && (
                 <section style={{ marginTop: 0 }}>
