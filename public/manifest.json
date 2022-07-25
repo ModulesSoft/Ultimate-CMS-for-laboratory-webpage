@@ -1,0 +1,22 @@
+{
+    "short_name": "Biofluids",
+    "name": "Biofluids Laboratory - AUT",
+    "version": "2022",
+    "manifest_version": 2,
+    "icons": [
+      {
+        "src": "favicon.ico",
+        "sizes": "16x16",
+        "type": "image/x-icon"
+      },
+      {
+        "src": "logo.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#4CAF50",
+    "background_color": "#FFFFFF"
+  }
