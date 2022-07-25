@@ -33,7 +33,7 @@ const Slideshow = ({ slides }) => {
         <div className="slideshow w3-container w3-center">
             <div className="slideshow__image">
                 <a
-                    className="w3-panel w3-text-blue w3-pale-green w3-leftbar w3-rightbar w3-border-green"
+                    className="w3-panel w3-text-blue  w3-leftbar w3-rightbar w3-border-green"
                     href={link}
                     target="_blank"
                 >
