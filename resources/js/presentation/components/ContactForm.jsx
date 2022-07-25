@@ -56,7 +56,7 @@ const ContactForm = () => {
                         <input
                             className="w3-input w3-border w3-round"
                             type="text"
-                            name="name"
+                            id="name"
                             ref={nameInputRef}
                             required
                         />
@@ -74,7 +74,7 @@ const ContactForm = () => {
                         <input
                             className="w3-input w3-border w3-round"
                             type="email"
-                            name="email"
+                            id="email"
                             ref={emailInputRef}
                             required
                         />
@@ -91,7 +91,7 @@ const ContactForm = () => {
                         <textarea
                             className="w3-input w3-border w3-round"
                             type="text"
-                            name="mesage"
+                            id="message"
                             rows={5}
                             defaultValue={""}
                             minLength="5"
