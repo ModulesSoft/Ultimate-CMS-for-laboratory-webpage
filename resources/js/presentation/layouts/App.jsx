@@ -10,6 +10,7 @@ export const Layout = () => (
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
                 />
+                <meta name="theme-color" content="#4CAF50" />
                 <link rel="manifest" href="/manifest.json" />
                 <link href="/css/style.css" rel="stylesheet" />
             </Helmet>
