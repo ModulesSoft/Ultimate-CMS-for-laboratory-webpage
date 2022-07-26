@@ -37,9 +37,7 @@ Route::group(
         Route::get('/users', fn () => QueryBuilder::for(User::class)
             ->allowedFilters(['name', 'email'])
             ->get());
-
         // Route::get('/articles/{id}',  fn ($id) => Article::findOrFail($id)->get())->whereNumber('id');
-
         Route::get('/articles', fn () => QueryBuilder::for(Article::class)->with('category')
             ->allowedFilters(['title', 'slug', 'featured', 'status', 'category_id', 'tags.keyword'])
             ->orderBy('lft')->with('tags')->get());
@@ -58,7 +56,7 @@ Route::group(
             fn () => QueryBuilder::for(
                 Profile::whereHas('user', function ($query1) {
                     $query1->whereHas('roles', function ($query2) {
-                        $supervisor_roles = explode(',', env('SUPERVISOR_ROLES'));
+                        $supervisor_roles = config('role.supervisors');
                         array_push($supervisor_roles, 'admin');
                         $query2->whereNotIn('name', $supervisor_roles);
                     });
@@ -70,26 +68,18 @@ Route::group(
             fn () => QueryBuilder::for(
                 Profile::whereHas('user', function ($query1) {
                     $query1->whereHas('roles', function ($query2) {
-                        $supervisor_roles = explode(',', env('SUPERVISOR_ROLES'));
+                        $supervisor_roles = config('role.supervisors');
                         $query2->whereIn('name', $supervisor_roles);
                     });
                 })->with('user.roles', 'supervisors', 'tags')
             )->allowedFilters(['status', 'user.roles.id', 'user.roles.name', 'tags.keyword'])->orderBy('lft')->get()
         );
-        // Route::get('/students', fn () => QueryBuilder::for(
-        //     User::whereHas('roles', function ($query) {
-        //         $supervisor_roles = explode(',', env('SUPERVISOR_ROLES'));
-        //         array_push($supervisor_roles, 'admin');
-        //         $query->whereNotIn('name', $supervisor_roles);
-        //     })->with(['profile.supervisors', 'roles'])
-        // )->allowedFilters(['name', 'roles'])->get());
         Route::get('/roles', fn () => Role::where('name', '!=', 'admin')->get());
         Route::get('/users/{name}/profile', fn ($name) => User::where('name', 'like', "%" . $name . "%")->first()->profile()->with('user.roles', 'supervisors', 'tags')->first())->where('name', '[a-zA-Z][a-zA-Z .]+');
         Route::get('/footer/columns/', fn () => FooterColumn::orderBy('lft')->get());
         Route::get('/footer/columns/{id}/rows', fn ($id) => FooterRow::orderBy('lft')->where('column_id', $id)->get())->whereNumber('id');
         // Footer All at once
         Route::get('/footers', fn () => FooterColumn::class::orderBy('lft')->with('rows', fn ($q) => $q->orderBy('lft'))->get());
-
         // Services
         Route::post('/sendMail', EmailController::class);
     }

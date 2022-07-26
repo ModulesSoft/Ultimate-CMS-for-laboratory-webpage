@@ -17,7 +17,7 @@ class EmailController extends Controller
         }
         $attributes = (object)($validator->validated());
         try {
-            Mail::to(env('MAIL_CONTACT_FORM_TO_ADDRESS'))->send(new ContactMail($attributes));
+            Mail::to(config('app.contact_email'))->send(new ContactMail($attributes));
             return response()->json(['message' => "Email Sent Successfully."], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], 500);

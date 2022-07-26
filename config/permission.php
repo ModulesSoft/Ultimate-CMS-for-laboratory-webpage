@@ -1,7 +1,15 @@
 <?php
 
 return [
-
+    /*
+         * Following variables determine user permissions string values
+         * admin : with user permission equal to ADMIN_PERMISSION, assigned by Super admin to give the user access to manage the CMS
+         * profile : with user permission equal to ADMIN_PERMISSION, assigned by Super admin to give the user access to manage its own profile
+         * demo : with user permission equal to DEMO_PERMISSION, assigned by Super admin to give the user access to visit the admin panel
+         */
+    'admin' => env('ADMIN_PERMISSION', 'admin'),
+    'profile' => env('PROFILE_PERMISSION', 'profile'),
+    'demo' => env('DEMO_PERMISSION', 'demo'),
     'models' => [
 
         /*

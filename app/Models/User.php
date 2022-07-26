@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function getSupervisors()
     {
-        $supervisor_roles = explode(',', env('SUPERVISOR_ROLES'));
+        $supervisor_roles = config('role.supervisors');
         return $this->all()->filter(function ($user) use ($supervisor_roles) {
             if ($user->hasRole($supervisor_roles)) {
                 return $user->id;

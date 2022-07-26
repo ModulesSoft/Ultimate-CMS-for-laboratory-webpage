@@ -29,7 +29,7 @@ class TagCrudController extends CrudController
         CRUD::setModel(\App\Models\Tag::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/tag');
         CRUD::setEntityNameStrings('tag', 'tags');
-        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
+        if (!backpack_user()->can(config('permission.admin'))) {
             CRUD::operation('show', function () {
                 CRUD::removeButton('delete');
                 CRUD::removeButton('update');
@@ -47,7 +47,7 @@ class TagCrudController extends CrudController
     {
         CRUD::column('keyword');
 
-        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
+        if (!backpack_user()->can(config('permission.admin'))) {
             CRUD::removeButton('delete');
             CRUD::removeButton('update');
         }
@@ -89,7 +89,7 @@ class TagCrudController extends CrudController
     }
     protected function setupDeleteOperation()
     {
-        if (!backpack_user()->can((env('ADMIN_PERMISSION')))) {
+        if (!backpack_user()->can((config('permission.admin')))) {
             return abort(403);
         }
     }
