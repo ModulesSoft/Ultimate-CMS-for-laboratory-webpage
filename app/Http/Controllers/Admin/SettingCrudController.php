@@ -83,7 +83,7 @@ class SettingCrudController extends CrudController
     }
     protected function setupDeleteOperation()
     {
-        if (!backpack_user()->can((env('ADMIN_PERMISSION')))) {
+        if (!backpack_user()->can((config('permission.admin')))) {
             return abort(403);
         }
     }

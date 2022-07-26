@@ -17,6 +17,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Contact Form Email Receiver
+    |--------------------------------------------------------------------------
+    |
+    | This value is the email address which receives contact emails.
+    |
+    */
+
+    'contact_email' => env('MAIL_CONTACT_FORM_TO_ADDRESS', 'nasser@aut.ac.ir'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |

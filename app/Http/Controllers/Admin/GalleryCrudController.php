@@ -86,14 +86,14 @@ class GalleryCrudController extends CrudController
     }
     protected function setupDeleteOperation()
     {
-        if (!backpack_user()->can((env('ADMIN_PERMISSION')))) {
+        if (!backpack_user()->can((config('permission.admin')))) {
             return abort(403);
         }
     }
     public function reorder()
     {
         // your custom code here
-        if (!backpack_user()->can(env('ADMIN_PERMISSION'))) {
+        if (!backpack_user()->can(config('permission.admin'))) {
             return abort(403);
         }
         // call the method in the trait
