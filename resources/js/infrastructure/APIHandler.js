@@ -1,33 +1,10 @@
 import { useEffect, useState } from "react";
 import errorHandler from "./errorHandler";
 const instance = axios.create({
-    baseURL: "http://localhost:8000/api/v1/",
+    baseURL: "/api/v1/",
     timeout: 5000,
     // headers: { "X-Custom-Header": "foobar" },
 });
-
-// export function useFetchPost({ slug }) {
-//     const [data, setData] = useState({});
-//     const [loading, setLoading] = useState(true);
-//     useEffect(() => {
-//         async function fetchData() {
-//             await instance
-//                 .get("/articles", {
-//                     params: {
-//                         "filter[slug]": slug,
-//                     },
-//                 })
-//                 .then((response) => setData(response.data[0]))
-//                 .catch((error) => errorHandler(error));
-//             setLoading(false);
-//         }
-//         fetchData();
-//     }, [slug]);
-//     return {
-//         data,
-//         loading,
-//     };
-// }
 
 export function useFetchCategories() {
     const [data, setData] = useState({});
