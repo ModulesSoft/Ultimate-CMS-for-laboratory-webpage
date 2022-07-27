@@ -6,9 +6,11 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable
 {
+    use HasFactory;
     use HasRoles;
     use CrudTrait;
     use HasTranslations;
