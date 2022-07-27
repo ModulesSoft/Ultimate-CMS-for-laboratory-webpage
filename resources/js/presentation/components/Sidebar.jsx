@@ -26,13 +26,14 @@ const Sidebar = ({ categories }) => {
                 id="mySidebar"
             >
                 <button
-                    className="w3-bar-item w3-button w3-large w3-center"
+                    className="w3-green w3-bar-item w3-button w3-large w3-center"
                     onClick={closeSidebar}
                 >
                     ×
                 </button>
                 <Link
                     to="/"
+                    onClick={closeSidebar}
                     className="w3-bar-item w3-button w3-center w3-hover-none"
                 >
                     <img
@@ -44,6 +45,7 @@ const Sidebar = ({ categories }) => {
                 {categories[0] &&
                     categories.map((category) => (
                         <NavLink
+                            onClick={closeSidebar}
                             key={category.id}
                             to={`/${category.slug}`}
                             className={({ isActive }) => navClasses(isActive)}
@@ -63,6 +65,7 @@ const Sidebar = ({ categories }) => {
                     ))}
                 <NavLink
                     to="/gallery"
+                    onClick={closeSidebar}
                     className={({ isActive }) => navClasses(isActive)}
                     style={i18n.language === "en" ? null : overrideTextAlign}
                 >
@@ -74,6 +77,7 @@ const Sidebar = ({ categories }) => {
 
                 <NavLink
                     to="/faculty"
+                    onClick={closeSidebar}
                     className={({ isActive }) => navClasses(isActive)}
                     style={i18n.language === "en" ? null : overrideTextAlign}
                 >
@@ -84,6 +88,7 @@ const Sidebar = ({ categories }) => {
                 </NavLink>
                 <NavLink
                     to="/students"
+                    onClick={closeSidebar}
                     className={({ isActive }) => navClasses(isActive)}
                     style={i18n.language === "en" ? null : overrideTextAlign}
                 >
