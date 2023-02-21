@@ -79,7 +79,7 @@ Yet, for Backpack team it may not be the same for non-commercial use. Please fin
 
 I've spent lots of hours, thousands lines of codes creating, polishing and maintaining different types of websites on Laravel, React.js and so on.
 
-If you are looking for a developer at Canada to help you build your desired web application you are welcomed to contact me. [Contact me - let's see if we can work together](mailto:majhool.yf@gmail.com).
+If you are looking for a developer at Canada to help you build your desired web application you are welcomed to contact me. [Contact me - let's see if we can work together](mailto:majhoolsoft@gmail.com).
 
 [link-author]: https://majhoolsoft.com
 [link-backpack]: https://backpackforlaravel.com/
