@@ -1,22 +1,9 @@
 {
     "/js/index.js": "/js/index.js",
     "/css/style.css": "/css/style.css",
-    "/images/2.svg": "/images/2.svg",
-    "/images/3.svg": "/images/3.svg",
-    "/images/4-teal.svg": "/images/4-teal.svg",
-    "/images/4.svg": "/images/4.svg",
-    "/images/featured-background.svg": "/images/featured-background.svg",
     "/images/featured-first-background.svg": "/images/featured-first-background.svg",
     "/images/featured-second-background.svg": "/images/featured-second-background.svg",
-    "/images/featured1-background.svg": "/images/featured1-background.svg",
-    "/images/header-background.svg": "/images/header-background.svg",
-    "/images/hero/2.svg": "/images/hero/2.svg",
-    "/images/hero/3.svg": "/images/hero/3.svg",
-    "/images/hero/4-teal.svg": "/images/hero/4-teal.svg",
-    "/images/hero/4.svg": "/images/hero/4.svg",
     "/images/hero-background-old.svg": "/images/hero-background-old.svg",
     "/images/hero-background.svg": "/images/hero-background.svg",
-    "/images/hero2-background.eps": "/images/hero2-background.eps",
-    "/images/hero2-background.svg": "/images/hero2-background.svg",
     "/images/logo.gif": "/images/logo.gif"
 }
