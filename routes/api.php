@@ -56,9 +56,8 @@ Route::group(
             fn () => QueryBuilder::for(
                 Profile::whereHas('user', function ($query1) {
                     $query1->whereHas('roles', function ($query2) {
-                        $supervisor_roles = config('role.supervisors');
-                        array_push($supervisor_roles, 'admin');
-                        $query2->whereNotIn('name', $supervisor_roles);
+                        $alumniAndSupervisorAndAdminRoles = array_merge(config('role.supervisors'), config('role.alumni'), ['admin']);
+                        $query2->whereNotIn('name', $alumniAndSupervisorAndAdminRoles);
                     });
                 })->with('user.roles', 'supervisors', 'tags')
             )->allowedFilters(['status', 'user.roles.id', 'user.roles.name', 'tags.keyword'])->orderBy('lft')->get()
@@ -68,8 +67,19 @@ Route::group(
             fn () => QueryBuilder::for(
                 Profile::whereHas('user', function ($query1) {
                     $query1->whereHas('roles', function ($query2) {
-                        $supervisor_roles = config('role.supervisors');
-                        $query2->whereIn('name', $supervisor_roles);
+                        $supervisorRoles = config('role.supervisors');
+                        $query2->whereIn('name', $supervisorRoles);
+                    });
+                })->with('user.roles', 'supervisors', 'tags')
+            )->allowedFilters(['status', 'user.roles.id', 'user.roles.name', 'tags.keyword'])->orderBy('lft')->get()
+        );
+        Route::get(
+            '/alumni/profiles',
+            fn () => QueryBuilder::for(
+                Profile::whereHas('user', function ($query1) {
+                    $query1->whereHas('roles', function ($query2) {
+                        $alumniRoles = config('role.alumni');
+                        $query2->whereIn('name', $alumniRoles);
                     });
                 })->with('user.roles', 'supervisors', 'tags')
             )->allowedFilters(['status', 'user.roles.id', 'user.roles.name', 'tags.keyword'])->orderBy('lft')->get()

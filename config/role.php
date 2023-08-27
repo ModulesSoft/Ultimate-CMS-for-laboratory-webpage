@@ -3,14 +3,13 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Supervisors Role Name
+    | Supervisors and Alumni Role Names
     |--------------------------------------------------------------------------
     |
-    | This array the role name of your suprevisors. This value is used when the
-    | framework needs to place the suprevisors's name in profiles relations of 
-    | other profile (student) roles.
+    | These arrays configure the role names of the suprevisors and alumni.
     |
     */
     'supervisors' => explode(',', env("SUPERVISOR_ROLES", "Professor,Adjunct prof")),
+    'alumni' => explode(',', env("ALUMNI_ROLES", "Graduated B.Sc.,Graduated M.Sc.,Graduated Ph.D.")),
 
 ];
