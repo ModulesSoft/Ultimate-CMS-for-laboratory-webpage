@@ -33,7 +33,7 @@ export const Gallery = () => {
                         galleries.map((gallery) => (
                             <div
                                 key={gallery.id}
-                                className="venobox gallery__card w3-col w3-padding s3 w3-mobile"
+                                className="venobox gallery__card w3-col s1 m4 l4 w3-padding s3 w3-mobile"
                                 data-href={
                                     gallery.video
                                         ? gallery.video
