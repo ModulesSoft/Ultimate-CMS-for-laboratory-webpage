@@ -74,7 +74,10 @@ export const Loader = () => {
                             />
                             <Route path=":user" element={<Profile />} />
                         </Route>
-
+                        <Route path="/alumni">
+                            <Route index element={<Profiles type="alumni" />} />
+                            <Route path=":user" element={<Profile />} />
+                        </Route>
                         <Route path="/faculty">
                             <Route
                                 index

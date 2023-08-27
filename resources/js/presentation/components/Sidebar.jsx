@@ -74,7 +74,6 @@ const Sidebar = ({ categories }) => {
                         {t("gallery")}
                     </span>
                 </NavLink>
-
                 <NavLink
                     to="/faculty"
                     onClick={closeSidebar}
@@ -95,6 +94,17 @@ const Sidebar = ({ categories }) => {
                     <i className="sidebar__icon fa-solid fa-book-open-reader"></i>
                     <span className="w3-padding sidebar__text">
                         {t("students")}
+                    </span>
+                </NavLink>
+                <NavLink
+                    to="/alumni"
+                    onClick={closeSidebar}
+                    className={({ isActive }) => navClasses(isActive)}
+                    style={i18n.language === "en" ? null : overrideTextAlign}
+                >
+                    <i className="sidebar__icon fa-solid fa-user-graduate"></i>
+                    <span className="w3-padding sidebar__text">
+                        {t("alumni")}
                     </span>
                 </NavLink>
             </div>
