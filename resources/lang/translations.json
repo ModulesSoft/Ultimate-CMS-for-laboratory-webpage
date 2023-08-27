@@ -29,7 +29,8 @@
             "contact input message":"Email Message",
             "contact input submit":"Send",
             "copyright":"© Biofluid Laboratory @ AUT - Established in 2002",
-            "google recaptcha sitekey":"6Lcg6rcUAAAAAAwqH78U9kzaXhzyy0h9MKz9c0tZ"
+            "google recaptcha sitekey":"6Lcg6rcUAAAAAAwqH78U9kzaXhzyy0h9MKz9c0tZ",
+            "translation not found":"Translation not found!"
         }
     },
     "fa_IR": {
@@ -62,7 +63,8 @@
             "contact input message":"پیام",
             "contact input submit":"ارسال",
             "copyright":"© آزمایشگاه سیالات زیستی سال تاسیس 1381 (هجری شمسی)",
-            "google recaptcha sitekey":"6Lcg6rcUAAAAAAwqH78U9kzaXhzyy0h9MKz9c0tZ"
+            "google recaptcha sitekey":"6Lcg6rcUAAAAAAwqH78U9kzaXhzyy0h9MKz9c0tZ",
+            "translation not found":"ترجمه یافت نشد!"
         }
     }
 }
