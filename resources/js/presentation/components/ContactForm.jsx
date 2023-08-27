@@ -27,6 +27,12 @@ const ContactForm = () => {
         nameInputRef.current.value = "";
         emailInputRef.current.value = "";
         messageInputRef.current.value = "";
+    }else if(status === 500){
+        return(
+            <div className="w3-red">
+                {t("error with sending email")}
+            </div>
+        )
     }
     return (
         <section id="contact" className="w3-margin-top">
