@@ -20,7 +20,7 @@ const PageWrapper = (props) => {
                         t("university")
                     }
                 />
-                <meta name="keywords" content={props.keywords} />
+                {/* <meta name="keywords" content={props.keywords} /> */}
                 <title>{props.title}</title>
             </Helmet>
             {props.header && <Header h1={props.header} />}
