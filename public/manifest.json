@@ -1,8 +1,13 @@
 {
     "short_name": "Biofluids",
-    "name": "Biofluids Laboratory - AUT",
-    "version": "2022",
-    "manifest_version": 2,
+    "name": "Biofluids Lab",
+    "description": "Biofluids laboratory - Amirkabir University of Technology",
+    "version": "2023",
+    "manifest_version": 3,
+    "developer": {
+      "name": "Yousef Fatouraee",
+      "url": "https://module-soft.com"
+    },
     "icons": [
       {
         "src": "favicon.ico",
@@ -18,5 +23,5 @@
     "start_url": ".",
     "display": "standalone",
     "theme_color": "#4CAF50",
-    "background_color": "#FFFFFF"
+    "background_color": "#000"
   }
