@@ -3,12 +3,13 @@ import { NavLink } from "react-router-dom";
 const Navbar = ({ pages }) => {
     const { i18n, t } = useTranslation();
     const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
-        document.documentElement.setAttribute("lang", i18n.language);
-        document.documentElement.setAttribute(
-            "dir",
-            i18n.language === "en" ? "ltr" : "rtl"
-        );
+        i18n.changeLanguage(lng, () => {
+            document.documentElement.setAttribute("lang", i18n.language);
+            document.documentElement.setAttribute(
+                "dir",
+                i18n.language === "en" ? "ltr" : "rtl"
+            );
+        });
     };
 
     const overrideBarItem = {
