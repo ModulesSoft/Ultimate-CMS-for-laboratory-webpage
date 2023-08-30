@@ -37,7 +37,13 @@ export const Landing = () => {
             loading={loading}
         >
             <section id="intro">
-                <Hero h1={t("laboratory")} p={t("university")} />
+                <Hero
+                    h1={{ text: t("laboratory"), link: "/" }}
+                    p={{
+                        text: t("university"),
+                        link: t("link to the university"),
+                    }}
+                />
                 {slides[0] && <Slideshow slides={slides} />}
             </section>
             <section id="featured-2">
@@ -57,7 +63,10 @@ export const Landing = () => {
                                 >
                                     <div className="w3-light-grey w3-padding w3-margin w3-round-large">
                                         <article>
-                                            <h4>{post.title[i18n.language]??t("translation not found")}</h4>
+                                            <h4>
+                                                {post.title[i18n.language] ??
+                                                    t("translation not found")}
+                                            </h4>
                                             <hr />
                                             <p
                                                 className="w3-text-dark-grey featured__text"
@@ -98,7 +107,8 @@ export const Landing = () => {
                                     <div className="w3-light-grey w3-padding w3-margin w3-round-large">
                                         <article>
                                             <h4 className="w3-text-dark-grey">
-                                                {post.title[i18n.language]??t("translation not found")}
+                                                {post.title[i18n.language] ??
+                                                    t("translation not found")}
                                             </h4>
                                             <hr />
                                             <p
