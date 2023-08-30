@@ -1,10 +1,10 @@
 import { useFetchPosts } from "../../infrastructure/APIHandler";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import { getThumbUri } from "../../application/common";
 import PageWrapper from "../components/PageWrapper";
 import { useParams } from "react-router-dom";
 import { extractKeywords } from "../../application/common";
+import MoreButton from "../components/MoreButton";
 export const posts = ({ categoryId }) => {
     const { t, i18n } = useTranslation();
     const { tag } = useParams();
@@ -74,12 +74,9 @@ export const posts = ({ categoryId }) => {
                                         }}
                                     ></p>
                                 </div>
-                                <Link
+                                <MoreButton
                                     to={`/${post.category.slug}/${post.slug}`}
-                                    className="w3-bar w3-button w3-teal"
-                                >
-                                    {t("more")}
-                                </Link>
+                                ></MoreButton>
                             </div>
                         </section>
                     ))}
