@@ -81,9 +81,23 @@ export const Profile = () => {
                         </div>
                         <div className="w3-container">
                             <article>
-                                <h2>{profile.research_title[i18n.language]}</h2>
+                                <h2
+                                    style={{
+                                        textAlign:
+                                            dir === "rtl" ? "right" : "left",
+                                    }}
+                                >
+                                    {profile.research_title[i18n.language]}
+                                </h2>
                                 <hr />
-                                <p>{profile.research_text[i18n.language]}</p>
+                                <p
+                                    style={{
+                                        textAlign:
+                                            dir === "rtl" ? "right" : "left",
+                                    }}
+                                >
+                                    {profile.research_text[i18n.language]}
+                                </p>
                                 <hr />
                                 <Tags tags={profile.tags} />
                             </article>
