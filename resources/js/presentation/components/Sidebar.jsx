@@ -12,8 +12,8 @@ const Sidebar = ({ categories }) => {
     };
     const navClasses = (isActive) =>
         isActive
-            ? "w3-text-teal w3-bar-item w3-button"
-            : "w3-bar-item w3-button";
+            ? "w3-text-teal w3-bar-item w3-button  w3-hover-teal"
+            : "w3-bar-item w3-button  w3-hover-teal";
     return (
         <aside>
             <div
