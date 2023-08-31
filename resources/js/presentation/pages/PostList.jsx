@@ -48,8 +48,8 @@ export const posts = ({ categoryId }) => {
                                     <div className="w3-col s8 w3-mobile">
                                         <h4>{post.title[i18n.language]}</h4>
                                         <hr />
-                                        <p>
-                                            {t("last update")}
+                                        <div>
+                                            <span>{t("last update")}</span>
                                             <time
                                                 className="w3-margin"
                                                 dateTime={post.updated_at}
@@ -63,7 +63,7 @@ export const posts = ({ categoryId }) => {
                                                     )
                                                 )}
                                             </time>
-                                        </p>
+                                        </div>
                                     </div>
                                 </header>
                                 <div className="w3-container w3-padding">
