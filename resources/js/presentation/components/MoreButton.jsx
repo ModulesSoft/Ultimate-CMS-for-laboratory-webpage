@@ -1,9 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-export const moreButton = ({ to }) => {
+export const moreButton = ({ to, type }) => {
     const { t, i18n } = useTranslation();
-    return (
+    return type === "large" ? (
+        <Link to={to} className="w3-button w3-block w3-teal w3-round">
+            {t("more")}
+        </Link>
+    ) : (
         <div className="w3-padding" style={{ textAlign: "center" }}>
             <Link
                 to={to}

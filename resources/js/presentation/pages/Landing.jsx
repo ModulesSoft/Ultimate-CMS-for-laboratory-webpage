@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 import { getThumbUri } from "../../application/common";
 import { Link } from "react-router-dom";
 import ContactForm from "../components/ContactForm";
+import MoreButton from "../components/MoreButton";
 export const Landing = () => {
     const { t, i18n } = useTranslation();
     let { data, loading } = useFetchSlides();
@@ -77,12 +78,10 @@ export const Landing = () => {
                                                 }}
                                             ></p>
                                         </article>
-                                        <Link
+                                        <MoreButton
+                                            type="large"
                                             to={`/${post.category.slug}/${post.slug}`}
-                                            className="w3-button w3-block w3-teal w3-round"
-                                        >
-                                            {t("more")}
-                                        </Link>
+                                        ></MoreButton>
                                     </div>
                                 </div>
                             ))}
@@ -120,12 +119,10 @@ export const Landing = () => {
                                                 }}
                                             ></p>
                                         </article>
-                                        <Link
+                                        <MoreButton
+                                            type="large"
                                             to={`/${post.category.slug}/${post.slug}`}
-                                            className="w3-button w3-block w3-teal w3-round"
-                                        >
-                                            {t("more")}
-                                        </Link>
+                                        ></MoreButton>
                                     </div>
                                 </div>
                             ))}
@@ -175,13 +172,10 @@ export const Landing = () => {
                                     <p className="featured__text w3-text-grey">
                                         {professor.research_text[i18n.language]}
                                     </p>
-
-                                    <Link
-                                        className="w3-button w3-block w3-teal w3-round"
+                                    <MoreButton
+                                        type="large"
                                         to={`/faculty/${professor.user.name["en"]}`}
-                                    >
-                                        {t("more")}
-                                    </Link>
+                                    ></MoreButton>
                                 </article>
                             </div>
                         ))}
