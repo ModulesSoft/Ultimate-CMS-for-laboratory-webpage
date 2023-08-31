@@ -33,7 +33,7 @@ export const posts = ({ categoryId }) => {
                             <div className="w3-card-4 w3-animate-left w3-margin-bottom">
                                 <header className="w3-row w3-light-grey w3-padding w3-animate-opacity">
                                     {post.image && (
-                                        <div className="posts__thumbnail w3-col s3 w3-mobile">
+                                        <div className="posts__thumbnail w3-col s3 w3-mobile w3-margin-top w3-margin-bottom">
                                             <img
                                                 src={getThumbUri(
                                                     "150x150",
@@ -46,7 +46,7 @@ export const posts = ({ categoryId }) => {
                                         </div>
                                     )}
                                     <div className="w3-col s8 w3-mobile">
-                                        <h2>{post.title[i18n.language]}</h2>
+                                        <h4>{post.title[i18n.language]}</h4>
                                         <hr />
                                         <p>
                                             {t("last update")}
