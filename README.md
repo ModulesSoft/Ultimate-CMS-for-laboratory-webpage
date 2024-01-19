@@ -4,7 +4,7 @@
 
 To check out its admin panel use:
 
-Email: demo@majhoolsoft.com
+Email: demo@modulessoft.com
 
 Password: demo
 
@@ -17,7 +17,7 @@ You can watch the admin panel introduction [here](https://www.youtube.com/watch?
 1. In your terminal run:
 
 ```bash
-git clone https://github.com/majhoolsoft/Ultimate-CMS-for-laboratory-webpage.git
+git clone https://github.com/modulessoft/Ultimate-CMS-for-laboratory-webpage.git
 ```
 
 Back-end:
@@ -60,7 +60,7 @@ Note:
 
 ## Credits
 
--   [Majhoolsoft][link-author]
+-   [modulessoft][link-author]
 -   [Backpack for Laravel][link-backpack]
 
 ## License
@@ -79,7 +79,7 @@ Yet, for Backpack team it may not be the same for non-commercial use. Please fin
 
 I've spent lots of hours, thousands lines of codes creating, polishing and maintaining different types of websites on Laravel, React.js and so on.
 
-If you are looking for a developer at Canada to help you build your desired web application you are welcomed to contact me. [Contact me - let's see if we can work together](mailto:majhoolsoft@gmail.com).
+If you are looking for a developer at Canada to help you build your desired web application you are welcomed to contact me. [Contact me - let's see if we can work together](mailto:modulessoft@gmail.com).
 
-[link-author]: https://majhoolsoft.com
+[link-author]: https://modulessoft.com
 [link-backpack]: https://backpackforlaravel.com/
