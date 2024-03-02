@@ -75,7 +75,7 @@ React is [MIT-licensed](https://github.com/facebook/react/blob/main/LICENSE).
 
 Yet, for the Backpack team, it may not be the same for non-commercial use. Please find their corresponding license at [backpackforlaravel.com](https://backpackforlaravel.com/#pricing) for more information.
 
-## Hire me
+## Collaboration
 
 I've spent many hours, and thousands of lines of code creating, polishing and maintaining different types of websites on Laravel, React.js, etc.
 
