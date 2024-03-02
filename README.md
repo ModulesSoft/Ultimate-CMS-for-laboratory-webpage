@@ -22,7 +22,7 @@ git clone https://github.com/modulessoft/Ultimate-CMS-for-laboratory-webpage.git
 
 Back-end:
 
-2. Set up your database,email and corresponding permissions and roles information in /.env (use the .env.example as an example)
+2. Set up your database, email and corresponding permissions and roles information in /.env (use the .env.example as an example)
 
 3. In your root folder run:
 
@@ -37,7 +37,7 @@ Front-end:
 
 4. Set up your desired (translation) locale by uncommenting corresponding values in config/backpack/crud.php
 
-5. Set up your translation data and sitekey for Google recaptcha in resources/translations.json
+5. Set up your translation data and site key for Google Recaptcha in resources/translations.json
 
 6. In your root folder run:
 
@@ -50,7 +50,7 @@ npx mix --production
 
 1. Your admin panel is available at /admin
 2. After running db:seed you can login with email `admin@admin.admin`, password `admin` as the Super Admin.
-3. In order to enable content management in the admin panel, you have to create a new permission EQUAL to the value of 'ADMIN_PERMISSION' which you have defined earlier in the .env file (default : 'admin') and then assign it to your desired user.
+3. To enable content management in the admin panel, you have to create a new permission EQUAL to the value of 'ADMIN_PERMISSION' which you have defined earlier in the .env file (default: 'admin') and then assign it to your desired user.
 
 Note:
 
@@ -67,19 +67,19 @@ Note:
 
 Just give this project a star and then you are free to use :-).
 
-Its other credits is based on React and Laravel's privileges:
+Its other credits are based on React and Laravel's privileges:
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-React is [MIT licensed](https://github.com/facebook/react/blob/main/LICENSE).
+React is [MIT-licensed](https://github.com/facebook/react/blob/main/LICENSE).
 
-Yet, for Backpack team it may not be the same for non-commercial use. Please find their corresponding license at [backpackforlaravel.com](https://backpackforlaravel.com/#pricing) for more information.
+Yet, for the Backpack team, it may not be the same for non-commercial use. Please find their corresponding license at [backpackforlaravel.com](https://backpackforlaravel.com/#pricing) for more information.
 
 ## Hire me
 
-I've spent lots of hours, thousands lines of codes creating, polishing and maintaining different types of websites on Laravel, React.js and so on.
+I've spent many hours, and thousands of lines of code creating, polishing and maintaining different types of websites on Laravel, React.js, etc.
 
-If you are looking for a developer in Canada to help you build your desired web application you are welcomed to contact me. [Contact me - let's see if we can work together](mailto:fatouraee96@gmail.com).
+If you are looking for a developer in Canada to help you build your desired web application you are welcome to [contact me](mailto:fatouraee96@gmail.com).
 
 [link-author]: https://youseffatouraee.com
 [link-backpack]: https://backpackforlaravel.com/
